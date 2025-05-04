@@ -1,1 +1,1 @@
-﻿global using Examination_System.UnitOfWorks;
+﻿

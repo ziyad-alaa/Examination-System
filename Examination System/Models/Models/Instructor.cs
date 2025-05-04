@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Examination_System.Model.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Examination_System.Models;
@@ -36,7 +37,7 @@ public partial class Instructor
     public virtual User ins { get; set; }
 
     [InverseProperty("Manager")]
-    public virtual ICollection<Department> ManagedDepartments { get; set; } = new List<Department>();
+    public virtual ICollection<Branch_Dept> ManagedDepartments { get; set; } = new List<Branch_Dept>();
 
     public Boolean isActive { get; set; }
 

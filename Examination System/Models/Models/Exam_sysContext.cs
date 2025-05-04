@@ -67,22 +67,7 @@ public partial class Exam_sysContext : DbContext
             entity.HasKey(e => e.branch_id).HasName("PK__Branches__E55E37DE0C6F72E1");
             entity.Property(e => e.branch_id).UseIdentityColumn();
 
-            entity.HasMany(d => d.depts).WithMany(p => p.branches)
-                .UsingEntity<Dictionary<string, object>>(
-                    "Branche_Dept",
-                    r => r.HasOne<Department>().WithMany()
-                        .HasForeignKey("dept_id")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK__Branche_D__dept___2F10007B"),
-                    l => l.HasOne<Branch>().WithMany()
-                        .HasForeignKey("branch_id")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK__Branche_D__branc__2E1BDC42"),
-                    j =>
-                    {
-                        j.HasKey("branch_id", "dept_id").HasName("PK__Branche___B8945249DCE80468");
-                        j.ToTable("Branche_Dept");
-                    });
+           
         });
 
         modelBuilder.Entity<Comment>(entity =>
@@ -278,11 +263,6 @@ public partial class Exam_sysContext : DbContext
             entity.Property(e => e.crsid).UseIdentityColumn();
         });
 
-        modelBuilder.Entity<Department>()
-           .HasOne(d => d.Manager)
-           .WithMany(u => u.ManagedDepartments)
-           .HasForeignKey(d => d.ManagerId)
-           .OnDelete(DeleteBehavior.SetNull);
 
         modelBuilder.Entity<Branch>()
             .HasOne(b => b.Manager)
@@ -313,57 +293,65 @@ public partial class Exam_sysContext : DbContext
         modelBuilder.Entity<Branch_Dept>(entity =>
         {
             entity.HasKey(e => new { e.branch_id, e.dept_id })
-                  .HasName("PK_Branch_Dept");
+                .HasName("PK_Branch_Dept");
 
             entity.HasOne(d => d.Branch)
-                  .WithMany(p => p.Branch_Depts)
-                  .HasForeignKey(d => d.branch_id)
-                  .OnDelete(DeleteBehavior.ClientSetNull)
-                  .HasConstraintName("FK_Branch_Dept_Branch");
+                .WithMany(p => p.Branch_Depts)
+                .HasForeignKey(d => d.branch_id)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("FK_Branch_Dept_Branch");
 
             entity.HasOne(d => d.Department)
-                  .WithMany(p => p.Branch_Depts)
-                  .HasForeignKey(d => d.dept_id)
-                  .OnDelete(DeleteBehavior.ClientSetNull)
-                  .HasConstraintName("FK_Branch_Dept_Department");
+                .WithMany(p => p.Branch_Depts)
+                .HasForeignKey(d => d.dept_id)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("FK_Branch_Dept_Department");
+
+            entity.HasOne(d => d.Manager)
+                .WithMany(p => p.ManagedDepartments)
+                .HasForeignKey(d => d.ManagerId)
+                .OnDelete(DeleteBehavior.SetNull)
+                .HasConstraintName("FK_Branch_Dept_Instructor");
         });
+
+
 
         OnModelCreatingPartial(modelBuilder);
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 
-    public virtual int GenerateExam(
-       string exam_name,
-       int crs_id,
-       int ins_id,
-       int dept_id,
-       int branch_id,
-       DateTime start_at,
-       DateTime end_at,
-       int duration,
-       DataTable questions,
-       DataTable answers)
-    {
-        // This allows Entity Framework to call your stored procedure
-        var examIdParam = new SqlParameter("@exam_id", SqlDbType.Int) { Direction = ParameterDirection.Output };
+    //public virtual int GenerateExam(
+    //   string exam_name,
+    //   int crs_id,
+    //   int ins_id,
+    //   int dept_id,
+    //   int branch_id,
+    //   DateTime start_at,
+    //   DateTime end_at,
+    //   int duration,
+    //   DataTable questions,
+    //   DataTable answers)
+    //{
+    //    // This allows Entity Framework to call your stored procedure
+    //    var examIdParam = new SqlParameter("@exam_id", SqlDbType.Int) { Direction = ParameterDirection.Output };
 
-        Database.ExecuteSqlRawAsync(
-            "EXEC GenerateExam " +
-            "@exam_name, @crs_id, @ins_id, @dept_id, @branch_id, " +
-            "@start_at, @end_at, @duration, @Questions, @Answers, @exam_id OUTPUT",
-            new SqlParameter("@exam_name", exam_name),
-            new SqlParameter("@crs_id", crs_id),
-            new SqlParameter("@ins_id", ins_id),
-            new SqlParameter("@dept_id", dept_id),
-            new SqlParameter("@branch_id", branch_id),
-            new SqlParameter("@start_at", start_at),
-            new SqlParameter("@end_at", end_at),
-            new SqlParameter("@duration", duration),
-            new SqlParameter("@Questions", questions) { TypeName = "QuestionList" },
-            new SqlParameter("@Answers", answers) { TypeName = "AnswerList" },
-            examIdParam);
+    //    Database.ExecuteSqlRawAsync(
+    //        "EXEC GenerateExam " +
+    //        "@exam_name, @crs_id, @ins_id, @dept_id, @branch_id, " +
+    //        "@start_at, @end_at, @duration, @Questions, @Answers, @exam_id OUTPUT",
+    //        new SqlParameter("@exam_name", exam_name),
+    //        new SqlParameter("@crs_id", crs_id),
+    //        new SqlParameter("@ins_id", ins_id),
+    //        new SqlParameter("@dept_id", dept_id),
+    //        new SqlParameter("@branch_id", branch_id),
+    //        new SqlParameter("@start_at", start_at),
+    //        new SqlParameter("@end_at", end_at),
+    //        new SqlParameter("@duration", duration),
+    //        new SqlParameter("@Questions", questions) { TypeName = "QuestionList" },
+    //        new SqlParameter("@Answers", answers) { TypeName = "AnswerList" },
+    //        examIdParam);
 
-        return (int)examIdParam.Value;
-    }
+    //    return (int)examIdParam.Value;
+    //}
 }

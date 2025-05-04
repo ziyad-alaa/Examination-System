@@ -41,9 +41,7 @@ public partial class Branch
     [InverseProperty("branch")]
     public virtual ICollection<course_dept> course_depts { get; set; } = new List<course_dept>();
 
-    [ForeignKey("branch_id")]
-    [InverseProperty("branches")]
-    public virtual ICollection<Department> depts { get; set; } = new List<Department>();
+    [InverseProperty("Branch")]
 
     public virtual ICollection<Branch_Dept> Branch_Depts { get; set; }
 

@@ -22,22 +22,15 @@ public partial class Department
     [Unicode(false)]
     public string name { get; set; }
 
-    public int? ManagerId { get; set; } // Foreign key (nullable)
-
-    [ForeignKey("ManagerId")]
-    [InverseProperty("ManagedDepartments")]
-    public virtual Instructor? Manager { get; set; } // Navigation property
-
+    
     [InverseProperty("dept")]
     public virtual ICollection<User> Users { get; set; } = new List<User>();
 
     [InverseProperty("dept")]
     public virtual ICollection<course_dept> course_depts { get; set; } = new List<course_dept>();
 
-    [ForeignKey("dept_id")]
-    [InverseProperty("depts")]
-    public virtual ICollection<Branch> branches { get; set; } = new List<Branch>();
 
+    [InverseProperty("Department")]
     public virtual ICollection<Branch_Dept> Branch_Depts { get; set; }
     public Boolean isActive { get; set; }
 
