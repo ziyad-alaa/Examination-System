@@ -1,4 +1,4 @@
-﻿using Examination_System.Models;
+﻿using Examination_System.Data.Interfaces;
 
 namespace Examination_System.Data.Repositories
 {
@@ -8,16 +8,22 @@ namespace Examination_System.Data.Repositories
 
         public DepartmentRepo(Exam_sysContext _dbContext)
         {
-           this._dbContext = _dbContext;
+            this._dbContext = _dbContext;
         }
-        public Department Create(Department entity)
+
+        public void Create(Department entity)
         {
             throw new NotImplementedException();
         }
 
-        public Department GetAll()
+        public void Delete(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public List<Department> GetAll()
+        {
+            return _dbContext.Departments.Where(d=>d.isActive==true).ToList();
         }
 
         public Department GetById(int id)
@@ -25,7 +31,7 @@ namespace Examination_System.Data.Repositories
             throw new NotImplementedException();
         }
 
-        public Department Update(int id, Department entity)
+        public void Update(int id, Department entity)
         {
             throw new NotImplementedException();
         }

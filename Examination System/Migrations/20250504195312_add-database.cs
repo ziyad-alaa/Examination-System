@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Examination_System.Migrations
 {
     /// <inheritdoc />
-    public partial class createDatabase : Migration
+    public partial class adddatabase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -24,6 +24,20 @@ namespace Examination_System.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK__courses__A1BDCF3284EBE03C", x => x.crsid);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Department",
+                columns: table => new
+                {
+                    dept_id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    name = table.Column<string>(type: "varchar(255)", unicode: false, maxLength: 255, nullable: true),
+                    isActive = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK__Departme__DCA659745EFD4017", x => x.dept_id);
                 });
 
             migrationBuilder.CreateTable(
@@ -146,23 +160,18 @@ namespace Examination_System.Migrations
                 {
                     branch_id = table.Column<int>(type: "int", nullable: false),
                     dept_id = table.Column<int>(type: "int", nullable: false),
+                    ManagerId = table.Column<int>(type: "int", nullable: true),
                     isActive = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Branch_Dept", x => new { x.branch_id, x.dept_id });
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Branche_Dept",
-                columns: table => new
-                {
-                    branch_id = table.Column<int>(type: "int", nullable: false),
-                    dept_id = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK__Branche___B8945249DCE80468", x => new { x.branch_id, x.dept_id });
+                    table.ForeignKey(
+                        name: "FK_Branch_Dept_Department_dept_id",
+                        column: x => x.dept_id,
+                        principalTable: "Department",
+                        principalColumn: "dept_id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -179,67 +188,6 @@ namespace Examination_System.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK__Branches__E55E37DE0C6F72E1", x => x.branch_id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Comments",
-                columns: table => new
-                {
-                    intakeNo = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    stdid = table.Column<int>(type: "int", nullable: true),
-                    crsid = table.Column<int>(type: "int", nullable: true),
-                    grade = table.Column<string>(type: "varchar(255)", unicode: false, maxLength: 255, nullable: true),
-                    comments = table.Column<string>(type: "text", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK__Comments__0F6969FA8DE558D4", x => x.intakeNo);
-                    table.ForeignKey(
-                        name: "FK__Comments__crsid__5FB337D6",
-                        column: x => x.crsid,
-                        principalTable: "courses",
-                        principalColumn: "crsid");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "course_dept",
-                columns: table => new
-                {
-                    crsid = table.Column<int>(type: "int", nullable: false),
-                    dept_id = table.Column<int>(type: "int", nullable: false),
-                    insid = table.Column<int>(type: "int", nullable: false),
-                    branch_id = table.Column<int>(type: "int", nullable: false),
-                    isActive = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK__course_d__73989414A190A2A8", x => new { x.crsid, x.dept_id, x.insid, x.branch_id });
-                    table.ForeignKey(
-                        name: "FK__course_de__branc__412EB0B6",
-                        column: x => x.branch_id,
-                        principalTable: "Branches",
-                        principalColumn: "branch_id");
-                    table.ForeignKey(
-                        name: "FK__course_de__crsid__3E52440B",
-                        column: x => x.crsid,
-                        principalTable: "courses",
-                        principalColumn: "crsid");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Department",
-                columns: table => new
-                {
-                    dept_id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    name = table.Column<string>(type: "varchar(255)", unicode: false, maxLength: 255, nullable: true),
-                    ManagerId = table.Column<int>(type: "int", nullable: true),
-                    isActive = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK__Departme__DCA659745EFD4017", x => x.dept_id);
                 });
 
             migrationBuilder.CreateTable(
@@ -330,6 +278,41 @@ namespace Examination_System.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "course_dept",
+                columns: table => new
+                {
+                    crsid = table.Column<int>(type: "int", nullable: false),
+                    dept_id = table.Column<int>(type: "int", nullable: false),
+                    insid = table.Column<int>(type: "int", nullable: false),
+                    branch_id = table.Column<int>(type: "int", nullable: false),
+                    isActive = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK__course_d__73989414A190A2A8", x => new { x.crsid, x.dept_id, x.insid, x.branch_id });
+                    table.ForeignKey(
+                        name: "FK__course_de__branc__412EB0B6",
+                        column: x => x.branch_id,
+                        principalTable: "Branches",
+                        principalColumn: "branch_id");
+                    table.ForeignKey(
+                        name: "FK__course_de__crsid__3E52440B",
+                        column: x => x.crsid,
+                        principalTable: "courses",
+                        principalColumn: "crsid");
+                    table.ForeignKey(
+                        name: "FK__course_de__dept___3F466844",
+                        column: x => x.dept_id,
+                        principalTable: "Department",
+                        principalColumn: "dept_id");
+                    table.ForeignKey(
+                        name: "FK__course_de__insid__403A8C7D",
+                        column: x => x.insid,
+                        principalTable: "Instructor",
+                        principalColumn: "insid");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Exam",
                 columns: table => new
                 {
@@ -370,6 +353,32 @@ namespace Examination_System.Migrations
                         column: x => x.insid,
                         principalTable: "Instructor",
                         principalColumn: "insid");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Comments",
+                columns: table => new
+                {
+                    intakeNo = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    stdid = table.Column<int>(type: "int", nullable: true),
+                    crsid = table.Column<int>(type: "int", nullable: true),
+                    grade = table.Column<string>(type: "varchar(255)", unicode: false, maxLength: 255, nullable: true),
+                    comments = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK__Comments__0F6969FA8DE558D4", x => x.intakeNo);
+                    table.ForeignKey(
+                        name: "FK__Comments__crsid__5FB337D6",
+                        column: x => x.crsid,
+                        principalTable: "courses",
+                        principalColumn: "crsid");
+                    table.ForeignKey(
+                        name: "FK__Comments__stdid__5EBF139D",
+                        column: x => x.stdid,
+                        principalTable: "Student",
+                        principalColumn: "stdid");
                 });
 
             migrationBuilder.CreateTable(
@@ -495,9 +504,9 @@ namespace Examination_System.Migrations
                 column: "dept_id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Branche_Dept_dept_id",
-                table: "Branche_Dept",
-                column: "dept_id");
+                name: "IX_Branch_Dept_ManagerId",
+                table: "Branch_Dept",
+                column: "ManagerId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Branches_location",
@@ -542,11 +551,6 @@ namespace Examination_System.Migrations
                 name: "IX_course_dept_insid",
                 table: "course_dept",
                 column: "insid");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Department_ManagerId",
-                table: "Department",
-                column: "ManagerId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Department_name",
@@ -636,65 +640,23 @@ namespace Examination_System.Migrations
                 column: "dept_id");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Branch_Dept_Branch",
+                name: "FK_Branch_Dept_Branches_branch_id",
                 table: "Branch_Dept",
                 column: "branch_id",
                 principalTable: "Branches",
-                principalColumn: "branch_id");
+                principalColumn: "branch_id",
+                onDelete: ReferentialAction.Cascade);
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Branch_Dept_Department",
+                name: "FK_Branch_Dept_Instructor_ManagerId",
                 table: "Branch_Dept",
-                column: "dept_id",
-                principalTable: "Department",
-                principalColumn: "dept_id");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK__Branche_D__branc__2E1BDC42",
-                table: "Branche_Dept",
-                column: "branch_id",
-                principalTable: "Branches",
-                principalColumn: "branch_id");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK__Branche_D__dept___2F10007B",
-                table: "Branche_Dept",
-                column: "dept_id",
-                principalTable: "Department",
-                principalColumn: "dept_id");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Branches_Instructor_ManagerId",
-                table: "Branches",
                 column: "ManagerId",
-                principalTable: "Instructor",
-                principalColumn: "insid",
-                onDelete: ReferentialAction.SetNull);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK__Comments__stdid__5EBF139D",
-                table: "Comments",
-                column: "stdid",
-                principalTable: "Student",
-                principalColumn: "stdid");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK__course_de__dept___3F466844",
-                table: "course_dept",
-                column: "dept_id",
-                principalTable: "Department",
-                principalColumn: "dept_id");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK__course_de__insid__403A8C7D",
-                table: "course_dept",
-                column: "insid",
                 principalTable: "Instructor",
                 principalColumn: "insid");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Department_Instructor_ManagerId",
-                table: "Department",
+                name: "FK_Branches_Instructor_ManagerId",
+                table: "Branches",
                 column: "ManagerId",
                 principalTable: "Instructor",
                 principalColumn: "insid",
@@ -708,15 +670,8 @@ namespace Examination_System.Migrations
                 name: "FK__Users__branch_id__32E0915F",
                 table: "Users");
 
-            migrationBuilder.DropForeignKey(
-                name: "FK__Users__dept_id__31EC6D26",
-                table: "Users");
-
             migrationBuilder.DropTable(
                 name: "Branch_Dept");
-
-            migrationBuilder.DropTable(
-                name: "Branche_Dept");
 
             migrationBuilder.DropTable(
                 name: "Comments");
@@ -770,13 +725,13 @@ namespace Examination_System.Migrations
                 name: "Branches");
 
             migrationBuilder.DropTable(
-                name: "Department");
-
-            migrationBuilder.DropTable(
                 name: "Instructor");
 
             migrationBuilder.DropTable(
                 name: "Users");
+
+            migrationBuilder.DropTable(
+                name: "Department");
         }
     }
 }

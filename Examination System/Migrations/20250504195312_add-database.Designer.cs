@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Examination_System.Migrations
 {
     [DbContext(typeof(Exam_sysContext))]
-    [Migration("20250429225405_createDatabase")]
-    partial class createDatabase
+    [Migration("20250504195312_add-database")]
+    partial class adddatabase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace Examination_System.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Branche_Dept", b =>
+            modelBuilder.Entity("Examination_System.Model.Models.Branch_Dept", b =>
                 {
                     b.Property<int>("branch_id")
                         .HasColumnType("int");
@@ -33,12 +33,22 @@ namespace Examination_System.Migrations
                     b.Property<int>("dept_id")
                         .HasColumnType("int");
 
-                    b.HasKey("branch_id", "dept_id")
-                        .HasName("PK__Branche___B8945249DCE80468");
+                    b.Property<int?>("ManagerId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("isActive")
+                        .HasColumnType("bit");
+
+                    b.HasKey("branch_id", "dept_id");
+
+                    b.HasIndex("ManagerId");
 
                     b.HasIndex("dept_id");
 
-                    b.ToTable("Branche_Dept", (string)null);
+                    b.HasIndex("branch_id", "dept_id")
+                        .IsUnique();
+
+                    b.ToTable("Branch_Dept");
                 });
 
             modelBuilder.Entity("Examination_System.Models.Branch", b =>
@@ -81,28 +91,6 @@ namespace Examination_System.Migrations
                     b.ToTable("Branches");
                 });
 
-            modelBuilder.Entity("Examination_System.Models.Branch_Dept", b =>
-                {
-                    b.Property<int>("branch_id")
-                        .HasColumnType("int");
-
-                    b.Property<int>("dept_id")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("isActive")
-                        .HasColumnType("bit");
-
-                    b.HasKey("branch_id", "dept_id")
-                        .HasName("PK_Branch_Dept");
-
-                    b.HasIndex("dept_id");
-
-                    b.HasIndex("branch_id", "dept_id")
-                        .IsUnique();
-
-                    b.ToTable("Branch_Dept");
-                });
-
             modelBuilder.Entity("Examination_System.Models.Comment", b =>
                 {
                     b.Property<int>("intakeNo")
@@ -143,9 +131,6 @@ namespace Examination_System.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("dept_id"));
 
-                    b.Property<int?>("ManagerId")
-                        .HasColumnType("int");
-
                     b.Property<bool>("isActive")
                         .HasColumnType("bit");
 
@@ -156,8 +141,6 @@ namespace Examination_System.Migrations
 
                     b.HasKey("dept_id")
                         .HasName("PK__Departme__DCA659745EFD4017");
-
-                    b.HasIndex("ManagerId");
 
                     b.HasIndex("name")
                         .IsUnique()
@@ -620,19 +603,29 @@ namespace Examination_System.Migrations
                     b.ToTable("question_Exam", (string)null);
                 });
 
-            modelBuilder.Entity("Branche_Dept", b =>
+            modelBuilder.Entity("Examination_System.Model.Models.Branch_Dept", b =>
                 {
-                    b.HasOne("Examination_System.Models.Branch", null)
-                        .WithMany()
-                        .HasForeignKey("branch_id")
-                        .IsRequired()
-                        .HasConstraintName("FK__Branche_D__branc__2E1BDC42");
+                    b.HasOne("Examination_System.Models.Instructor", "Manager")
+                        .WithMany("ManagedBranchDepts")
+                        .HasForeignKey("ManagerId");
 
-                    b.HasOne("Examination_System.Models.Department", null)
-                        .WithMany()
+                    b.HasOne("Examination_System.Models.Branch", "Branch")
+                        .WithMany("Branch_Depts")
+                        .HasForeignKey("branch_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Examination_System.Models.Department", "Department")
+                        .WithMany("Branch_Depts")
                         .HasForeignKey("dept_id")
-                        .IsRequired()
-                        .HasConstraintName("FK__Branche_D__dept___2F10007B");
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Branch");
+
+                    b.Navigation("Department");
+
+                    b.Navigation("Manager");
                 });
 
             modelBuilder.Entity("Examination_System.Models.Branch", b =>
@@ -643,25 +636,6 @@ namespace Examination_System.Migrations
                         .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("Manager");
-                });
-
-            modelBuilder.Entity("Examination_System.Models.Branch_Dept", b =>
-                {
-                    b.HasOne("Examination_System.Models.Branch", "Branch")
-                        .WithMany("Branch_Depts")
-                        .HasForeignKey("branch_id")
-                        .IsRequired()
-                        .HasConstraintName("FK_Branch_Dept_Branch");
-
-                    b.HasOne("Examination_System.Models.Department", "Department")
-                        .WithMany("Branch_Depts")
-                        .HasForeignKey("dept_id")
-                        .IsRequired()
-                        .HasConstraintName("FK_Branch_Dept_Department");
-
-                    b.Navigation("Branch");
-
-                    b.Navigation("Department");
                 });
 
             modelBuilder.Entity("Examination_System.Models.Comment", b =>
@@ -679,16 +653,6 @@ namespace Examination_System.Migrations
                     b.Navigation("crs");
 
                     b.Navigation("std");
-                });
-
-            modelBuilder.Entity("Examination_System.Models.Department", b =>
-                {
-                    b.HasOne("Examination_System.Models.Instructor", "Manager")
-                        .WithMany("ManagedDepartments")
-                        .HasForeignKey("ManagerId")
-                        .OnDelete(DeleteBehavior.SetNull);
-
-                    b.Navigation("Manager");
                 });
 
             modelBuilder.Entity("Examination_System.Models.Exam", b =>
@@ -977,9 +941,9 @@ namespace Examination_System.Migrations
                 {
                     b.Navigation("Exams");
 
-                    b.Navigation("ManagedBranches");
+                    b.Navigation("ManagedBranchDepts");
 
-                    b.Navigation("ManagedDepartments");
+                    b.Navigation("ManagedBranches");
 
                     b.Navigation("course_depts");
                 });

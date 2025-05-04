@@ -18,13 +18,15 @@ namespace Examination_System.Model.Models
         [ForeignKey(nameof(Department))]
         public int dept_id { get; set; }
 
+        public int? ManagerId { get; set; } // Foreign key (nullable)
 
         public bool isActive { get; set; }
 
-        
+        [ForeignKey("ManagerId")]
+        [InverseProperty("ManagedBranchDepts")]
+        public virtual Instructor? Manager { get; set; } // Navigation property
         public virtual Branch Branch { get; set; }
-        
-
+      
         public virtual Department Department { get; set; }
     }
 }

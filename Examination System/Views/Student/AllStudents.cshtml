@@ -1,0 +1,56 @@
+﻿@model List<Student>
+@{
+    ViewData["Title"] = "AllStudents";
+    Layout = "MainPageHome";
+}
+
+<h1 class="text-center">All students in all branches</h1>
+<a class="btn btn-primary mt-5" asp-controller="Student" asp-action="Create">Add Student</a>
+<table class="table table-bordered table-hover">
+   <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>City</th>
+        <th>Phone</th>
+        <th>Branch</th>
+        <th>Department</th>
+        <th>Delete</th>
+        <th>Update</th>
+        <th>Details</th>
+
+    </tr>
+    </thead>
+    <tbody>
+        @if(Model.Count()==0)
+        {
+            <tr>
+                <td class="align-items-center" colspan="9"> No Students Found</td>
+            </tr>
+        }
+        else
+        {
+        @foreach(var student in Model)
+        {
+     <tr>    
+    <td>@student.stdid</td>
+    <td>@student.std.name</td>
+    <td>@student.std.st_city</td>
+    <td>@student.std.phone</td>
+    <td>@student.std.branch.name</td>
+    <td>@student.std.dept.name</td>
+                <td><a class="btn btn-danger" asp-controller="Student" asp-action="delete" asp-route-id="@student.stdid">Delete</a></td>
+                <td><a class="btn btn-success" asp-controller="Student" asp-action="Edit" asp-route-id="@student.stdid">Update</a></td>
+                <td><a class="btn btn-info" asp-controller="Student" asp-action="details" asp-route-id="@student.stdid">Details</a></td>
+
+     </tr>
+
+        }
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

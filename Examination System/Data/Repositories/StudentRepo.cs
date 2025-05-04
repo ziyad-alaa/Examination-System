@@ -1,27 +1,47 @@
-﻿using Examination_System.Models;
+﻿using Examination_System.Data.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Examination_System.Data.Repositories
 {
     public class StudentRepo : IService<Student>
     {
-        public Student Create(Student entity)
+        Exam_sysContext _iti;
+        public StudentRepo(Exam_sysContext _iti)
         {
-            throw new NotImplementedException();
+            this._iti = _iti;
+        }
+        public void Create(Student entity)
+        {
+            _iti.Students.Add(entity);
+
         }
 
-        public Student GetAll()
+        public void Delete(int id)
         {
-            throw new NotImplementedException();
+            Student student = GetById(id);
+            student.std.isActive= false;
+        }
+
+        public List<Student> GetAll()
+        {
+            List<Student> Students = _iti.Students.Where(s=>s.std.isActive==true).Include(s => s.std).Include(b => b.std.branch).Include(d => d.std.dept).ToList();
+            return Students;
         }
 
         public Student GetById(int id)
         {
-            throw new NotImplementedException();
+            Student student = _iti.Students.Where(s => s.std.isActive == true).Include(s => s.std).Include(b => b.std.branch).Include(d => d.std.dept).FirstOrDefault(s => s.stdid == id);
+            return student;
         }
 
-        public Student Update(int id, Student entity)
+        public void Update(int id, Student entity)
         {
-            throw new NotImplementedException();
+            Student std = GetById(id);
+            if (std != null)
+            {
+                _iti.Students.Update(std);
+            }
+
         }
     }
 }
