@@ -36,13 +36,16 @@ namespace Examination_System.Controllers
             {
                 User newUser = new User
                 {
+                    
                     name = std.name,
                     email = std.email,
                     phone = std.phone,
                     st_city = std.st_city,
                     password = std.Password,
                     dept_id = std.dept_id,
-                    branch_id = std.branch_id
+                    branch_id = std.branch_id,
+                    isActive=true,
+                    
                 };
 
                 Student student = new Student

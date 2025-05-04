@@ -26,7 +26,17 @@ namespace Examination_System.Data.Repositories
             return _dbContext.Departments.Where(d=>d.isActive==true).ToList();
         }
 
+        public List<Department> GetAllNotActive()
+        {
+            throw new NotImplementedException();
+        }
+
         public Department GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Department GetNotactiveById(int id)
         {
             throw new NotImplementedException();
         }

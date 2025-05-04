@@ -28,9 +28,21 @@ namespace Examination_System.Data.Repositories
             return Students;
         }
 
+        public List<Student> GetAllNotActive()
+        {
+            List<Student> StudentNotactive= _iti.Students.Where(s => s.std.isActive == false).Include(s => s.std).Include(b => b.std.branch).Include(d => d.std.dept).ToList();
+            return StudentNotactive;
+        }
+
         public Student GetById(int id)
         {
             Student student = _iti.Students.Where(s => s.std.isActive == true).Include(s => s.std).Include(b => b.std.branch).Include(d => d.std.dept).FirstOrDefault(s => s.stdid == id);
+            return student;
+        }
+
+        public Student GetNotactiveById(int id)
+        {
+            Student student = _iti.Students.Where(s => s.std.isActive == false).Include(s => s.std).Include(b => b.std.branch).Include(d => d.std.dept).FirstOrDefault(s => s.stdid == id);
             return student;
         }
 

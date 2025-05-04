@@ -33,5 +33,15 @@ namespace Examination_System.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public List<Branch> GetAllNotActive()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Branch GetNotactiveById(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
