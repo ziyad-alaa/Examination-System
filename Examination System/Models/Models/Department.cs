@@ -23,15 +23,17 @@ public partial class Department
     public string name { get; set; }
 
 
-
     [InverseProperty("dept")]
     public virtual ICollection<User> Users { get; set; } = new List<User>();
 
     [InverseProperty("dept")]
     public virtual ICollection<course_dept> course_depts { get; set; } = new List<course_dept>();
 
+
     [InverseProperty("Department")]
     public virtual ICollection<Branch_Dept> Branch_Depts { get; set; } = new List<Branch_Dept>();
+
+
     public Boolean isActive { get; set; }
 
 }

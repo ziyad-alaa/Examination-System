@@ -67,7 +67,7 @@ public partial class Exam_sysContext : DbContext
             entity.HasKey(e => e.branch_id).HasName("PK__Branches__E55E37DE0C6F72E1");
             entity.Property(e => e.branch_id).UseIdentityColumn();
 
-          
+
         });
 
         modelBuilder.Entity<Comment>(entity =>
@@ -292,20 +292,30 @@ public partial class Exam_sysContext : DbContext
         });
         modelBuilder.Entity<Branch_Dept>(entity =>
         {
-            entity.HasKey(e => new { e.branch_id, e.dept_id });
+            entity.HasKey(e => new { e.branch_id, e.dept_id })
+                .HasName("PK_Branch_Dept");
+
 
             entity.HasOne(d => d.Branch)
                 .WithMany(p => p.Branch_Depts)
                 .HasForeignKey(d => d.branch_id)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("FK_Branch_Dept_Branch");
+
 
             entity.HasOne(d => d.Department)
                 .WithMany(p => p.Branch_Depts)
                 .HasForeignKey(d => d.dept_id)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("FK_Branch_Dept_Department");
 
-          
+            entity.HasOne(d => d.Manager)
+                .WithMany(p => p.ManagedDepartments)
+                .HasForeignKey(d => d.ManagerId)
+                .OnDelete(DeleteBehavior.SetNull)
+                .HasConstraintName("FK_Branch_Dept_Instructor");
         });
+
 
 
         OnModelCreatingPartial(modelBuilder);

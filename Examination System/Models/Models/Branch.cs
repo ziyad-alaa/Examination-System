@@ -42,7 +42,9 @@ public partial class Branch
     public virtual ICollection<course_dept> course_depts { get; set; } = new List<course_dept>();
 
     [InverseProperty("Branch")]
+
     public virtual ICollection<Branch_Dept> Branch_Depts { get; set; } = new List<Branch_Dept>();
+
 
     public Boolean isActive { get; set; }
 

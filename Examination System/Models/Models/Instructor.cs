@@ -6,6 +6,11 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+<<<<<<< HEAD
+=======
+using Examination_System.Model.Models;
+using Microsoft.EntityFrameworkCore;
+>>>>>>> main
 
 namespace Examination_System.Models;
 
@@ -35,7 +40,11 @@ public partial class Instructor
     public virtual User ins { get; set; }
 
     [InverseProperty("Manager")]
+
     public virtual ICollection<Branch_Dept> ManagedBranchDepts { get; set; } = new List<Branch_Dept>();
+
+    public virtual ICollection<Branch_Dept> ManagedDepartments { get; set; } = new List<Branch_Dept>();
+
 
     [InverseProperty("Manager")]
     public virtual ICollection<Branch> ManagedBranches { get; set; } = new List<Branch>();
