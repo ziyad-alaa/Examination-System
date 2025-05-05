@@ -1,0 +1,66 @@
+﻿@model Examination_System.Models.View_Models.DepartmentViewModel
+
+@{
+    ViewData["Title"] = "Edit Department";
+}
+
+<h2>Edit Department</h2>
+
+<form asp-action="Edit">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <input type="hidden" asp-for="DepartmentId" />
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Name</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="BranchId" class="control-label">Branch</label>
+        <select asp-for="BranchId" class="form-control" asp-items="Model.Branches" onchange="loadInstructors(this.value)">
+            <option value="">Select Branch</option>
+        </select>
+        <span asp-validation-for="BranchId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ManagerId" class="control-label">Manager</label>
+        <select asp-for="ManagerId" class="form-control" asp-items="Model.Instructors">
+            <option value="">Select Manager</option>
+        </select>
+        <span asp-validation-for="ManagerId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="IsActive" class="control-label">Is Active</label>
+        <input asp-for="IsActive" type="checkbox" class="form-check-input" />
+        <span asp-validation-for="IsActive" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+        <a asp-action="Index" class="btn btn-secondary">Back</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        function loadInstructors(branchId) {
+            if (branchId) {
+                fetch(`/Department/GetInstructorsByBranch?branchId=${branchId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        let instructorSelect = document.getElementById('ManagerId');
+                        instructorSelect.innerHTML = '<option value="">Select Manager</option>';
+                        data.forEach(instructor => {
+                            let option = document.createElement('option');
+                            option.value = instructor.value;
+                            option.text = instructor.text;
+                            instructorSelect.appendChild(option);
+                        });
+                    });
+            } else {
+                document.getElementById('ManagerId').innerHTML = '<option value="">Select Manager</option>';
+            }
+        }
+    </script>
+}
