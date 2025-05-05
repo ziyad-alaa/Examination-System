@@ -2,7 +2,7 @@
 
 namespace Examination_System.Data.Repositories
 {
-    public class DepartmentRepo : IService<Department>
+    public class DepartmentRepo  //IService<Department>
     {
         public Exam_sysContext _dbContext;
 

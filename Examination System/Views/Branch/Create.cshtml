@@ -1,0 +1,36 @@
+﻿@model Examination_System.Models.View_Models.BranchViewModel
+
+@{
+    ViewData["Title"] = "إنشاء فرع";
+}
+
+<h2>إنشاء فرع</h2>
+
+<form asp-action="Create">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">اسم الفرع</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Location" class="control-label">الموقع</label>
+        <input asp-for="Location" class="form-control" />
+        <span asp-validation-for="Location" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ManagerId" class="control-label">المدير</label>
+        <select asp-for="ManagerId" class="form-control" asp-items="Model.Instructors">
+            <option value="">اختر مدير</option>
+        </select>
+        <span asp-validation-for="ManagerId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="إنشاء" class="btn btn-primary" />
+        <a asp-action="Index" class="btn btn-secondary">رجوع</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

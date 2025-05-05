@@ -1,0 +1,27 @@
+﻿@model Examination_System.Models.View_Models.BranchViewModel
+
+@{
+    ViewData["Title"] = "حذف فرع";
+}
+
+<h2>حذف فرع</h2>
+
+<h3>هل أنت متأكد أنك تريد حذف هذا الفرع؟</h3>
+<div>
+    <h4>@Model.Name</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">الاسم</dt>
+        <dd class="col-sm-10">@Model.Name</dd>
+        <dt class="col-sm-2">الموقع</dt>
+        <dd class="col-sm-10">@Model.Location</dd>
+        <dt class="col-sm-2">المدير</dt>
+        <dd class="col-sm-10">@Model.ManagerName</dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="BranchId" />
+        <input type="submit" value="حذف" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-secondary">رجوع للقائمة</a>
+    </form>
+</div>

@@ -2,7 +2,7 @@
 
 namespace Examination_System.Data.Repositories
 {
-    public class StudentRepo : IService<Student>
+    public class StudentRepo// : IService<Student>
     {
         public Student Create(Student entity)
         {

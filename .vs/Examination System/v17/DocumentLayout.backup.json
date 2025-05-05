@@ -1,0 +1,314 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\MVCfinalISA\\Examination-System\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|c:\\mvcfinalisa\\examination-system\\examination system\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|c:\\mvcfinalisa\\examination-system\\examination system\\models\\view_models\\branchviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\models\\view_models\\branchviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|c:\\mvcfinalisa\\examination-system\\examination system\\views\\branch\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\views\\branch\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|c:\\mvcfinalisa\\examination-system\\examination system\\views\\branch\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\views\\branch\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|c:\\mvcfinalisa\\examination-system\\examination system\\controllers\\branchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\controllers\\branchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|c:\\mvcfinalisa\\examination-system\\examination system\\data\\repositories\\branchrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\data\\repositories\\branchrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|c:\\mvcfinalisa\\examination-system\\examination system\\data\\repositories\\studentrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\data\\repositories\\studentrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|c:\\mvcfinalisa\\examination-system\\examination system\\data\\repositories\\departmentrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\data\\repositories\\departmentrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|c:\\mvcfinalisa\\examination-system\\examination system\\views\\branch\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\views\\branch\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|c:\\mvcfinalisa\\examination-system\\examination system\\views\\branch\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\views\\branch\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|c:\\mvcfinalisa\\examination-system\\examination system\\views\\branch\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\views\\branch\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|c:\\mvcfinalisa\\examination-system\\examination system\\data\\unitofworks\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\data\\unitofworks\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|c:\\mvcfinalisa\\examination-system\\examination system\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|c:\\mvcfinalisa\\examination-system\\examination system\\models\\models\\exam_syscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\models\\models\\exam_syscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|c:\\mvcfinalisa\\examination-system\\examination system\\data\\repositories\\iservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\data\\repositories\\iservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|c:\\mvcfinalisa\\examination-system\\examination system\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|c:\\mvcfinalisa\\examination-system\\examination system\\models\\view_models\\examview_models\\generateexamviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\models\\view_models\\examview_models\\generateexamviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|c:\\mvcfinalisa\\examination-system\\examination system\\migrations\\20250504223241_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\migrations\\20250504223241_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Exam_sysContext.cs",
+              "DocumentMoniker": "C:\\MVCfinalISA\\Examination-System\\Examination System\\Models\\Models\\Exam_sysContext.cs",
+              "RelativeDocumentMoniker": "Examination System\\Models\\Models\\Exam_sysContext.cs",
+              "ToolTip": "C:\\MVCfinalISA\\Examination-System\\Examination System\\Models\\Models\\Exam_sysContext.cs",
+              "RelativeToolTip": "Examination System\\Models\\Models\\Exam_sysContext.cs",
+              "ViewState": "AgIAAAIBAAAAAAAAAAAowEAAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T17:51:56.041Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{fbcae063-e2c0-4ab1-a516-996ea3dafb72}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\MVCfinalISA\\Examination-System\\Examination System\\.gitignore",
+              "RelativeDocumentMoniker": "Examination System\\.gitignore",
+              "ToolTip": "C:\\MVCfinalISA\\Examination-System\\Examination System\\.gitignore",
+              "RelativeToolTip": "Examination System\\.gitignore",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABgAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-05-05T16:09:11.997Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\MVCfinalISA\\Examination-System\\Examination System\\Views\\Branch\\Details.cshtml",
+              "RelativeDocumentMoniker": "Examination System\\Views\\Branch\\Details.cshtml",
+              "ToolTip": "C:\\MVCfinalISA\\Examination-System\\Examination System\\Views\\Branch\\Details.cshtml",
+              "RelativeToolTip": "Examination System\\Views\\Branch\\Details.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-05T11:39:11.144Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BranchController.cs",
+              "DocumentMoniker": "C:\\MVCfinalISA\\Examination-System\\Examination System\\Controllers\\BranchController.cs",
+              "RelativeDocumentMoniker": "Examination System\\Controllers\\BranchController.cs",
+              "ToolTip": "C:\\MVCfinalISA\\Examination-System\\Examination System\\Controllers\\BranchController.cs",
+              "RelativeToolTip": "Examination System\\Controllers\\BranchController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T00:49:35.323Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "UnitOfWork.cs",
+              "DocumentMoniker": "C:\\MVCfinalISA\\Examination-System\\Examination System\\Data\\UnitOfWorks\\UnitOfWork.cs",
+              "RelativeDocumentMoniker": "Examination System\\Data\\UnitOfWorks\\UnitOfWork.cs",
+              "ToolTip": "C:\\MVCfinalISA\\Examination-System\\Examination System\\Data\\UnitOfWorks\\UnitOfWork.cs",
+              "RelativeToolTip": "Examination System\\Data\\UnitOfWorks\\UnitOfWork.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T00:43:25.222Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\MVCfinalISA\\Examination-System\\Examination System\\Views\\Branch\\Create.cshtml",
+              "RelativeDocumentMoniker": "Examination System\\Views\\Branch\\Create.cshtml",
+              "ToolTip": "C:\\MVCfinalISA\\Examination-System\\Examination System\\Views\\Branch\\Create.cshtml",
+              "RelativeToolTip": "Examination System\\Views\\Branch\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-05T11:36:05.962Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BranchRepo.cs",
+              "DocumentMoniker": "C:\\MVCfinalISA\\Examination-System\\Examination System\\Data\\Repositories\\BranchRepo.cs",
+              "RelativeDocumentMoniker": "Examination System\\Data\\Repositories\\BranchRepo.cs",
+              "ToolTip": "C:\\MVCfinalISA\\Examination-System\\Examination System\\Data\\Repositories\\BranchRepo.cs",
+              "RelativeToolTip": "Examination System\\Data\\Repositories\\BranchRepo.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAowB8AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T00:42:00.705Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\MVCfinalISA\\Examination-System\\Examination System\\Views\\Branch\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Examination System\\Views\\Branch\\Edit.cshtml",
+              "ToolTip": "C:\\MVCfinalISA\\Examination-System\\Examination System\\Views\\Branch\\Edit.cshtml",
+              "RelativeToolTip": "Examination System\\Views\\Branch\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-05T11:38:13.895Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BranchViewModel.cs",
+              "DocumentMoniker": "C:\\MVCfinalISA\\Examination-System\\Examination System\\Models\\View_Models\\BranchViewModel.cs",
+              "RelativeDocumentMoniker": "Examination System\\Models\\View_Models\\BranchViewModel.cs",
+              "ToolTip": "C:\\MVCfinalISA\\Examination-System\\Examination System\\Models\\View_Models\\BranchViewModel.cs",
+              "RelativeToolTip": "Examination System\\Models\\View_Models\\BranchViewModel.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAcwBcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T00:46:27.99Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\MVCfinalISA\\Examination-System\\Examination System\\Views\\Branch\\Delete.cshtml",
+              "RelativeDocumentMoniker": "Examination System\\Views\\Branch\\Delete.cshtml",
+              "ToolTip": "C:\\MVCfinalISA\\Examination-System\\Examination System\\Views\\Branch\\Delete.cshtml",
+              "RelativeToolTip": "Examination System\\Views\\Branch\\Delete.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-05T11:40:19.715Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DepartmentRepo.cs",
+              "DocumentMoniker": "C:\\MVCfinalISA\\Examination-System\\Examination System\\Data\\Repositories\\DepartmentRepo.cs",
+              "RelativeDocumentMoniker": "Examination System\\Data\\Repositories\\DepartmentRepo.cs",
+              "ToolTip": "C:\\MVCfinalISA\\Examination-System\\Examination System\\Data\\Repositories\\DepartmentRepo.cs",
+              "RelativeToolTip": "Examination System\\Data\\Repositories\\DepartmentRepo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T12:39:25.165Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "StudentRepo.cs",
+              "DocumentMoniker": "C:\\MVCfinalISA\\Examination-System\\Examination System\\Data\\Repositories\\StudentRepo.cs",
+              "RelativeDocumentMoniker": "Examination System\\Data\\Repositories\\StudentRepo.cs",
+              "ToolTip": "C:\\MVCfinalISA\\Examination-System\\Examination System\\Data\\Repositories\\StudentRepo.cs",
+              "RelativeToolTip": "Examination System\\Data\\Repositories\\StudentRepo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T12:39:55.035Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\MVCfinalISA\\Examination-System\\Examination System\\Views\\Branch\\Index.cshtml",
+              "RelativeDocumentMoniker": "Examination System\\Views\\Branch\\Index.cshtml",
+              "ToolTip": "C:\\MVCfinalISA\\Examination-System\\Examination System\\Views\\Branch\\Index.cshtml",
+              "RelativeToolTip": "Examination System\\Views\\Branch\\Index.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAABwAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-05T11:30:53.165Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "_ValidationScriptsPartial.cshtml",
+              "DocumentMoniker": "C:\\MVCfinalISA\\Examination-System\\Examination System\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeDocumentMoniker": "Examination System\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ToolTip": "C:\\MVCfinalISA\\Examination-System\\Examination System\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeToolTip": "Examination System\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-05T11:45:17.286Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "IService.cs",
+              "DocumentMoniker": "C:\\MVCfinalISA\\Examination-System\\Examination System\\Data\\Repositories\\IService.cs",
+              "RelativeDocumentMoniker": "Examination System\\Data\\Repositories\\IService.cs",
+              "ToolTip": "C:\\MVCfinalISA\\Examination-System\\Examination System\\Data\\Repositories\\IService.cs",
+              "RelativeToolTip": "Examination System\\Data\\Repositories\\IService.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAzwA4AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T00:39:58.128Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "20250504223241_init.cs",
+              "DocumentMoniker": "C:\\MVCfinalISA\\Examination-System\\Examination System\\Migrations\\20250504223241_init.cs",
+              "RelativeDocumentMoniker": "Examination System\\Migrations\\20250504223241_init.cs",
+              "ToolTip": "C:\\MVCfinalISA\\Examination-System\\Examination System\\Migrations\\20250504223241_init.cs",
+              "RelativeToolTip": "Examination System\\Migrations\\20250504223241_init.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T22:32:41.605Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\MVCfinalISA\\Examination-System\\Examination System\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "Examination System\\appsettings.Development.json",
+              "ToolTip": "C:\\MVCfinalISA\\Examination-System\\Examination System\\appsettings.Development.json",
+              "RelativeToolTip": "Examination System\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-04T22:29:45.621Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "generateExamViewModel.cs",
+              "DocumentMoniker": "C:\\MVCfinalISA\\Examination-System\\Examination System\\Models\\View_Models\\ExamView_Models\\generateExamViewModel.cs",
+              "RelativeDocumentMoniker": "Examination System\\Models\\View_Models\\ExamView_Models\\generateExamViewModel.cs",
+              "ToolTip": "C:\\MVCfinalISA\\Examination-System\\Examination System\\Models\\View_Models\\ExamView_Models\\generateExamViewModel.cs",
+              "RelativeToolTip": "Examination System\\Models\\View_Models\\ExamView_Models\\generateExamViewModel.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAA9wCsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T18:57:59.079Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
