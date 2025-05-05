@@ -6,14 +6,15 @@ public class UniqueEmail : ValidationAttribute
 {
     protected override ValidationResult IsValid(object value, ValidationContext validationContext)
     {
-        var model = (studentcreate)validationContext.ObjectInstance;
-        var dbContext = (Exam_sysContext)validationContext.GetService(typeof(Exam_sysContext));
+        studentcreate model = (studentcreate)validationContext.ObjectInstance;
+        var dbContext = new Exam_sysContext();
+        string newemail = value.ToString();
 
         // ابحث عن طالب بنفس الإيميل
-        var existingStudent = dbContext.Students
-            .FirstOrDefault(s => s.std.email == value.ToString());
+        var std = dbContext.Students
+            .FirstOrDefault(s => s.std.email == newemail);
 
-        if (existingStudent != null)
+        if (std != null)
         {
             return new ValidationResult(ErrorMessage);
         }

@@ -7,23 +7,22 @@ namespace Examination_System.Data.UnitOfWorks
 {
     public class UnitOfWork
     {
-<<<<<<< HEAD
-        DepartmentRepo DepartmentRepo { get; set; }
-        BranchesREpo BranchrEpo { get; set; }
+
+        DepartmentRepo DepartmentRepos { get; set; }
+        BranchesREpo BranchrEpos { get; set; }
 
         StudentRepo StudentRepo { get; set; }
 
-        Exam_sysContext _dbContext;
-        public UnitOfWork(Exam_sysContext _dbContext)
-        {
-            this._dbContext = _dbContext;
-        }
+        //Exam_sysContext _dbContext;
+        //public UnitOfWork(Exam_sysContext _dbContext)
+        //{
+        //    this._dbContext = _dbContext;
+        //}
 
-        public DepartmentRepo DeptRepo
-=======
+        public DepartmentRepo DeptRepo;
+
         private readonly Exam_sysContext _context;
-        public readonly DepartmentRepository DepartmentRepo;
-
+        public  DepartmentRepository DepartmentRepo { get; set; }
         //DepartmentRepo DepartmentRepo { get; set; }
         private BranchRepo _branchRepo;
 
@@ -31,9 +30,9 @@ namespace Examination_System.Data.UnitOfWorks
 
         public Exam_sysContext _dbContext { get; }
         public UnitOfWork(Exam_sysContext context) {
-            _context = context;
+            _dbContext = context;
             DepartmentRepo = new DepartmentRepository(context);
-            this._dbContext = context; 
+            _dbContext = context; 
         }
 
         //public DepartmentRepo repo
@@ -45,7 +44,7 @@ namespace Examination_System.Data.UnitOfWorks
         //    }
         //}
         public BranchRepo BranchRepo
->>>>>>> main
+
         {
             get
             {
@@ -53,7 +52,7 @@ namespace Examination_System.Data.UnitOfWorks
                 return _branchRepo;
             }
         }
-<<<<<<< HEAD
+
         public StudentRepo StdRepo
         {
             get
@@ -66,12 +65,11 @@ namespace Examination_System.Data.UnitOfWorks
         {
             get
             {
-                BranchrEpo = new BranchesREpo(_dbContext);
-                return BranchrEpo;
+                BranchrEpos = new BranchesREpo(_dbContext);
+                return BranchrEpos;
             }
         }
-=======
->>>>>>> main
+
 
         public void Save()
         {
