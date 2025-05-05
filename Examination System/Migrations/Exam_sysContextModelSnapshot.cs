@@ -36,8 +36,12 @@ namespace Examination_System.Migrations
                     b.Property<bool>("isActive")
                         .HasColumnType("bit");
 
+
+                    b.HasKey("branch_id", "dept_id");
+
                     b.HasKey("branch_id", "dept_id")
                         .HasName("PK_Branch_Dept");
+
 
                     b.HasIndex("ManagerId");
 
@@ -609,19 +613,27 @@ namespace Examination_System.Migrations
                         .OnDelete(DeleteBehavior.SetNull)
                         .HasConstraintName("FK_Branch_Dept_Instructor");
 
+
                     b.HasOne("Examination_System.Models.Branch", "Branch")
                         .WithMany("Branch_Depts")
                         .HasForeignKey("branch_id")
                         .OnDelete(DeleteBehavior.Cascade)
+
                         .IsRequired()
+
                         .HasConstraintName("FK_Branch_Dept_Branch");
+
 
                     b.HasOne("Examination_System.Models.Department", "Department")
                         .WithMany("Branch_Depts")
                         .HasForeignKey("dept_id")
                         .OnDelete(DeleteBehavior.Cascade)
+
                         .IsRequired()
+
+                      
                         .HasConstraintName("FK_Branch_Dept_Department");
+
 
                     b.Navigation("Branch");
 
@@ -943,9 +955,9 @@ namespace Examination_System.Migrations
                 {
                     b.Navigation("Exams");
 
-                    b.Navigation("ManagedBranches");
+                    b.Navigation("ManagedBranchDepts");
 
-                    b.Navigation("ManagedDepartments");
+                    b.Navigation("ManagedBranches");
 
                     b.Navigation("course_depts");
                 });

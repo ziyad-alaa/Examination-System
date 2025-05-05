@@ -1,0 +1,70 @@
+﻿@model studentupdate
+
+@{
+    ViewData["Title"] = "Edit";
+    SelectList Branches = new SelectList(Model.Branches, "branch_id", "name");
+    SelectList Department = new SelectList(Model.Departments, "dept_id", "name");
+}
+
+<h1>Edit</h1>
+
+<h4>studentcreate</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="name" class="control-label"></label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="st_city" class="control-label"></label>
+                <input asp-for="st_city" class="form-control" />
+                <span asp-validation-for="st_city" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CPassword" class="control-label"></label>
+                <input asp-for="CPassword" class="form-control" />
+                <span asp-validation-for="CPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="email" class="control-label"></label>
+                <input asp-for="email" class="form-control" />
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="phone" class="control-label"></label>
+                <input asp-for="phone" class="form-control" />
+                <span asp-validation-for="phone" class="text-danger"></span>
+            </div>
+      
+            <div class="form-group">
+                <label asp-for="Departments"></label>
+                <select asp-for="dept_id" class="form-control" asp-items="Department"></select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Branches"></label>
+                <select asp-for="branch_id" class="form-control" asp-items=" Branches"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+}

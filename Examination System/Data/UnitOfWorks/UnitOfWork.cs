@@ -1,11 +1,26 @@
 ﻿using Examination_System.Data.Repositories;
 using Examination_System.Models;
+using Examination_System.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace Examination_System.Data.UnitOfWorks
 {
     public class UnitOfWork
     {
+<<<<<<< HEAD
+        DepartmentRepo DepartmentRepo { get; set; }
+        BranchesREpo BranchrEpo { get; set; }
+
+        StudentRepo StudentRepo { get; set; }
+
+        Exam_sysContext _dbContext;
+        public UnitOfWork(Exam_sysContext _dbContext)
+        {
+            this._dbContext = _dbContext;
+        }
+
+        public DepartmentRepo DeptRepo
+=======
         private readonly Exam_sysContext _context;
         public readonly DepartmentRepository DepartmentRepo;
 
@@ -30,6 +45,7 @@ namespace Examination_System.Data.UnitOfWorks
         //    }
         //}
         public BranchRepo BranchRepo
+>>>>>>> main
         {
             get
             {
@@ -37,6 +53,25 @@ namespace Examination_System.Data.UnitOfWorks
                 return _branchRepo;
             }
         }
+<<<<<<< HEAD
+        public StudentRepo StdRepo
+        {
+            get
+            {
+                StudentRepo = new StudentRepo(_dbContext);
+                return StudentRepo;
+            }
+        }
+        public BranchesREpo brancRepo
+        {
+            get
+            {
+                BranchrEpo = new BranchesREpo(_dbContext);
+                return BranchrEpo;
+            }
+        }
+=======
+>>>>>>> main
 
         public void Save()
         {
