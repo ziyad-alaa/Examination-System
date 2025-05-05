@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Examination_System.Data.Repositories
 {
-    public class StudentRepo : IService<Student>
+    public class StudentRepo// : IService<Student>
     {
         Exam_sysContext _iti;
         public StudentRepo(Exam_sysContext _iti)

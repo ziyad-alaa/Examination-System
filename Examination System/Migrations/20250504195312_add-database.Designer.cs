@@ -12,8 +12,13 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Examination_System.Migrations
 {
     [DbContext(typeof(Exam_sysContext))]
+<<<<<<<< HEAD:Examination System/Migrations/20250504195312_add-database.Designer.cs
     [Migration("20250504195312_add-database")]
     partial class adddatabase
+========
+    [Migration("20250504223241_init")]
+    partial class init
+>>>>>>>> main:Examination System/Migrations/20250504223241_init.Designer.cs
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,7 +44,12 @@ namespace Examination_System.Migrations
                     b.Property<bool>("isActive")
                         .HasColumnType("bit");
 
+<<<<<<<< HEAD:Examination System/Migrations/20250504195312_add-database.Designer.cs
                     b.HasKey("branch_id", "dept_id");
+========
+                    b.HasKey("branch_id", "dept_id")
+                        .HasName("PK_Branch_Dept");
+>>>>>>>> main:Examination System/Migrations/20250504223241_init.Designer.cs
 
                     b.HasIndex("ManagerId");
 
@@ -606,20 +616,37 @@ namespace Examination_System.Migrations
             modelBuilder.Entity("Examination_System.Model.Models.Branch_Dept", b =>
                 {
                     b.HasOne("Examination_System.Models.Instructor", "Manager")
+<<<<<<<< HEAD:Examination System/Migrations/20250504195312_add-database.Designer.cs
                         .WithMany("ManagedBranchDepts")
                         .HasForeignKey("ManagerId");
+========
+                        .WithMany("ManagedDepartments")
+                        .HasForeignKey("ManagerId")
+                        .OnDelete(DeleteBehavior.SetNull)
+                        .HasConstraintName("FK_Branch_Dept_Instructor");
+>>>>>>>> main:Examination System/Migrations/20250504223241_init.Designer.cs
 
                     b.HasOne("Examination_System.Models.Branch", "Branch")
                         .WithMany("Branch_Depts")
                         .HasForeignKey("branch_id")
                         .OnDelete(DeleteBehavior.Cascade)
+<<<<<<<< HEAD:Examination System/Migrations/20250504195312_add-database.Designer.cs
                         .IsRequired();
+========
+                        .IsRequired()
+                        .HasConstraintName("FK_Branch_Dept_Branch");
+>>>>>>>> main:Examination System/Migrations/20250504223241_init.Designer.cs
 
                     b.HasOne("Examination_System.Models.Department", "Department")
                         .WithMany("Branch_Depts")
                         .HasForeignKey("dept_id")
                         .OnDelete(DeleteBehavior.Cascade)
+<<<<<<<< HEAD:Examination System/Migrations/20250504195312_add-database.Designer.cs
                         .IsRequired();
+========
+                        .IsRequired()
+                        .HasConstraintName("FK_Branch_Dept_Department");
+>>>>>>>> main:Examination System/Migrations/20250504223241_init.Designer.cs
 
                     b.Navigation("Branch");
 
