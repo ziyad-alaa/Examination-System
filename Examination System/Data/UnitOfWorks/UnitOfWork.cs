@@ -7,8 +7,10 @@ namespace Examination_System.Data.UnitOfWorks
     public class UnitOfWork
     {
         DepartmentRepo DepartmentRepo { get; set; }
+        private BranchRepo _branchRepo;
 
-        Exam_sysContext _dbContext;
+
+        public Exam_sysContext _dbContext { get; }
         public UnitOfWork(Exam_sysContext _dbContext) {
             this._dbContext = _dbContext; 
         }
@@ -21,6 +23,15 @@ namespace Examination_System.Data.UnitOfWorks
                 return DepartmentRepo;
             }
         }
+        public BranchRepo BranchRepo
+        {
+            get
+            {
+                _branchRepo ??= new BranchRepo(_dbContext);
+                return _branchRepo;
+            }
+        }
+
         public void Save()
         {
             _dbContext.SaveChanges();
