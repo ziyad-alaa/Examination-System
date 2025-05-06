@@ -31,14 +31,14 @@ namespace Examination_System.Controllers
                     ? _unit._dbContext.Instructors
                         .Include(i => i.ins)
                         .FirstOrDefault(i => i.insid == b.ManagerId)?.ins.name
-                    : "غير محدد",
+                    : "not assigned",
                 IsActive = b.isActive
             }).ToList();
 
             return View(branchViewModels);
         }
 
-        // GET: Branch/Details/5
+        // GET: Branch/Details/id
         public IActionResult Details(int id)
         {
             var branch = _unit.BranchRepo.GetById(id);
@@ -55,7 +55,7 @@ namespace Examination_System.Controllers
                     ? _unit._dbContext.Instructors
                         .Include(i => i.ins)
                         .FirstOrDefault(i => i.insid == branch.ManagerId)?.ins.name
-                    : "غير محدد",
+                    : "not assigned",
                 IsActive = branch.isActive
             };
 
@@ -65,7 +65,6 @@ namespace Examination_System.Controllers
         // GET: Branch/Create
         public IActionResult Create()
         {
-            // جلب المدربين النشطين
             var instructors = _unit._dbContext.Instructors
                 .Include(i => i.ins)
                 .Where(i => i.isActive && i.ins.isActive)
@@ -89,14 +88,13 @@ namespace Examination_System.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(BranchViewModel branchViewModel)
         {
-            // التحقق من تفرّد Name وLocation
             if (_unit._dbContext.Branches.Any(b => b.name == branchViewModel.Name && b.isActive))
             {
-                ModelState.AddModelError("Name", "اسم الفرع موجود بالفعل.");
+                ModelState.AddModelError("Name", "this branch already exists");
             }
             if (_unit._dbContext.Branches.Any(b => b.location == branchViewModel.Location && b.isActive))
             {
-                ModelState.AddModelError("Location", "موقع الفرع موجود بالفعل.");
+                ModelState.AddModelError("Location", "this Location already exists");
             }
 
             if (ModelState.IsValid)
@@ -109,7 +107,6 @@ namespace Examination_System.Controllers
                     isActive = true
                 };
 
-                // التحقق من أن ManagerId صالح (نشط)
                 if (branch.ManagerId.HasValue)
                 {
                     var instructor = _unit._dbContext.Instructors
@@ -117,7 +114,7 @@ namespace Examination_System.Controllers
                         .FirstOrDefault(i => i.insid == branch.ManagerId && i.isActive && i.ins.isActive);
                     if (instructor == null)
                     {
-                        ModelState.AddModelError("ManagerId", "المدرب المختار غير صالح أو غير نشط.");
+                        ModelState.AddModelError("ManagerId", "not valid.");
                     }
                 }
 
@@ -128,7 +125,6 @@ namespace Examination_System.Controllers
                         _unit.BranchRepo.Create(branch);
                         _unit.Save();
 
-                        // تحديث branch_id للمستخدم اللي بقى مدير
                         if (branch.ManagerId.HasValue)
                         {
                             var user = _unit._dbContext.Users.FirstOrDefault(u => u.id == branch.ManagerId && u.isActive);
@@ -148,18 +144,16 @@ namespace Examination_System.Controllers
                     catch (Exception ex)
                     {
                         Debug.WriteLine($"Error saving branch: {ex.Message}");
-                        ModelState.AddModelError("", "حدث خطأ أثناء حفظ الفرع. حاول مرة أخرى.");
+                        ModelState.AddModelError("", "something went wrong");
                     }
                 }
             }
 
-            // طباعة أخطاء ModelState للتحقق
             foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
             {
                 Debug.WriteLine($"ModelState Error: {error.ErrorMessage}");
             }
 
-            // إعادة تحميل قائمة المدربين في حالة وجود خطأ
             branchViewModel.Instructors = _unit._dbContext.Instructors
                 .Include(i => i.ins)
                 .Where(i => i.isActive && i.ins.isActive)
@@ -172,7 +166,7 @@ namespace Examination_System.Controllers
             return View(branchViewModel);
         }
 
-        // GET: Branch/Edit/5
+        // GET: Branch/Edit/id
         public IActionResult Edit(int id)
         {
             var branch = _unit.BranchRepo.GetById(id);
@@ -201,7 +195,7 @@ namespace Examination_System.Controllers
             return View(branchViewModel);
         }
 
-        // POST: Branch/Edit/5
+        // POST: Branch/Edit/id
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(int id, BranchViewModel branchViewModel)
@@ -209,14 +203,13 @@ namespace Examination_System.Controllers
             if (id != branchViewModel.BranchId)
                 return BadRequest();
 
-            // التحقق من تفرّد Name وLocation
             if (_unit._dbContext.Branches.Any(b => b.name == branchViewModel.Name && b.isActive && b.branch_id != branchViewModel.BranchId))
             {
-                ModelState.AddModelError("Name", "اسم الفرع موجود بالفعل.");
+                ModelState.AddModelError("Name", "this branch already exists");
             }
             if (_unit._dbContext.Branches.Any(b => b.location == branchViewModel.Location && b.isActive && b.branch_id != branchViewModel.BranchId))
             {
-                ModelState.AddModelError("Location", "موقع الفرع موجود بالفعل.");
+                ModelState.AddModelError("Location", "this Location already exists");
             }
 
             if (ModelState.IsValid)
@@ -230,7 +223,6 @@ namespace Examination_System.Controllers
                     isActive = branchViewModel.IsActive
                 };
 
-                // التحقق من أن ManagerId تابع للفرع
                 if (branch.ManagerId.HasValue)
                 {
                     var instructor = _unit._dbContext.Instructors
@@ -238,7 +230,7 @@ namespace Examination_System.Controllers
                         .FirstOrDefault(i => i.insid == branch.ManagerId && i.isActive && i.ins.isActive && i.ins.branch_id == id);
                     if (instructor == null)
                     {
-                        ModelState.AddModelError("ManagerId", "المدرب المختار غير صالح أو غير مرتبط بهذا الفرع.");
+                        ModelState.AddModelError("ManagerId", "not valid");
                     }
                 }
 
@@ -249,7 +241,6 @@ namespace Examination_System.Controllers
                         _unit.BranchRepo.Update(id, branch);
                         _unit.Save();
 
-                        // تحديث branch_id للمستخدم اللي بقى مدير
                         if (branch.ManagerId.HasValue)
                         {
                             var user = _unit._dbContext.Users.FirstOrDefault(u => u.id == branch.ManagerId && u.isActive);
@@ -269,18 +260,16 @@ namespace Examination_System.Controllers
                     catch (Exception ex)
                     {
                         Debug.WriteLine($"Error updating branch: {ex.Message}");
-                        ModelState.AddModelError("", "حدث خطأ أثناء تحديث الفرع. حاول مرة أخرى.");
+                        ModelState.AddModelError("", "something went wrong");
                     }
                 }
             }
 
-            // طباعة أخطاء ModelState للتحقق
             foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
             {
                 Debug.WriteLine($"ModelState Error: {error.ErrorMessage}");
             }
 
-            // إعادة تحميل قائمة المدربين
             branchViewModel.Instructors = _unit._dbContext.Instructors
                 .Include(i => i.ins)
                 .Where(i => i.isActive && i.ins.isActive && i.ins.branch_id == id)
@@ -293,7 +282,7 @@ namespace Examination_System.Controllers
             return View(branchViewModel);
         }
 
-        // GET: Branch/Delete/5
+        // GET: Branch/Delete/id
         public IActionResult Delete(int id)
         {
             var branch = _unit.BranchRepo.GetById(id);
@@ -310,14 +299,14 @@ namespace Examination_System.Controllers
                     ? _unit._dbContext.Instructors
                         .Include(i => i.ins)
                         .FirstOrDefault(i => i.insid == branch.ManagerId)?.ins.name
-                    : "غير محدد",
+                    : "not assigned",
                 IsActive = branch.isActive
             };
 
             return View(branchViewModel);
         }
 
-        // POST: Branch/Delete/5
+        // POST: Branch/Delete/id
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
