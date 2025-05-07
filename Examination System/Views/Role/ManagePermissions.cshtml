@@ -1,0 +1,110 @@
+﻿@model Examination_System.Models.Role
+@{
+    ViewData["Title"] = "Manage Permissions";
+    Layout = "_AdminLayout";
+}
+
+<div class="container-fluid px-4">
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <i class="fas fa-key me-1"></i>
+            Manage Permissions: @Model.RoleTitle
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Current Permissions</h5>
+                    @if (Model.Pers.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-sm">
+                                <tbody>
+                                    @foreach (var permission in Model.Pers)
+                                    {
+                                        <tr>
+                                            <td>@permission.PerTitle</td>
+                                            <td class="text-end">
+                                                <button class="btn btn-sm btn-outline-danger remove-permission"
+                                                        data-roleid="@Model.RoleId"
+                                                        data-permissionid="@permission.PeriD">
+                                                    <i class="fas fa-times"></i> Remove
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="alert alert-warning">No permissions assigned</div>
+                    }
+                </div>
+
+                <div class="col-md-6">
+                    <h5>Available Permissions</h5>
+                    <div class="input-group mb-3">
+                        <select id="permissionSelect" class="form-select">
+                            @foreach (var permission in ViewBag.AvailablePermissions)
+                            {
+                                <option value="@permission.PeriD">@permission.PerTitle</option>
+                            }
+                        </select>
+                        <button class="btn btn-primary" id="assignPermission"
+                                data-roleid="@Model.RoleId">
+                            <i class="fas fa-plus me-1"></i> Assign
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left me-1"></i> Back to Roles
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Assign permission
+            $('#assignPermission').click(function() {
+                const roleId = $(this).data('roleid');
+                const permissionId = $('#permissionSelect').val();
+                const permissionName = $('#permissionSelect option:selected').text();
+
+                $.post(`/Role/AssignPermission/${roleId}`, { permissionId: permissionId })
+                    .done(function() {
+                        toastr.success(`Permission "${permissionName}" assigned`);
+                        setTimeout(() => location.reload(), 1000);
+                    })
+                    .fail(function() {
+                        toastr.error('Failed to assign permission');
+                    });
+            });
+
+            // Remove permission
+            $('.remove-permission').click(function() {
+                const roleId = $(this).data('roleid');
+                const permissionId = $(this).data('permissionid');
+                const permissionName = $(this).closest('tr').find('td:first').text();
+
+                if(confirm(`Remove "${permissionName}" permission?`)) {
+                    $.ajax({
+                        url: `/Role/RemovePermission/${roleId}/${permissionId}`,
+                        method: 'DELETE'
+                    }).done(function() {
+                        toastr.success(`Permission "${permissionName}" removed`);
+                        setTimeout(() => location.reload(), 1000);
+                    }).fail(function() {
+                        toastr.error('Failed to remove permission');
+                    });
+                }
+            });
+        });
+    </script>
+}

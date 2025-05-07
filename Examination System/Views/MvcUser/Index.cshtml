@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Examination_System.Models.User>
+@{
+    ViewData["Title"] = "User Management";
+    Layout = "_AdminLayout";
+}
+
+<div class="container-fluid px-4">
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <i class="fas fa-users me-1"></i>
+                    Active Users
+                </div>
+                <div>
+                    <a asp-action="Create" class="btn btn-light btn-sm me-2">
+                        <i class="fas fa-plus-circle me-1"></i>New User
+                    </a>
+                    <a asp-action="Inactive" class="btn btn-warning btn-sm">
+                        <i class="fas fa-eye-slash me-1"></i>Inactive Users
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover table-striped datatable">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Department</th>
+                            <th>Branch</th>
+                            <th>Roles</th>
+                            <th class="text-center">Status</th>
+                            <th class="text-end">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var user in Model)
+                        {
+                            <tr>
+                                <td>@user.name</td>
+                                <td>@user.email</td>
+                                <td>@user.dept?.name</td>
+                                <td>@user.branch?.name</td>
+                                <td>
+                                    @foreach (var role in user.Roles)
+                                    {
+                                        <span class="badge bg-primary me-1">@role.RoleTitle</span>
+                                    }
+                                </td>
+                                <td class="text-center">
+                                    <span class="badge @(user.isActive ? "bg-success" : "bg-danger")">
+                                        @(user.isActive ? "Active" : "Inactive")
+                                    </span>
+                                </td>
+                                <td class="text-end">
+                                    <div class="btn-group btn-group-sm">
+                                        <a asp-action="Edit" asp-route-id="@user.id"
+                                           class="btn btn-outline-primary" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a asp-action="ManageRoles" asp-route-userId="@user.id"
+                                           class="btn btn-outline-info" title="Manage Roles">
+                                            <i class="fas fa-user-tag"></i>
+                                        </a>
+                                        <form asp-action="Deactivate" method="post">
+                                            <input type="hidden" name="id" value="@user.id" />
+                                            <button type="submit" class="btn btn-outline-danger"
+                                                    title="Deactivate" onclick="return confirm('Are you sure?')">
+                                                <i class="fas fa-user-slash"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
