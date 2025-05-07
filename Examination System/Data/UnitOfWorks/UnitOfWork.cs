@@ -21,7 +21,7 @@ namespace Examination_System.Data.UnitOfWorks
 
         public DepartmentRepo DeptRepo;
 
-        private readonly Exam_sysContext _context;
+        //private readonly Exam_sysContext _context;
         public  DepartmentRepository DepartmentRepo { get; set; }
         //DepartmentRepo DepartmentRepo { get; set; }
         private BranchRepo _branchRepo;
