@@ -1,0 +1,316 @@
+﻿@model Examination_System.DTOS.RegisterDto
+@{
+    ViewData["Title"] = "Register";
+    Layout = "_AuthLayout";
+}
+
+<div class="text-center mb-5">
+    <h1 class="auth-title">Get Started</h1>
+    <p class="auth-subtitle">Create your account in 30 seconds</p>
+</div>
+
+<!-- Registration Progress -->
+<div class="progress mb-4" style="height: 6px;">
+    <div class="progress-bar" id="regProgress" role="progressbar" style="width: 0%"></div>
+</div>
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <div class="d-flex align-items-center">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i>
+            <div>
+                <strong>Registration Failed!</strong> Please correct the errors below
+            </div>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<form asp-action="Register" method="post" class="needs-validation" novalidate>
+    <div class="row g-3">
+        <!-- Name Input -->
+        <div class="col-12">
+            <label asp-for="Name" class="form-label">Full Name <span class="text-danger">*</span></label>
+            <div class="input-group">
+                <span class="input-group-text">
+                    <i class="bi bi-person"></i>
+                </span>
+                <input asp-for="Name" class="form-control" placeholder="John Doe" required>
+            </div>
+            <span asp-validation-for="Name" class="text-danger small d-block mt-1"></span>
+        </div>
+
+        <!-- Email Input -->
+        <div class="col-12">
+            <label asp-for="Email" class="form-label">Email address <span class="text-danger">*</span></label>
+            <div class="input-group">
+                <span class="input-group-text">
+                    <i class="bi bi-envelope"></i>
+                </span>
+                <input asp-for="Email" type="email" class="form-control" placeholder="your@email.com" required autocomplete="username">
+            </div>
+            <span asp-validation-for="Email" class="text-danger small d-block mt-1"></span>
+        </div>
+
+        <!-- Password Input -->
+        <div class="col-12 col-md-6">
+            <label asp-for="Password" class="form-label">Password <span class="text-danger">*</span></label>
+            <div class="input-group">
+                <span class="input-group-text">
+                    <i class="bi bi-lock"></i>
+                </span>
+                <input asp-for="Password" type="password" class="form-control" id="regPassword"
+                       placeholder="••••••••" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                       title="Must contain: 8+ chars, 1 uppercase, 1 lowercase, 1 number"
+                       autocomplete="new-password">
+                <button class="btn btn-outline-secondary" type="button" id="toggleRegPassword"
+                        title="Show password" aria-label="Toggle password visibility">
+                    <i class="bi bi-eye"></i>
+                </button>
+            </div>
+            <div class="password-strength" id="regPasswordStrength"></div>
+            <small class="form-text text-muted">8+ chars with uppercase, lowercase, and number</small>
+            <span asp-validation-for="Password" class="text-danger small d-block mt-1"></span>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="col-12 col-md-6">
+            <label asp-for="CPassword" class="form-label">Confirm Password <span class="text-danger">*</span></label>
+            <div class="input-group">
+                <span class="input-group-text">
+                    <i class="bi bi-lock"></i>
+                </span>
+                <input asp-for="CPassword" type="password" class="form-control"
+                       placeholder="••••••••" required autocomplete="new-password">
+            </div>
+            <span asp-validation-for="CPassword" class="text-danger small d-block mt-1"></span>
+        </div>
+
+        <!-- Phone Number -->
+        <div class="col-12 col-md-6">
+            <label asp-for="Phone" class="form-label">Phone Number</label>
+            <div class="input-group">
+                <span class="input-group-text">
+                    <i class="bi bi-phone"></i>
+                </span>
+                <input asp-for="Phone" class="form-control" placeholder="+201234567890"
+                       pattern="^\+?[0-9\s-]{10,15}$">
+            </div>
+            <span asp-validation-for="Phone" class="text-danger small d-block mt-1"></span>
+        </div>
+
+        <!-- Department Dropdown -->
+        <div class="col-12 col-md-6">
+            <label asp-for="DeptId" class="form-label">Department <span class="text-danger">*</span></label>
+            <div class="input-group">
+                <span class="input-group-text">
+                    <i class="bi bi-building"></i>
+                </span>
+                <select asp-for="DeptId" class="form-select" asp-items="ViewBag.Departments" required>
+                    <option value="">Select Department</option>
+                </select>
+            </div>
+            <span asp-validation-for="DeptId" class="text-danger small d-block mt-1"></span>
+        </div>
+
+        <!-- Branch Dropdown -->
+        <div class="col-12">
+            <label asp-for="BranchId" class="form-label">Branch <span class="text-danger">*</span></label>
+            <div class="input-group">
+                <span class="input-group-text">
+                    <i class="bi bi-geo-alt"></i>
+                </span>
+                <select asp-for="BranchId" class="form-select" asp-items="ViewBag.Branches" required>
+                    <option value="">Select Branch</option>
+                </select>
+            </div>
+            <span asp-validation-for="BranchId" class="text-danger small d-block mt-1"></span>
+        </div>
+
+        <!-- Terms Checkbox -->
+        <div class="col-12">
+            <div class="form-check">
+                <input asp-for="TermsAccepted" class="form-check-input" type="checkbox" id="termsCheck" required>
+                <label class="form-check-label" for="termsCheck">
+                    I agree to the <a href="#" class="text-primary text-decoration-underline">Terms and Conditions</a>
+                    <span class="text-danger">*</span>
+                </label>
+                <span asp-validation-for="TermsAccepted" class="text-danger small d-block mt-1"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary w-100 py-3 mt-4" id="submitButton">
+        <span class="submit-text">Create Account</span>
+        <div class="spinner-border spinner-border-sm d-none" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </button>
+
+    <!-- Login Link -->
+    <div class="text-center mt-4">
+        <p class="text-muted mb-0">
+            Already registered?
+            <a asp-action="Login" class="text-primary fw-semibold text-decoration-underline">Sign in here</a>
+        </p>
+    </div>
+</form>
+
+@section Scripts {
+    <script>
+        // Enhanced Password Toggle
+        document.getElementById('toggleRegPassword').addEventListener('click', function() {
+            const passwordField = document.getElementById('regPassword');
+            const icon = this.querySelector('i');
+            const type = passwordField.type === 'password' ? 'text' : 'password';
+
+            passwordField.type = type;
+            icon.classList.toggle('bi-eye');
+            icon.classList.toggle('bi-eye-slash');
+            passwordField.focus();
+        });
+
+        // Password Strength Indicator
+        document.getElementById('regPassword').addEventListener('input', function() {
+            const strength = calculateStrength(this.value);
+            const strengthBar = document.getElementById('regPasswordStrength');
+            strengthBar.style.width = strength + '%';
+            strengthBar.style.backgroundColor =
+                strength < 50 ? '#dc3545' : strength < 75 ? '#ffc107' : '#28a745';
+
+            // Update progress bar
+            const progress = Math.min(30 + (strength * 0.7), 100);
+            document.getElementById('regProgress').style.width = progress + '%';
+        });
+
+        function calculateStrength(password) {
+            let strength = 0;
+            if (password.length >= 8) strength += 1;
+            if (password.match(/[A-Z]/)) strength += 1;
+            if (password.match(/[0-9]/)) strength += 1;
+            if (password.match(/[^A-Za-z0-9]/)) strength += 1;
+            return strength * 25;
+        }
+
+        // Real-time Password Validation
+        const password = document.getElementById('regPassword');
+        const confirmPassword = document.querySelector('[asp-for="CPassword"]');
+
+        function validatePassword() {
+            const isValid = password.value === confirmPassword.value && password.checkValidity();
+            confirmPassword.classList.toggle('is-invalid', !isValid);
+            confirmPassword.classList.toggle('is-valid', isValid);
+
+            // Update progress bar
+            const progress = isValid ? 70 : 30;
+            document.getElementById('regProgress').style.width = progress + '%';
+        }
+
+        password.addEventListener('input', validatePassword);
+        confirmPassword.addEventListener('input', validatePassword);
+
+        // Form Submission Handler
+        document.querySelector('form').addEventListener('submit', function(e) {
+            const btn = this.querySelector('#submitButton');
+            btn.disabled = true;
+            btn.querySelector('.submit-text').classList.add('d-none');
+            btn.querySelector('.spinner-border').classList.remove('d-none');
+
+            // Complete progress bar
+            document.getElementById('regProgress').style.width = '100%';
+        });
+
+        // Improved Phone Number Formatting
+        document.querySelector('[asp-for="Phone"]').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^\d+]/g, '');
+        });
+
+        // Update progress as user fills form
+        document.querySelectorAll('input, select').forEach(el => {
+            el.addEventListener('input', function() {
+                const filledFields = document.querySelectorAll('input:not([type="checkbox"]):valid, select:valid').length;
+                const progress = Math.min(30 + (filledFields * 10), 100);
+                document.getElementById('regProgress').style.width = progress + '%';
+            });
+        });
+
+        // Enhanced Form Validation
+        (() => {
+            'use strict';
+            const forms = document.querySelectorAll('.needs-validation');
+
+            Array.from(forms).forEach(form => {
+                // Live validation for dropdowns
+                form.querySelectorAll('select').forEach(select => {
+                    select.addEventListener('change', () => {
+                        select.classList.toggle('is-valid', select.checkValidity());
+                        select.classList.toggle('is-invalid', !select.checkValidity());
+                    });
+                });
+
+                // Live validation for checkbox
+                form.querySelector('#termsCheck').addEventListener('change', function() {
+                    this.classList.toggle('is-valid', this.checked);
+                    this.classList.toggle('is-invalid', !this.checked);
+                });
+
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+
+                // Add real-time validation
+                form.querySelectorAll('.form-control').forEach(input => {
+                    input.addEventListener('input', () => {
+                        if (input.checkValidity()) {
+                            input.classList.remove('is-invalid');
+                            input.classList.add('is-valid');
+                        } else {
+                            input.classList.remove('is-valid');
+                            input.classList.add('is-invalid');
+                        }
+                    });
+                });
+            });
+        })();
+
+        // Animate stats counting (same as login)
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-count'));
+                const suffix = stat.textContent.includes('%') ? '%' : '';
+                const duration = 2000;
+                const start = 0;
+                const increment = target / (duration / 16);
+
+                let current = start;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        clearInterval(timer);
+                        current = target;
+                    }
+                    stat.textContent = Math.floor(current) + suffix;
+                }, 16);
+            });
+        }
+
+        // Initialize when hero section is in view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        observer.observe(document.querySelector('.auth-hero'));
+    </script>
+}

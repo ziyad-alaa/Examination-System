@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Examination_System.Models.Role>
+
+@{
+    ViewData["Title"] = "Inactive Roles";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Inactive Roles</h3>
+                <p class="text-muted mb-0">List of roles that are currently inactive.</p>
+            </div>
+            <div class="card-body">
+                @if (!Model.Any())
+                {
+                    <div class="alert alert-info" role="alert">
+                        No roles are currently inactive.
+                    </div>
+                }
+                else
+                {
+                    <div class="table-responsive">
+                        <table class="table datatable table-hover table-striped">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Role Title</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var role in Model)
+                                {
+                                    <tr>
+                                        <td>@role.RoleId</td>
+                                        <td>@role.RoleTitle</td>
+                                        <td>
+                                            <span class="badge @((role.isActive) ? "bg-success" : "bg-danger")">
+                                                @(role.isActive ? "Active" : "Inactive")
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <a asp-controller="Role" asp-action="Edit" asp-route-id="@role.RoleId" class="btn btn-sm btn-primary">
+                                                <i class="fas fa-edit"></i> Edit
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

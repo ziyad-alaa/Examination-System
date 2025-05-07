@@ -1,0 +1,91 @@
+﻿@model Examination_System.DTOS.UserUpdateDto
+@{
+    ViewData["Title"] = "Edit User";
+    Layout = "_AdminLayout";
+}
+
+<div class="container-fluid px-4">
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <i class="fas fa-user-edit me-1"></i>
+            Edit User Profile
+        </div>
+        <div class="card-body">
+            <form asp-action="Edit" class="row g-3">
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input asp-for="Name" class="form-control" placeholder="Full Name" required>
+                        <label asp-for="Name"></label>
+                        <span asp-validation-for="Name" class="text-danger small"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input asp-for="Email" type="email" class="form-control" readonly>
+                        <label asp-for="Email"></label>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input asp-for="Phone" class="form-control" placeholder="Phone">
+                        <label asp-for="Phone"></label>
+                        <span asp-validation-for="Phone" class="text-danger small"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input asp-for="Password" type="password" class="form-control" placeholder="New Password">
+                        <label asp-for="Password"></label>
+                        <span asp-validation-for="Password" class="text-danger small"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <select asp-for="DeptId" class="form-select">
+                            <option value="">Select Department</option>
+                            @foreach (var dept in ViewBag.Departments)
+                            {
+                                <option value="@dept.dept_id">@dept.name</option>
+                            }
+                        </select>
+                        <label>Department</label>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <select asp-for="BranchId" class="form-select">
+                            <option value="">Select Branch</option>
+                            @foreach (var branch in ViewBag.Branches)
+                            {
+                                <option value="@branch.branch_id">@branch.name</option>
+                            }
+                        </select>
+                        <label>Branch</label>
+                    </div>
+                </div>
+
+                <div class="col-12 mt-4">
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a asp-action="Index" class="btn btn-secondary">
+                            <i class="fas fa-times me-1"></i>Cancel
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save me-1"></i>Save Changes
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

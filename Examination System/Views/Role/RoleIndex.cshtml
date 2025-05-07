@@ -1,0 +1,96 @@
+﻿@model IEnumerable<Examination_System.Models.Role>
+@{
+    ViewData["Title"] = "Role Management";
+    Layout = "_AdminLayout";
+}
+
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Role Management</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">System Roles</li>
+    </ol>
+
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <i class="fas fa-shield-alt me-1"></i>
+                    Active Roles
+                </div>
+                <div>
+                    <a asp-action="Create" class="btn btn-light btn-sm">
+                        <i class="fas fa-plus"></i> Create New
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover table-striped datatable" id="rolesTable">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Role Name</th>
+                            <th>Permissions</th>
+                            <th>User Count</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var role in Model.Where(r => r.isActive))
+                        {
+                            <tr>
+                                <td>@role.RoleTitle</td>
+                                <td>
+                                    @foreach (var permission in role.Pers.Take(3))
+                                    {
+                                        <span class="badge bg-secondary me-1">@permission.PerTitle</span>
+                                    }
+                                    @if (role.Pers.Count > 3)
+                                    {
+                                        <span class="badge bg-info">+@(role.Pers.Count - 3) more</span>
+                                    }
+                                </td>
+                                <td>
+                                    <span class="badge bg-primary">@role.Users.Count</span>
+                                </td>
+                                <td>
+                                    <div class="btn-group btn-group-sm">
+                                        <a asp-action="Edit" asp-route-id="@role.RoleId"
+                                           class="btn btn-warning" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a asp-action="ManagePermissions" asp-route-id="@role.RoleId"
+                                           class="btn btn-info" title="Permissions">
+                                            <i class="fas fa-key"></i>
+                                        </a>
+                                        <a asp-action="RoleUsers" asp-route-id="@role.RoleId"
+                                           class="btn btn-secondary" title="View Users">
+                                            <i class="fas fa-users"></i>
+                                        </a>
+                                        <button class="btn btn-danger deactivate-btn"
+                                                data-id="@role.RoleId" title="Deactivate">
+                                            <i class="fas fa-ban"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            $('.deactivate-btn').click(function() {
+                const roleId = $(this).data('id');
+                if(confirm('Are you sure you want to deactivate this role?')) {
+                    window.location.href = `/Role/Deactivate/${roleId}`;
+                }
+            });
+        });
+    </script>
+}
