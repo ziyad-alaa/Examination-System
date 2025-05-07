@@ -39,6 +39,7 @@ namespace Examination_System.Controllers
         }
 
         // GET: Branch/Details/id
+        //retrieves the details of a specific branch by  ID.
         public IActionResult Details(int id)
         {
             var branch = _unit.BranchRepo.GetById(id);
