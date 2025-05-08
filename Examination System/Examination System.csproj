@@ -19,6 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
+
+    <Folder Include="Custom_Validation\" />
+
     <Folder Include="Models\Commands\" />
     <Folder Include="Services\Interfaces\" />
     <Folder Include="Utilities\Results\" />

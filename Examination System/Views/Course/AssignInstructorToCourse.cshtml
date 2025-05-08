@@ -1,0 +1,77 @@
+﻿@model Examination_System.Controllers.AssignInstructorToCourseViewModel
+
+@{
+    ViewData["Title"] = "Assign Instructor to Course";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm border-0 rounded-3">
+                <div class="card-header bg-success text-white text-center py-4">
+                    <h3 class="mb-0">@ViewData["Title"]</h3>
+                </div>
+                <div class="card-body p-4">
+                    <form asp-action="AssignInstructorToCourse" method="post">
+                        <!-- Course -->
+                        <div class="form-group mb-3">
+                            <label asp-for="crsid" class="form-label">Course</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-book"></i></span>
+                                <select asp-for="crsid" class="form-select form-select-lg" asp-items="Model.Courses">
+                                    <option value="">-- Select Course --</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Department -->
+                        <div class="form-group mb-3">
+                            <label asp-for="dept_id" class="form-label">Department</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-building"></i></span>
+                                <select asp-for="dept_id" class="form-select form-select-lg" asp-items="Model.Departments">
+                                    <option value="">-- Select Department --</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Branch -->
+                        <div class="form-group mb-3">
+                            <label asp-for="branch_id" class="form-label">Branch</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-diagram-3"></i></span>
+                                <select asp-for="branch_id" class="form-select form-select-lg" asp-items="Model.Branches">
+                                    <option value="">-- Select Branch --</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Instructor -->
+                        <div class="form-group mb-4">
+                            <label asp-for="insid" class="form-label">Instructor</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-person-badge"></i></span>
+                                <select asp-for="insid" class="form-select form-select-lg" asp-items="Model.Instructors">
+                                    <option value="">-- Select Instructor --</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-success btn-lg">
+                                <i class="bi bi-person-plus"></i> Assign Instructor
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,54 @@
+﻿@model Examination_System.Models.course
+
+@{
+    ViewData["Title"] = "Course Details";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-7">
+            <div class="card shadow-sm border-0 rounded-3">
+                <div class="card-header bg-info text-white text-center py-4">
+                    <h3 class="mb-0">Course Details</h3>
+                </div>
+                <div class="card-body p-4">
+                    <dl class="row mb-0">
+                        <!-- ID -->
+                        <dt class="col-sm-4 fw-bold">Course ID:</dt>
+                        <dd class="col-sm-8">@Model.crsid</dd>
+
+                        <!-- Course Name -->
+                        <dt class="col-sm-4 fw-bold">Course Name:</dt>
+                        <dd class="col-sm-8">@Model.crsname</dd>
+
+                        <!-- Hours -->
+                        <dt class="col-sm-4 fw-bold">Hours:</dt>
+                        <dd class="col-sm-8">@Model.hours</dd>
+
+                        <!-- Status -->
+                        <dt class="col-sm-4 fw-bold">Status:</dt>
+                        <dd class="col-sm-8">
+                            <span class="badge @(Model.isActive ? "bg-success" : "bg-danger")">
+                                @(Model.isActive ? "Active" : "Inactive")
+                            </span>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="card-footer bg-white d-flex justify-content-between pt-3 border-top-0">
+                    <a asp-action="Edit" asp-route-id="@Model.crsid" class="btn btn-warning">
+                        <i class="bi bi-pencil-square"></i> Edit
+                    </a>
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="bi bi-arrow-left-circle"></i> Back to List
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

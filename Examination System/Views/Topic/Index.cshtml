@@ -1,0 +1,130 @@
+﻿@model Examination_System.Models.View_Models.TopicViewModel.TopicIndexViewModel
+
+@{
+    ViewData["Title"] = "Topics List";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card shadow-sm border-0 rounded-3">
+                <div class="card-header bg-primary text-white text-center py-4">
+                    <h3 class="mb-0">@ViewData["Title"]</h3>
+                </div>
+                <div class="card-body p-4">
+
+                    <!-- Create New Button -->
+                    <div class="d-flex justify-content-between mb-4">
+                        <a asp-action="Create" class="btn btn-success btn-lg px-4">
+                            <i class="bi bi-plus-circle me-2"></i>Create New Topic
+                        </a>
+                    </div>
+
+                    <!-- Search Form -->
+                    <form method="get" asp-action="Index" class="mb-4">
+                        <div class="input-group input-group-lg">
+                            <input type="text" name="searchTerm" value="@Model.SearchTerm"
+                                   class="form-control rounded-start-pill" placeholder="Search by Topic Title or Course Name..." />
+                            <button class="btn btn-primary rounded-end-pill px-4" type="submit">
+                                <i class="bi bi-search"></i> Search
+                            </button>
+                        </div>
+                    </form>
+
+                    @if (!Model.Topics.Any())
+                    {
+                        <div class="alert alert-info text-center py-5">
+                            <i class="bi bi-journal-x display-4 d-block mb-3"></i>
+                            <h5>No topics found.</h5>
+                            <p>Please try changing your search criteria.</p>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle text-center">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>
+                                            <a asp-action="Index"
+                                               asp-route-searchTerm="@Model.SearchTerm"
+                                               asp-route-sortColumn="Title"
+                                               asp-route-sortDirection="@(Model.SortColumn == "Title" && Model.SortDirection == "asc" ? "desc" : "asc")"
+                                               class="text-white text-decoration-none">
+                                                Title
+                                                @if (Model.SortColumn == "Title")
+                                                {
+                                                    <i class="bi @(Model.IsSortedAscending ? "bi-arrow-up" : "bi-arrow-down") ms-1"></i>
+                                                }
+                                            </a>
+                                        </th>
+                                        <th>
+                                            <a asp-action="Index"
+                                               asp-route-searchTerm="@Model.SearchTerm"
+                                               asp-route-sortColumn="Course"
+                                               asp-route-sortDirection="@(Model.SortColumn == "Course" && Model.SortDirection == "asc" ? "desc" : "asc")"
+                                               class="text-white text-decoration-none">
+                                                Assigned Course
+                                                @if (Model.SortColumn == "Course")
+                                                {
+                                                    <i class="bi @(Model.IsSortedAscending ? "bi-arrow-up" : "bi-arrow-down") ms-1"></i>
+                                                }
+                                            </a>
+                                        </th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.Topics)
+                                    {
+                                        <tr class="align-middle">
+                                            <td>@item.title</td>
+                                            <td>@(item.crs?.crsname ?? "Not Assigned")</td>
+                                            <td>
+                                                <span class="badge @(item.isActive ? "bg-success" : "bg-secondary")">
+                                                    @(item.isActive ? "Active" : "Inactive")
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <div class="btn-group-vertical btn-group-sm" role="group">
+                                                    <a asp-action="Details" asp-route-id="@item.topicid"
+                                                       class="btn btn-outline-info mb-1">
+                                                        <i class="bi bi-eye me-1"></i>Details
+                                                    </a>
+                                                    <a asp-action="Edit" asp-route-id="@item.topicid"
+                                                       class="btn btn-outline-warning mb-1">
+                                                        <i class="bi bi-pencil-square me-1"></i>Edit
+                                                    </a>
+                                                    <a asp-action="Delete" asp-route-id="@item.topicid" class="btn btn-outline-danger btn-sm">
+                                                        <i class="bi bi-trash me-1"></i>Delete
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Pagination Controls -->
+                        <nav aria-label="Page navigation" class="mt-4">
+                            <ul class="pagination justify-content-center flex-wrap">
+                                @for (int i = 1; i <= Model.TotalPages; i++)
+                                {
+                                    <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
+                                        <a class="page-link" asp-action="Index"
+                                           asp-route-searchTerm="@Model.SearchTerm"
+                                           asp-route-sortColumn="@Model.SortColumn"
+                                           asp-route-sortDirection="@Model.SortDirection"
+                                           asp-route-page="@i">@i</a>
+                                    </li>
+                                }
+                            </ul>
+                        </nav>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
