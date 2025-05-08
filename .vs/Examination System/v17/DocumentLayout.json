@@ -3,6 +3,7 @@
   "WorkspaceRootPath": "F:\\ExamSystem\\Examination-System\\",
   "Documents": [
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|f:\\examsystem\\examination-system\\examination system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -144,6 +145,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|f:\\examsystem\\examination-system\\examination system\\models\\view_models\\examview_models\\generateexamviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\models\\view_models\\examview_models\\generateexamviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
+      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|c:\\mvcfinalisa\\examination-system\\examination system\\controllers\\branchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\controllers\\branchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> abdelrhman
     }
   ],
   "DocumentGroupContainers": [
@@ -153,6 +158,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
+<<<<<<< HEAD
           "SelectedChildIndex": 2,
           "Children": [
             {
@@ -588,6 +594,26 @@
               "ViewState": "AgIAAB4AAAAAAAAAAAA5wCsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-30T18:57:59.079Z"
+=======
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BranchController.cs",
+              "DocumentMoniker": "C:\\MVCfinalISA\\Examination-System\\Examination System\\Controllers\\BranchController.cs",
+              "RelativeDocumentMoniker": "Examination System\\Controllers\\BranchController.cs",
+              "ToolTip": "C:\\MVCfinalISA\\Examination-System\\Examination System\\Controllers\\BranchController.cs",
+              "RelativeToolTip": "Examination System\\Controllers\\BranchController.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAYwCQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-07T19:28:44.734Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{fbcae063-e2c0-4ab1-a516-996ea3dafb72}"
+>>>>>>> abdelrhman
             }
           ]
         }

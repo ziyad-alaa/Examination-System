@@ -1,26 +1,29 @@
 ﻿@model Examination_System.Models.View_Models.BranchViewModel
 
 @{
-    ViewData["Title"] = "تفاصيل الفرع";
+   ViewData["Title"] = "Branch Details";
 }
 
-<h2>تفاصيل الفرع</h2>
+<h2>Branch Details</h2>
 
-<div>
-    <h4>@Model.Name</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">الاسم</dt>
-        <dd class="col-sm-10">@Model.Name</dd>
-        <dt class="col-sm-2">الموقع</dt>
-        <dd class="col-sm-10">@Model.Location</dd>
-        <dt class="col-sm-2">المدير</dt>
-        <dd class="col-sm-10">@Model.ManagerName</dd>
-        <dt class="col-sm-2">الحالة</dt>
-        <dd class="col-sm-10">@(Model.IsActive ? "نشط" : "غير نشط")</dd>
-    </dl>
+<div class="card">
+   <div class="card-header bg-primary text-white">
+       <h4>@Model.Name</h4>
+   </div>
+   <div class="card-body">
+       <dl class="row">
+           <dt class="col-sm-3 font-weight-bold">Name</dt>
+           <dd class="col-sm-9">@Model.Name</dd>
+           <dt class="col-sm-3 font-weight-bold">Location</dt>
+           <dd class="col-sm-9">@Model.Location</dd>
+           <dt class="col-sm-3 font-weight-bold">Manager</dt>
+           <dd class="col-sm-9">@Model.ManagerName</dd>
+           <dt class="col-sm-3 font-weight-bold">Status</dt>
+           <dd class="col-sm-9">@(Model.IsActive ? "Active" : "Inactive")</dd>
+       </dl>
+   </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.BranchId" class="btn btn-warning">تعديل</a>
-    <a asp-action="Index" class="btn btn-secondary">رجوع للقائمة</a>
+<div class="mt-3">
+   <a asp-action="Edit" asp-route-id="@Model.BranchId" class="btn btn-warning">Edit</a>
+   <a asp-action="Index" class="btn btn-secondary">Back to List</a>
 </div>

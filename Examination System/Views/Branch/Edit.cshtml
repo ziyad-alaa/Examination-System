@@ -1,42 +1,42 @@
 ﻿@model Examination_System.Models.View_Models.BranchViewModel
 
 @{
-    ViewData["Title"] = "تعديل فرع";
+   ViewData["Title"] = "Edit Branch";
 }
 
-<h2>تعديل فرع</h2>
+<h2>Edit Branch</h2>
 
 <form asp-action="Edit">
-    <div asp-validation-summary="All" class="text-danger"></div>
-    <input type="hidden" asp-for="BranchId" />
-    <div class="form-group">
-        <label asp-for="Name" class="control-label">اسم الفرع</label>
-        <input asp-for="Name" class="form-control" />
-        <span asp-validation-for="Name" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Location" class="control-label">الموقع</label>
-        <input asp-for="Location" class="form-control" />
-        <span asp-validation-for="Location" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="ManagerId" class="control-label">المدير</label>
-        <select asp-for="ManagerId" class="form-control" asp-items="Model.Instructors">
-            <option value="">اختر مدير</option>
-        </select>
-        <span asp-validation-for="ManagerId" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="IsActive" class="control-label">نشط</label>
-        <input asp-for="IsActive" type="checkbox" class="form-check-input" />
-        <span asp-validation-for="IsActive" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <input type="submit" value="حفظ" class="btn btn-primary" />
-        <a asp-action="Index" class="btn btn-secondary">رجوع</a>
-    </div>
+   <div asp-validation-summary="All" class="text-danger"></div>
+   <input type="hidden" asp-for="BranchId" />
+   <div class="form-group">
+       <label asp-for="Name" class="control-label">Branch Name</label>
+       <input asp-for="Name" class="form-control" placeholder="Enter branch name" />
+       <span asp-validation-for="Name" class="text-danger"></span>
+   </div>
+   <div class="form-group">
+       <label asp-for="Location" class="control-label">Location</label>
+       <input asp-for="Location" class="form-control" placeholder="Enter location" />
+       <span asp-validation-for="Location" class="text-danger"></span>
+   </div>
+   <div class="form-group">
+       <label asp-for="ManagerId" class="control-label">Manager</label>
+       <select asp-for="ManagerId" class="form-control" asp-items="Model.Instructors">
+           <option value="">Select a manager</option>
+       </select>
+       <span asp-validation-for="ManagerId" class="text-danger"></span>
+   </div>
+   <div class="form-group form-check">
+       <input asp-for="IsActive" type="checkbox" class="form-check-input" />
+       <label asp-for="IsActive" class="form-check-label">Active</label>
+       <span asp-validation-for="IsActive" class="text-danger"></span>
+   </div>
+   <div class="form-group">
+       <input type="submit" value="Save" class="btn btn-primary" />
+       <a asp-action="Index" class="btn btn-secondary">Back</a>
+   </div>
 </form>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+   @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

@@ -44,7 +44,7 @@ namespace Examination_System.Controllers
             return View(departmentViewModels);
         }
 
-        // GET: Department/Details/5
+        // GET: Department/Details/id
         public IActionResult Details(int id)
         {
             var department = _unit.DepartmentRepo.GetById(id);
@@ -86,7 +86,7 @@ namespace Examination_System.Controllers
             {
                 Branches = branches,
                 IsActive = true,
-                Instructors = new List<SelectListItem>() // Empty initially
+                Instructors = new List<SelectListItem>() 
             };
 
             return View(departmentViewModel);
@@ -97,13 +97,11 @@ namespace Examination_System.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(DepartmentViewModel departmentViewModel)
         {
-            // Check for duplicate department name
-            if (_unit._dbContext.Departments.Any(d => d.name == departmentViewModel.Name && d.isActive))
-            {
-                ModelState.AddModelError("Name", "Department name already exists");
-            }
+            //if (_unit._dbContext.Departments.Any(d => d.name == departmentViewModel.Name && d.isActive))
+            //{
+            //    ModelState.AddModelError("Name", "Department name already exists");
+            //}
 
-            // Check for duplicate department in the same branch
             if (_unit._dbContext.branch_depts.Any(bd => bd.dept_id == departmentViewModel.DepartmentId && bd.branch_id == departmentViewModel.BranchId && bd.isActive))
             {
                 ModelState.AddModelError("BranchId", "Department already exists in this branch");
@@ -117,7 +115,6 @@ namespace Examination_System.Controllers
                     isActive = true
                 };
 
-                // Validate ManagerId (must be an instructor in the selected branch)
                 if (departmentViewModel.ManagerId.HasValue)
                 {
                     var instructor = _unit._dbContext.Instructors
@@ -133,11 +130,9 @@ namespace Examination_System.Controllers
                 {
                     try
                     {
-                        // Create Department
                         _unit.DepartmentRepo.Create(department);
                         _unit.Save();
 
-                        // Create Branch_Dept link
                         var branchDept = new Branch_Dept
                         {
                             branch_id = departmentViewModel.BranchId,
@@ -158,7 +153,6 @@ namespace Examination_System.Controllers
                 }
             }
 
-            // Reload dropdowns in case of error
             departmentViewModel.Branches = _unit._dbContext.Branches
                 .Where(b => b.isActive)
                 .Select(b => new SelectListItem
@@ -179,7 +173,7 @@ namespace Examination_System.Controllers
             return View(departmentViewModel);
         }
 
-        // GET: Department/Edit/5
+        // GET: Department/Edit/id
         public IActionResult Edit(int id)
         {
             var department = _unit.DepartmentRepo.GetById(id);
@@ -220,7 +214,7 @@ namespace Examination_System.Controllers
             return View(departmentViewModel);
         }
 
-        // POST: Department/Edit/5
+        // POST: Department/Edit/id
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(int id, DepartmentViewModel departmentViewModel)
@@ -228,13 +222,11 @@ namespace Examination_System.Controllers
             if (id != departmentViewModel.DepartmentId)
                 return BadRequest();
 
-            // Check for duplicate department name
             if (_unit._dbContext.Departments.Any(d => d.name == departmentViewModel.Name && d.isActive && d.dept_id != id))
             {
                 ModelState.AddModelError("Name", "Department name already exists");
             }
 
-            // Check for duplicate department in the same branch
             if (_unit._dbContext.branch_depts.Any(bd => bd.dept_id != id && bd.branch_id == departmentViewModel.BranchId && bd.isActive))
             {
                 ModelState.AddModelError("BranchId", "Department already exists in this branch");
@@ -249,7 +241,6 @@ namespace Examination_System.Controllers
                     isActive = departmentViewModel.IsActive
                 };
 
-                // Validate ManagerId
                 if (departmentViewModel.ManagerId.HasValue)
                 {
                     var instructor = _unit._dbContext.Instructors
@@ -265,11 +256,9 @@ namespace Examination_System.Controllers
                 {
                     try
                     {
-                        // Update Department
                         _unit.DepartmentRepo.Update(id, department);
                         _unit.Save();
 
-                        // Update or create Branch_Dept
                         var branchDept = _unit._dbContext.branch_depts
                             .FirstOrDefault(bd => bd.dept_id == id && bd.isActive);
                         if (branchDept != null)
@@ -301,7 +290,6 @@ namespace Examination_System.Controllers
                 }
             }
 
-            // Reload dropdowns
             departmentViewModel.Branches = _unit._dbContext.Branches
                 .Where(b => b.isActive)
                 .Select(b => new SelectListItem
@@ -322,7 +310,7 @@ namespace Examination_System.Controllers
             return View(departmentViewModel);
         }
 
-        // GET: Department/Delete/5
+        // GET: Department/Delete/id
         public IActionResult Delete(int id)
         {
             var department = _unit.DepartmentRepo.GetById(id);
@@ -349,7 +337,7 @@ namespace Examination_System.Controllers
             return View(departmentViewModel);
         }
 
-        // POST: Department/Delete/5
+        // POST: Department/Delete/id
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)

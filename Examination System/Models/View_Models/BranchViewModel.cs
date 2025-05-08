@@ -15,9 +15,9 @@ namespace Examination_System.Models.View_Models
         [StringLength(255)]
         public string Location { get; set; }
 
-        public int? ManagerId { get; set; } // Nullable لأنه اختياري
+        public int? ManagerId { get; set; }
         public string? ManagerName { get; set; }
-        public IEnumerable<SelectListItem>? Instructors { get; set; } // لعرض المدربين في القائمة المنسدلة
+        public IEnumerable<SelectListItem>? Instructors { get; set; } 
 
         public bool IsActive { get; set; }
     }
