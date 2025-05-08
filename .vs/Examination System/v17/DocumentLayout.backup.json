@@ -190,8 +190,7 @@
               "RelativeToolTip": "Examination System\\Migrations\\Exam_sysContextModelSnapshot.cs",
               "ViewState": "AgIAABEBAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-04T20:52:22.754Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-04T20:52:22.754Z"
             },
             {
               "$type": "Document",
@@ -203,8 +202,7 @@
               "RelativeToolTip": "Examination System\\Program.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAQwBEAAACKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-04T15:26:45.48Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-04T15:26:45.48Z"
             },
             {
               "$type": "Document",
@@ -212,9 +210,9 @@
               "Title": "UnitOfWork.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Data\\UnitOfWorks\\UnitOfWork.cs",
               "RelativeDocumentMoniker": "Examination System\\Data\\UnitOfWorks\\UnitOfWork.cs",
-              "ToolTip": "F:\\ExamSystem\\Examination-System\\Examination System\\Data\\UnitOfWorks\\UnitOfWork.cs*",
-              "RelativeToolTip": "Examination System\\Data\\UnitOfWorks\\UnitOfWork.cs*",
-              "ViewState": "AgIAAAoAAAAAAAAAAAA1wBMAAAALAAAAAAAAAA==",
+              "ToolTip": "F:\\ExamSystem\\Examination-System\\Examination System\\Data\\UnitOfWorks\\UnitOfWork.cs",
+              "RelativeToolTip": "Examination System\\Data\\UnitOfWorks\\UnitOfWork.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAmwCwAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-04T16:24:22.597Z",
               "EditorCaption": ""
