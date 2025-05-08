@@ -1,0 +1,62 @@
+﻿@model Examination_System.Models.Role
+@{
+    ViewData["Title"] = "Role Details";
+    Layout = "_AdminLayout";
+}
+
+<div class="container-fluid px-4">
+    <div class="card mb-4">
+        <div class="card-header bg-info text-white">
+            <i class="fas fa-info-circle me-1"></i>
+            Role Details: @Model.RoleTitle
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <dl class="row">
+                        <dt class="col-sm-4">Role ID:</dt>
+                        <dd class="col-sm-8">@Model.RoleId</dd>
+
+                        <dt class="col-sm-4">Status:</dt>
+                        <dd class="col-sm-8">
+                            <span class="badge @(Model.isActive ? "bg-success" : "bg-danger")">
+                                @(Model.isActive ? "Active" : "Inactive")
+                            </span>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="col-md-6">
+                    <h5>Permissions</h5>
+                    @if (Model.Pers.Any())
+                    {
+                        <div class="d-flex flex-wrap gap-2">
+                            @foreach (var permission in Model.Pers)
+                            {
+                                <span class="badge bg-secondary">@permission.PerTitle</span>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <p class="text-muted">No permissions assigned</p>
+                    }
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <a asp-action="Edit" asp-route-id="@Model.RoleId" class="btn btn-warning">
+                    <i class="fas fa-edit me-1"></i> Edit
+                </a>
+                <a asp-action="ManagePermissions" asp-route-id="@Model.RoleId" class="btn btn-info">
+                    <i class="fas fa-key me-1"></i> Manage Permissions
+                </a>
+                <a asp-action="RoleUsers" asp-route-id="@Model.RoleId" class="btn btn-secondary">
+                    <i class="fas fa-users me-1"></i> View Users
+                </a>
+                <a asp-action="Index" class="btn btn-primary float-end">
+                    <i class="fas fa-arrow-left me-1"></i> Back to List
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
