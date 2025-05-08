@@ -3,17 +3,20 @@
   "WorkspaceRootPath": "F:\\ExamSystem\\Examination-System\\",
   "Documents": [
     {
-<<<<<<< HEAD
+      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|f:\\examsystem\\examination-system\\examination system\\models\\models\\exam_syscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\models\\models\\exam_syscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|f:\\examsystem\\examination-system\\examination system\\controllers\\departmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\controllers\\departmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|f:\\examsystem\\examination-system\\examination system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|f:\\examsystem\\examination-system\\examination system\\global using.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\global using.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|f:\\examsystem\\examination-system\\examination system\\migrations\\exam_syscontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\migrations\\exam_syscontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|f:\\examsystem\\examination-system\\examination system\\data\\unitofworks\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -26,10 +29,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|f:\\examsystem\\examination-system\\examination system\\models\\view_models\\studentview_models\\studentcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\models\\view_models\\studentview_models\\studentcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|f:\\examsystem\\examination-system\\examination system\\controllers\\departmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\controllers\\departmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|f:\\examsystem\\examination-system\\examination system\\controllers\\studentapprovecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -107,10 +106,6 @@
       "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\models\\models\\branch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|f:\\examsystem\\examination-system\\examination system\\models\\models\\exam_syscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\models\\models\\exam_syscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|f:\\examsystem\\examination-system\\examination system\\models\\models\\branch_dept.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\models\\models\\branch_dept.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -145,10 +140,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|f:\\examsystem\\examination-system\\examination system\\models\\view_models\\examview_models\\generateexamviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\models\\view_models\\examview_models\\generateexamviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-=======
-      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|c:\\mvcfinalisa\\examination-system\\examination system\\controllers\\branchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\controllers\\branchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
->>>>>>> abdelrhman
     }
   ],
   "DocumentGroupContainers": [
@@ -158,44 +149,31 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-<<<<<<< HEAD
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 0,
               "Title": "Exam_sysContext.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Models\\Models\\Exam_sysContext.cs",
               "RelativeDocumentMoniker": "Examination System\\Models\\Models\\Exam_sysContext.cs",
               "ToolTip": "F:\\ExamSystem\\Examination-System\\Examination System\\Models\\Models\\Exam_sysContext.cs",
               "RelativeToolTip": "Examination System\\Models\\Models\\Exam_sysContext.cs",
-              "ViewState": "AgIAACwBAAAAAAAAAAAQwC0BAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAMBAAAAAAAAAAAIwA4AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-29T17:51:56.041Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Exam_sysContextModelSnapshot.cs",
-              "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Migrations\\Exam_sysContextModelSnapshot.cs",
-              "RelativeDocumentMoniker": "Examination System\\Migrations\\Exam_sysContextModelSnapshot.cs",
-              "ToolTip": "F:\\ExamSystem\\Examination-System\\Examination System\\Migrations\\Exam_sysContextModelSnapshot.cs",
-              "RelativeToolTip": "Examination System\\Migrations\\Exam_sysContextModelSnapshot.cs",
-              "ViewState": "AgIAALQDAAAAAAAAAADgv70DAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-04T20:52:22.754Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Program.cs",
               "RelativeDocumentMoniker": "Examination System\\Program.cs",
               "ToolTip": "F:\\ExamSystem\\Examination-System\\Examination System\\Program.cs",
               "RelativeToolTip": "Examination System\\Program.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAAABEAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAADcAAAAAAAAAAAAcwD4AAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-04T15:26:45.48Z",
               "EditorCaption": ""
@@ -203,19 +181,31 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "UnitOfWork.cs",
-              "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Data\\UnitOfWorks\\UnitOfWork.cs",
-              "RelativeDocumentMoniker": "Examination System\\Data\\UnitOfWorks\\UnitOfWork.cs",
-              "ToolTip": "F:\\ExamSystem\\Examination-System\\Examination System\\Data\\UnitOfWorks\\UnitOfWork.cs",
-              "RelativeToolTip": "Examination System\\Data\\UnitOfWorks\\UnitOfWork.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAmwCwAAAALAAAAAAAAAA==",
+              "Title": "Global USing.cs",
+              "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Global USing.cs",
+              "RelativeDocumentMoniker": "Examination System\\Global USing.cs",
+              "ToolTip": "F:\\ExamSystem\\Examination-System\\Examination System\\Global USing.cs",
+              "RelativeToolTip": "Examination System\\Global USing.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-04T16:24:22.597Z",
+              "WhenOpened": "2025-05-04T15:12:14.511Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DepartmentController.cs",
+              "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Controllers\\DepartmentController.cs",
+              "RelativeDocumentMoniker": "Examination System\\Controllers\\DepartmentController.cs",
+              "ToolTip": "F:\\ExamSystem\\Examination-System\\Examination System\\Controllers\\DepartmentController.cs",
+              "RelativeToolTip": "Examination System\\Controllers\\DepartmentController.cs",
+              "ViewState": "AgIAALsAAAAAAAAAAAAiwMEAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T22:07:26.525Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "UniqueEmailAttribute.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Custom_Validation\\StudentFilter\\UniqueEmailAttribute.cs",
               "RelativeDocumentMoniker": "Examination System\\Custom_Validation\\StudentFilter\\UniqueEmailAttribute.cs",
@@ -227,20 +217,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Global USing.cs",
-              "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Global USing.cs",
-              "RelativeDocumentMoniker": "Examination System\\Global USing.cs",
-              "ToolTip": "F:\\ExamSystem\\Examination-System\\Examination System\\Global USing.cs",
-              "RelativeToolTip": "Examination System\\Global USing.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAtAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "UnitOfWork.cs",
+              "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Data\\UnitOfWorks\\UnitOfWork.cs",
+              "RelativeDocumentMoniker": "Examination System\\Data\\UnitOfWorks\\UnitOfWork.cs",
+              "ToolTip": "F:\\ExamSystem\\Examination-System\\Examination System\\Data\\UnitOfWorks\\UnitOfWork.cs",
+              "RelativeToolTip": "Examination System\\Data\\UnitOfWorks\\UnitOfWork.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAmwCwAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-04T15:12:14.511Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-04T16:24:22.597Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "studentcreate.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Models\\View_Models\\StudentView_Models\\studentcreate.cs",
               "RelativeDocumentMoniker": "Examination System\\Models\\View_Models\\StudentView_Models\\studentcreate.cs",
@@ -249,18 +238,6 @@
               "ViewState": "AgIAABQAAAAAAAAAAAAQwBsAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-04T15:30:23.337Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "DepartmentController.cs",
-              "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Controllers\\DepartmentController.cs",
-              "RelativeDocumentMoniker": "Examination System\\Controllers\\DepartmentController.cs",
-              "ToolTip": "F:\\ExamSystem\\Examination-System\\Examination System\\Controllers\\DepartmentController.cs",
-              "RelativeToolTip": "Examination System\\Controllers\\DepartmentController.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAowBgAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T22:07:26.525Z"
             },
             {
               "$type": "Document",
@@ -490,7 +467,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 26,
               "Title": "Branch_Dept.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Models\\Models\\Branch_Dept.cs",
               "RelativeDocumentMoniker": "Examination System\\Models\\Models\\Branch_Dept.cs",
@@ -502,7 +479,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 27,
               "Title": "20250504194824_add-database2.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Migrations\\20250504194824_add-database2.cs",
               "RelativeDocumentMoniker": "Examination System\\Migrations\\20250504194824_add-database2.cs",
@@ -513,7 +490,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 28,
               "Title": "20250504195142_add-database.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Migrations\\20250504195142_add-database.cs",
               "RelativeDocumentMoniker": "Examination System\\Migrations\\20250504195142_add-database.cs",
@@ -525,7 +502,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 30,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\appsettings.Development.json",
               "RelativeDocumentMoniker": "Examination System\\appsettings.Development.json",
@@ -537,7 +514,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 29,
               "Title": "MappingConfig.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\MapConfig\\MappingConfig.cs",
               "RelativeDocumentMoniker": "Examination System\\MapConfig\\MappingConfig.cs",
@@ -549,7 +526,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 31,
               "Title": "20250504165558_add-database.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Migrations\\20250504165558_add-database.cs",
               "RelativeDocumentMoniker": "Examination System\\Migrations\\20250504165558_add-database.cs",
@@ -561,7 +538,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 32,
               "Title": "Comment.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Models\\Models\\Comment.cs",
               "RelativeDocumentMoniker": "Examination System\\Models\\Models\\Comment.cs",
@@ -573,7 +550,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 33,
               "Title": "Examination System.csproj",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Examination System.csproj",
               "RelativeDocumentMoniker": "Examination System\\Examination System.csproj",
@@ -585,7 +562,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 34,
               "Title": "generateExamViewModel.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Models\\View_Models\\ExamView_Models\\generateExamViewModel.cs",
               "RelativeDocumentMoniker": "Examination System\\Models\\View_Models\\ExamView_Models\\generateExamViewModel.cs",
@@ -594,26 +571,6 @@
               "ViewState": "AgIAAB4AAAAAAAAAAAA5wCsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-30T18:57:59.079Z"
-=======
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "BranchController.cs",
-              "DocumentMoniker": "C:\\MVCfinalISA\\Examination-System\\Examination System\\Controllers\\BranchController.cs",
-              "RelativeDocumentMoniker": "Examination System\\Controllers\\BranchController.cs",
-              "ToolTip": "C:\\MVCfinalISA\\Examination-System\\Examination System\\Controllers\\BranchController.cs",
-              "RelativeToolTip": "Examination System\\Controllers\\BranchController.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAYwCQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-07T19:28:44.734Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{fbcae063-e2c0-4ab1-a516-996ea3dafb72}"
->>>>>>> abdelrhman
             }
           ]
         }
