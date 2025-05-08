@@ -56,7 +56,6 @@ public partial class Exam_sysContext : DbContext
     public virtual DbSet<Branch_Dept> branch_depts { get; set; }
 
 
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Branch>(entity =>

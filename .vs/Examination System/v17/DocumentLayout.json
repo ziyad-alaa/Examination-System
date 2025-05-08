@@ -1,5 +1,6 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "WorkspaceRootPath": "F:\\ExamSystem\\Examination-System\\",
   "Documents": [
     {
@@ -140,6 +141,21 @@
     {
       "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|f:\\examsystem\\examination-system\\examination system\\models\\view_models\\examview_models\\generateexamviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\models\\view_models\\examview_models\\generateexamviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
+  "WorkspaceRootPath": "D:\\Backup\\MVC2\\mvc\\Examination-System\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|d:\\backup\\mvc2\\mvc\\examination-system\\examination system\\views\\shared\\mainpagehome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\views\\shared\\mainpagehome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|d:\\backup\\mvc2\\mvc\\examination-system\\examination system\\views\\course\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\views\\course\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|d:\\backup\\mvc2\\mvc\\examination-system\\examination system\\controllers\\coursecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\controllers\\coursecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> ehab
     }
   ],
   "DocumentGroupContainers": [
@@ -149,10 +165,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 0,
               "Title": "Exam_sysContext.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Models\\Models\\Exam_sysContext.cs",
@@ -163,10 +180,22 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-29T17:51:56.041Z",
               "IsPinned": true,
+=======
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Backup\\MVC2\\mvc\\Examination-System\\Examination System\\Views\\Course\\Index.cshtml",
+              "RelativeDocumentMoniker": "Examination System\\Views\\Course\\Index.cshtml",
+              "ToolTip": "D:\\Backup\\MVC2\\mvc\\Examination-System\\Examination System\\Views\\Course\\Index.cshtml",
+              "RelativeToolTip": "Examination System\\Views\\Course\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-07T20:59:25.633Z",
+>>>>>>> ehab
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Program.cs",
@@ -176,10 +205,22 @@
               "ViewState": "AgIAADcAAAAAAAAAAAAcwD4AAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-04T15:26:45.48Z",
+=======
+              "DocumentIndex": 0,
+              "Title": "MainPageHome.cshtml",
+              "DocumentMoniker": "D:\\Backup\\MVC2\\mvc\\Examination-System\\Examination System\\Views\\Shared\\MainPageHome.cshtml",
+              "RelativeDocumentMoniker": "Examination System\\Views\\Shared\\MainPageHome.cshtml",
+              "ToolTip": "D:\\Backup\\MVC2\\mvc\\Examination-System\\Examination System\\Views\\Shared\\MainPageHome.cshtml",
+              "RelativeToolTip": "Examination System\\Views\\Shared\\MainPageHome.cshtml",
+              "ViewState": "AgIAACcAAAAAAAAAAAAUwDcAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-07T20:57:25.223Z",
+>>>>>>> ehab
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 3,
               "Title": "Global USing.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Global USing.cs",
@@ -571,6 +612,18 @@
               "ViewState": "AgIAAB4AAAAAAAAAAAA5wCsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-30T18:57:59.079Z"
+=======
+              "DocumentIndex": 2,
+              "Title": "CourseController.cs",
+              "DocumentMoniker": "D:\\Backup\\MVC2\\mvc\\Examination-System\\Examination System\\Controllers\\CourseController.cs",
+              "RelativeDocumentMoniker": "Examination System\\Controllers\\CourseController.cs",
+              "ToolTip": "D:\\Backup\\MVC2\\mvc\\Examination-System\\Examination System\\Controllers\\CourseController.cs",
+              "RelativeToolTip": "Examination System\\Controllers\\CourseController.cs",
+              "ViewState": "AgIAACwBAAAAAAAAAAAQwDMBAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T18:49:23.653Z",
+              "EditorCaption": ""
+>>>>>>> ehab
             }
           ]
         }

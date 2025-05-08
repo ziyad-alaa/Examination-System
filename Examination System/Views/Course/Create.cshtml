@@ -1,0 +1,59 @@
+﻿@model Examination_System.Models.course
+
+@{
+    ViewData["Title"] = "Add New Course";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm border-0 rounded-3">
+                <div class="card-header bg-primary text-white text-center py-4">
+                    <h3 class="mb-0">Add New Course</h3>
+                </div>
+                <div class="card-body p-4">
+                    <form asp-action="Create" method="post">
+                        <!-- Course Name -->
+                        <div class="form-group mb-3">
+                            <label asp-for="crsname" class="form-label"></label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-book-fill"></i></span>
+                                <input asp-for="crsname" class="form-control form-control-lg" placeholder="Enter course name" />
+                            </div>
+                            <span asp-validation-for="crsname" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Hours -->
+                        <div class="form-group mb-3">
+                            <label asp-for="hours" class="form-label"></label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-clock-fill"></i></span>
+                                <input asp-for="hours" class="form-control form-control-lg" placeholder="Enter hours" />
+                            </div>
+                            <span asp-validation-for="hours" class="text-danger small"></span>
+                        </div>
+
+                        <!-- isActive is hidden field -->
+                        <input type="hidden" asp-for="isActive" value="true" />
+
+                        <!-- Submit Buttons -->
+                        <div class="d-grid gap-2 d-md-flex justify-content-between mt-4">
+                            <button type="submit" class="btn btn-success btn-lg px-4">
+                                <i class="bi bi-save"></i> Save Course
+                            </button>
+                            <a asp-action="Index" class="btn btn-outline-secondary btn-lg px-4">
+                                <i class="bi bi-arrow-left-circle"></i> Cancel
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
