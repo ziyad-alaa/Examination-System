@@ -1,0 +1,217 @@
+﻿@model Examination_System.Models.View_Models.InstructorViewModel.InstructorListViewModel
+
+@{
+    ViewData["Title"] = "Instructor List - Full Information";
+}
+
+
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card shadow-sm border-0 rounded-3">
+                <div class="card-header bg-gradient text-white py-4 text-center">
+                    <h3 class="mb-0">@ViewData["Title"]</h3>
+                </div>
+
+                <div class="card-body p-4">
+
+                    <!-- Add New Instructor -->
+                    <div class="d-flex justify-content-between mb-4">
+                        <a asp-action="Create" class="btn btn-success btn-lg px-4">
+                            <i class="bi bi-person-plus-fill me-2"></i>Add New Instructor
+                        </a>
+                    </div>
+
+                    <!-- Search Form -->
+                    <form method="get" asp-action="Index" class="mb-4">
+                        <div class="input-group input-group-lg">
+                            <input type="text" name="searchTerm" value="@Model.SearchTerm"
+                                   class="form-control rounded-start-pill" placeholder="Search by Name, Department, Branch, Email or Phone..." />
+                            <button class="btn btn-primary rounded-end-pill px-4" type="submit">
+                                <i class="bi bi-search"></i> Search
+                            </button>
+                        </div>
+                    </form>
+
+                    @if (!Model.Instructors.Any())
+                    {
+                        <div class="alert alert-info text-center py-5">
+                            <i class="bi bi-person-x display-4 d-block mb-3"></i>
+                            <h5>No instructors found.</h5>
+                            <p>Please try changing your search criteria.</p>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle text-center">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>
+                                            <a asp-action="Index"
+                                               asp-route-searchTerm="@Model.SearchTerm"
+                                               asp-route-sortColumn="Name"
+                                               asp-route-sortDirection="@(Model.SortColumn == "Name" && Model.SortDirection == "asc" ? "desc" : "asc")"
+                                               class="text-white text-decoration-none">
+                                                Name
+                                                @if (Model.SortColumn == "Name")
+                                                {
+                                                    <i class="bi @(Model.IsSortedAscending ? "bi-arrow-up" : "bi-arrow-down") ms-1"></i>
+                                                }
+                                            </a>
+                                        </th>
+                                        <th>
+                                            <a asp-action="Index"
+                                               asp-route-searchTerm="@Model.SearchTerm"
+                                               asp-route-sortColumn="Department"
+                                               asp-route-sortDirection="@(Model.SortColumn == "Department" && Model.SortDirection == "asc" ? "desc" : "asc")"
+                                               class="text-white text-decoration-none">
+                                                Department
+                                                @if (Model.SortColumn == "Department")
+                                                {
+                                                    <i class="bi @(Model.IsSortedAscending ? "bi-arrow-up" : "bi-arrow-down") ms-1"></i>
+                                                }
+                                            </a>
+                                        </th>
+                                        <th>
+                                            <a asp-action="Index"
+                                               asp-route-searchTerm="@Model.SearchTerm"
+                                               asp-route-sortColumn="Branch"
+                                               asp-route-sortDirection="@(Model.SortColumn == "Branch" && Model.SortDirection == "asc" ? "desc" : "asc")"
+                                               class="text-white text-decoration-none">
+                                                Branch
+                                                @if (Model.SortColumn == "Branch")
+                                                {
+                                                    <i class="bi @(Model.IsSortedAscending ? "bi-arrow-up" : "bi-arrow-down") ms-1"></i>
+                                                }
+                                            </a>
+                                        </th>
+                                        <th>
+                                            <a asp-action="Index"
+                                               asp-route-searchTerm="@Model.SearchTerm"
+                                               asp-route-sortColumn="Email"
+                                               asp-route-sortDirection="@(Model.SortColumn == "Email" && Model.SortDirection == "asc" ? "desc" : "asc")"
+                                               class="text-white text-decoration-none">
+                                                Email
+                                                @if (Model.SortColumn == "Email")
+                                                {
+                                                    <i class="bi @(Model.IsSortedAscending ? "bi-arrow-up" : "bi-arrow-down") ms-1"></i>
+                                                }
+                                            </a>
+                                        </th>
+                                        <th>
+                                            <a asp-action="Index"
+                                               asp-route-searchTerm="@Model.SearchTerm"
+                                               asp-route-sortColumn="Phone"
+                                               asp-route-sortDirection="@(Model.SortColumn == "Phone" && Model.SortDirection == "asc" ? "desc" : "asc")"
+                                               class="text-white text-decoration-none">
+                                                Phone
+                                                @if (Model.SortColumn == "Phone")
+                                                {
+                                                    <i class="bi @(Model.IsSortedAscending ? "bi-arrow-up" : "bi-arrow-down") ms-1"></i>
+                                                }
+                                            </a>
+                                        </th>
+                                        <th>
+                                            <a asp-action="Index"
+                                               asp-route-searchTerm="@Model.SearchTerm"
+                                               asp-route-sortColumn="JobTitle"
+                                               asp-route-sortDirection="@(Model.SortColumn == "JobTitle" && Model.SortDirection == "asc" ? "desc" : "asc")"
+                                               class="text-white text-decoration-none">
+                                                Job Title
+                                                @if (Model.SortColumn == "JobTitle")
+                                                {
+                                                    <i class="bi @(Model.IsSortedAscending ? "bi-arrow-up" : "bi-arrow-down") ms-1"></i>
+                                                }
+                                            </a>
+                                        </th>
+                                        <th>
+                                            <a asp-action="Index"
+                                               asp-route-searchTerm="@Model.SearchTerm"
+                                               asp-route-sortColumn="Salary"
+                                               asp-route-sortDirection="@(Model.SortColumn == "Salary" && Model.SortDirection == "asc" ? "desc" : "asc")"
+                                               class="text-white text-decoration-none">
+                                                Salary
+                                                @if (Model.SortColumn == "Salary")
+                                                {
+                                                    <i class="bi @(Model.IsSortedAscending ? "bi-arrow-up" : "bi-arrow-down") ms-1"></i>
+                                                }
+                                            </a>
+                                        </th>
+                                        <th>User Status</th>
+                                        <th>Instructor Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.Instructors)
+                                    {
+                                        <tr class="align-middle">
+                                            <td>@item.Name</td>
+                                            <td>@item.DeptName</td>
+                                            <td>@item.BranchName</td>
+                                            <td>@item.Email</td>
+                                            <td>@item.Phone</td>
+                                            <td>@item.JobTitle</td>
+                                            <td><span class="badge bg-primary">@item.Salary.ToString("C")</span></td>
+                                            <td>
+                                                <span class="badge @(item.UserIsActive ? "bg-success" : "bg-secondary")">
+                                                    @(item.UserIsActive ? "Active" : "Inactive")
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span class="badge @(item.InstructorIsActive ? "bg-success" : "bg-secondary")">
+                                                    @(item.InstructorIsActive ? "Active" : "Inactive")
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <div class="btn-group-vertical btn-group-sm" role="group">
+                                                    <a asp-action="Details" asp-route-id="@item.InstructorId"
+                                                       class="btn btn-outline-info mb-1">
+                                                        <i class="bi bi-eye me-1"></i>Details
+                                                    </a>
+                                                    <a asp-action="Edit" asp-route-id="@item.InstructorId"
+                                                       class="btn btn-outline-warning mb-1">
+                                                        <i class="bi bi-pencil-square me-1"></i>Edit
+                                                    </a>
+                                                    @* <form asp-action="Delete" asp-route-id="@item.InstructorId" method="post" *@
+                                                    @*       onsubmit="return confirm('Are you sure you want to deactivate the instructor?');" *@
+                                                    @*       class="d-inline"> *@
+                                                    @*     <button type="submit" class="btn btn-outline-danger"> *@
+                                                    @*         <i class="bi bi-trash me-1"></i>Deactivate *@
+                                                    @*     </button> *@
+                                                    @* </form> *@
+                                                    <a asp-action="Delete" asp-route-id="@item.InstructorId" class="btn btn-outline-danger btn-sm">
+                                                        <i class="bi bi-trash me-1"></i>Delete
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Pagination Controls -->
+                        <nav aria-label="Page navigation" class="mt-4">
+                            <ul class="pagination justify-content-center flex-wrap">
+                                @for (int i = 1; i <= Model.TotalPages; i++)
+                                {
+                                    <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
+                                        <a class="page-link" asp-action="Index"
+                                           asp-route-searchTerm="@Model.SearchTerm"
+                                           asp-route-sortColumn="@Model.SortColumn"
+                                           asp-route-sortDirection="@Model.SortDirection"
+                                           asp-route-page="@i">@i</a>
+                                    </li>
+                                }
+                            </ul>
+                        </nav>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

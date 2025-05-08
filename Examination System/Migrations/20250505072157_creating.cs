@@ -1,12 +1,13 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
+
 #nullable disable
 
 namespace Examination_System.Migrations
 {
     /// <inheritdoc />
-    public partial class createDatabase : Migration
+    public partial class creating : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

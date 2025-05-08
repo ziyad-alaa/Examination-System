@@ -1,0 +1,62 @@
+﻿@model Examination_System.Models.course
+
+@{
+    ViewData["Title"] = "Edit Course";
+
+    // Set up options for course status (Active/Inactive)
+    var activeOptions = new List<SelectListItem>
+    {
+        new SelectListItem { Value = "true", Text = "Active", Selected = Model.isActive },
+        new SelectListItem { Value = "false", Text = "Inactive", Selected = !Model.isActive }
+    };
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm border-0 rounded-3">
+                <div class="card-header bg-primary text-white text-center">
+                    <h3 class="mb-0">@ViewData["Title"]</h3>
+                </div>
+                <div class="card-body p-4">
+                    <form asp-action="Edit" method="post">
+                        <input type="hidden" asp-for="crsid" />
+
+                        <!-- Course Name -->
+                        <div class="form-group mb-3">
+                            <label asp-for="crsname" class="form-label"></label>
+                            <input asp-for="crsname" class="form-control form-control-lg" />
+                            <span asp-validation-for="crsname" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Hours -->
+                        <div class="form-group mb-3">
+                            <label asp-for="hours" class="form-label"></label>
+                            <input asp-for="hours" class="form-control form-control-lg" />
+                            <span asp-validation-for="hours" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Status -->
+                        <div class="form-group mb-4">
+                            <label asp-for="isActive" class="form-label"></label>
+                            <select asp-for="isActive" class="form-select form-select-lg" asp-items="activeOptions"></select>
+                            <span asp-validation-for="isActive" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="d-grid gap-2 d-md-flex justify-content-between">
+                            <button type="submit" class="btn btn-success btn-lg px-4">Save Changes</button>
+                            <a asp-action="Index" class="btn btn-outline-secondary btn-lg px-4">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

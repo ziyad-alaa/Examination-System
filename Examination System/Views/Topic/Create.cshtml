@@ -1,0 +1,59 @@
+﻿@model Examination_System.Models.Topic
+
+@{
+    ViewData["Title"] = "Create New Topic";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm border-0 rounded-3">
+                <div class="card-header bg-success text-white text-center py-4">
+                    <h3 class="mb-0"><i class="bi bi-journal-plus me-2"></i>@ViewData["Title"]</h3>
+                </div>
+                <div class="card-body p-4">
+
+                    <form asp-action="Create" method="post">
+                        <!-- Title -->
+                        <div class="form-group mb-3">
+                            <label asp-for="title" class="form-label"></label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-type-bold"></i></span>
+                                <input asp-for="title" class="form-control form-control-lg" placeholder="Enter topic title" />
+                            </div>
+                            <span asp-validation-for="title" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Course Selection -->
+                        <div class="form-group mb-4">
+                            <label asp-for="crsid" class="form-label">Select Course</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-book-fill"></i></span>
+                                <select asp-for="crsid" class="form-select form-select-lg" asp-items="ViewBag.CourseList">
+                                    <option value="">-- Select Course --</option>
+                                </select>
+                            </div>
+                            <span asp-validation-for="crsid" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Submit Buttons -->
+                        <div class="d-grid gap-2 d-md-flex justify-content-between mt-4">
+                            <button type="submit" class="btn btn-success btn-lg px-4">
+                                <i class="bi bi-save me-2"></i>Create
+                            </button>
+                            <a asp-action="Index" class="btn btn-outline-secondary btn-lg px-4">
+                                <i class="bi bi-arrow-left-circle me-2"></i>Back to List
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

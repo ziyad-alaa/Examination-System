@@ -1,0 +1,166 @@
+﻿@model Examination_System.Models.Instructor
+
+@{
+    ViewData["Title"] = "Edit Instructor Information";
+
+    // Set up active status options for the user
+    var userActiveOptions = new List<SelectListItem>
+    {
+        new SelectListItem { Value = "true", Text = "Yes", Selected = Model.ins.isActive },
+        new SelectListItem { Value = "false", Text = "No", Selected = !Model.ins.isActive }
+    };
+
+    // Set up active status options for the instructor
+    var instrActiveOptions = new List<SelectListItem>
+    {
+        new SelectListItem { Value = "true", Text = "Yes", Selected = Model.isActive },
+        new SelectListItem { Value = "false", Text = "No", Selected = !Model.isActive }
+    };
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8">
+            <div class="card shadow-sm border-0 rounded-3">
+                <div class="card-header bg-primary text-white text-center py-4">
+                    <h3 class="mb-0"><i class="bi bi-person-badge-fill me-2"></i>@ViewData["Title"]</h3>
+                </div>
+                <div class="card-body p-4">
+
+                    <!-- Form -->
+                    <form asp-action="Edit" method="post">
+                        <!-- Hidden Field -->
+                        <input type="hidden" name="id" value="@Model.insid" />
+
+                        <!-- User Information Section -->
+                        <fieldset class="mb-4">
+                            <legend class="text-primary border-bottom pb-2 mb-3">
+                                <i class="bi bi-person-circle me-2"></i>User Information
+                            </legend>
+
+                            <!-- Name -->
+                            <div class="form-group mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+                                    <input type="text" name="name" value="@Model.ins.name" class="form-control form-control-lg" required />
+                                </div>
+                            </div>
+
+                            <!-- City -->
+                            <div class="form-group mb-3">
+                                <label for="st_city" class="form-label">City</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-building"></i></span>
+                                    <input type="text" name="st_city" value="@Model.ins.st_city" class="form-control form-control-lg" required />
+                                </div>
+                            </div>
+
+                            <!-- Department -->
+                            <div class="form-group mb-3">
+                                <label for="dept_id" class="form-label">Department</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-bank"></i></span>
+                                    <select name="dept_id" class="form-select form-select-lg" asp-items="ViewBag.Departments">
+                                        <option value="">-- Select Department --</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="form-group mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
+                                    <input type="email" name="email" value="@Model.ins.email" class="form-control form-control-lg" required />
+                                </div>
+                            </div>
+
+                            <!-- Password -->
+                            <div class="form-group mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+                                    <input type="password" name="password" value="@Model.ins.password" class="form-control form-control-lg" required />
+                                </div>
+                            </div>
+
+                            <!-- Phone Number -->
+                            <div class="form-group mb-3">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-telephone-fill"></i></span>
+                                    <input type="text" name="phone" value="@Model.ins.phone" class="form-control form-control-lg" />
+                                </div>
+                            </div>
+
+                            <!-- Branch -->
+                            <div class="form-group mb-3">
+                                <label for="branch_id" class="form-label">Branch</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-diagram-3"></i></span>
+                                    <select name="branch_id" class="form-select form-select-lg" asp-items="ViewBag.Branches">
+                                        <option value="">-- Select Branch --</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- User Status -->
+                            <div class="form-group mb-3">
+                                <label for="userIsActive" class="form-label">User Active?</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-toggle-on"></i></span>
+                                    <select name="userIsActive" class="form-select form-select-lg" asp-items="userActiveOptions"></select>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <!-- Instructor Information Section -->
+                        <fieldset class="mb-4">
+                            <legend class="text-success border-bottom pb-2 mb-3">
+                                <i class="bi bi-briefcase-fill me-2"></i>Instructor Information
+                            </legend>
+
+                            <!-- Job Title -->
+                            <div class="form-group mb-3">
+                                <label for="jobTitle" class="form-label">Job Title</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-briefcase"></i></span>
+                                    <input type="text" name="jobTitle" value="@Model.jobTitle" class="form-control form-control-lg" required />
+                                </div>
+                            </div>
+
+                            <!-- Salary -->
+                            <div class="form-group mb-3">
+                                <label for="salary" class="form-label">Salary</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-currency-dollar"></i></span>
+                                    <input type="number" name="salary" value="@Model.salary" step="0.01" class="form-control form-control-lg" required />
+                                </div>
+                            </div>
+
+                            <!-- Instructor Status -->
+                            <div class="form-group mb-3">
+                                <label for="instrIsActive" class="form-label">Instructor Active?</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-toggle-on"></i></span>
+                                    <select name="instrIsActive" class="form-select form-select-lg" asp-items="instrActiveOptions"></select>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <!-- Action Buttons -->
+                        <div class="d-grid gap-2 d-md-flex justify-content-between mt-4">
+                            <button type="submit" class="btn btn-success btn-lg px-4">
+                                <i class="bi bi-save me-2"></i>Save Changes
+                            </button>
+                            <a asp-action="Index" class="btn btn-outline-secondary btn-lg px-4">
+                                <i class="bi bi-arrow-left-circle me-2"></i>Cancel
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

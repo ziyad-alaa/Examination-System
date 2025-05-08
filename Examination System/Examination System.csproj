@@ -18,7 +18,6 @@
 
   <ItemGroup>
     <Folder Include="Custom_Validation\" />
-    <Folder Include="Data\Interfaces\" />
     <Folder Include="Models\Commands\" />
     <Folder Include="Models\View_Models\StudentView_Models\" />
     <Folder Include="Services\Interfaces\" />
