@@ -51,8 +51,7 @@ namespace Examination_System.Controllers
         // GET: /User/Create
         public IActionResult Create()
         {
-            ViewBag.Departments = _context.Departments.Where(d => d.isActive).ToList();
-            ViewBag.Branches = _context.Branches.Where(b => b.isActive).ToList();
+            LoadCreateViewBags();
             return View();
         }
 
@@ -66,6 +65,15 @@ namespace Examination_System.Controllers
                 if (await _context.Users.AnyAsync(u => u.email == userDto.Email))
                 {
                     ModelState.AddModelError("Email", "Email already exists");
+                    LoadCreateViewBags();
+                    return View(userDto);
+                }
+
+                var role = await _context.Roles.FindAsync(userDto.RoleId);
+                if (role == null)
+                {
+                    ModelState.AddModelError("RoleId", "Invalid role selected");
+                    LoadCreateViewBags();
                     return View(userDto);
                 }
 
@@ -80,22 +88,26 @@ namespace Examination_System.Controllers
                 };
 
                 user.SetPassword(userDto.Password);
+                user.Roles.Add(role);
+
                 _context.Users.Add(user);
                 await _context.SaveChangesAsync();
 
-                TempData["ToastMessage"] = $"User {user.name} created successfully";
+                TempData["ToastMessage"] = $"User {user.name} created successfully with role {role.RoleTitle}";
                 return RedirectToAction(nameof(Index));
             }
 
-            ViewBag.Departments = _context.Departments.Where(d => d.isActive).ToList();
-            ViewBag.Branches = _context.Branches.Where(b => b.isActive).ToList();
+            LoadCreateViewBags();
             return View(userDto);
         }
 
         // GET: /User/Edit/5
         public async Task<IActionResult> Edit(int id)
         {
-            var user = await _context.Users.FindAsync(id);
+            var user = await _context.Users
+                .Include(u => u.Roles)
+                .FirstOrDefaultAsync(u => u.id == id);
+
             if (user == null)
             {
                 return NotFound();
@@ -103,13 +115,17 @@ namespace Examination_System.Controllers
 
             ViewBag.Departments = _context.Departments.Where(d => d.isActive).ToList();
             ViewBag.Branches = _context.Branches.Where(b => b.isActive).ToList();
+            ViewBag.Roles = _context.Roles.Where(r => r.isActive).ToList();
+
             return View(new UserUpdateDto
             {
                 Name = user.name,
                 Email = user.email,
                 Phone = user.phone,
                 DeptId = user.dept_id,
-                BranchId = user.branch_id
+                BranchId = user.branch_id,
+                RoleId = user.Roles.FirstOrDefault()?.RoleId,
+                isActive = user.isActive
             });
         }
 
@@ -120,7 +136,10 @@ namespace Examination_System.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = await _context.Users.FindAsync(id);
+                var user = await _context.Users
+                    .Include(u => u.Roles)
+                    .FirstOrDefaultAsync(u => u.id == id);
+
                 if (user == null)
                 {
                     return NotFound();
@@ -128,6 +147,7 @@ namespace Examination_System.Controllers
 
                 user.name = userDto.Name ?? user.name;
                 user.phone = userDto.Phone ?? user.phone;
+                user.isActive = userDto.isActive ?? user.isActive;
 
                 if (userDto.DeptId.HasValue)
                 {
@@ -137,6 +157,16 @@ namespace Examination_System.Controllers
                 if (userDto.BranchId.HasValue)
                 {
                     user.branch_id = userDto.BranchId.Value;
+                }
+
+                if (userDto.RoleId.HasValue)
+                {
+                    var role = await _context.Roles.FindAsync(userDto.RoleId.Value);
+                    if (role != null)
+                    {
+                        user.Roles.Clear();
+                        user.Roles.Add(role);
+                    }
                 }
 
                 if (!string.IsNullOrEmpty(userDto.Password))
@@ -151,6 +181,7 @@ namespace Examination_System.Controllers
 
             ViewBag.Departments = _context.Departments.Where(d => d.isActive).ToList();
             ViewBag.Branches = _context.Branches.Where(b => b.isActive).ToList();
+            ViewBag.Roles = _context.Roles.Where(r => r.isActive).ToList();
             return View(userDto);
         }
 
@@ -258,6 +289,13 @@ namespace Examination_System.Controllers
             TempData["ToastMessage"] = $"Role {role.RoleTitle} removed successfully";
 
             return RedirectToAction(nameof(ManageRoles), new { userId });
+        }
+
+        private void LoadCreateViewBags()
+        {
+            ViewBag.Departments = _context.Departments.Where(d => d.isActive).ToList();
+            ViewBag.Branches = _context.Branches.Where(b => b.isActive).ToList();
+            ViewBag.Roles = _context.Roles.Where(r => r.isActive).ToList();
         }
     }
 }

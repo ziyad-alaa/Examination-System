@@ -54,6 +54,7 @@
                             }
                         </select>
                         <label>Department</label>
+                        <span asp-validation-for="DeptId" class="text-danger small"></span>
                     </div>
                 </div>
 
@@ -67,6 +68,21 @@
                             }
                         </select>
                         <label>Branch</label>
+                        <span asp-validation-for="BranchId" class="text-danger small"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <select asp-for="RoleId" class="form-select" required>
+                            <option value="">Select Role</option>
+                            @foreach (var role in ViewBag.Roles)
+                            {
+                                <option value="@role.RoleId">@role.RoleTitle</option>
+                            }
+                        </select>
+                        <label asp-for="RoleId"></label>
+                        <span asp-validation-for="RoleId" class="text-danger small"></span>
                     </div>
                 </div>
 
