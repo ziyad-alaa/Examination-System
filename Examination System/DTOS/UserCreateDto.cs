@@ -27,6 +27,10 @@ namespace Examination_System.DTOS
         [Required(ErrorMessage = "Branch is required")]
         public int BranchId { get; set; }
 
-        public bool isActive { get; set; } = true; // Default to active
+        [Required(ErrorMessage = "Role is required")]
+        [Display(Name = "Role")]
+        public int RoleId { get; set; }
+
+        public bool isActive { get; set; } = true;
     }
 }

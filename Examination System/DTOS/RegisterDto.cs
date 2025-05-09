@@ -23,6 +23,10 @@ namespace Examination_System.DTOS
         [Compare("Password", ErrorMessage = "Passwords do not match")]
         public string CPassword { get; set; }
 
+        [StringLength(255, ErrorMessage = "City cannot exceed 255 characters")]
+        [Display(Name = "City")]
+        public string? StCity { get; set; }
+
         [Phone(ErrorMessage = "Invalid phone number format")]
         public string? Phone { get; set; }
 

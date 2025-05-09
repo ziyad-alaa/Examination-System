@@ -14,7 +14,7 @@ namespace Examination_System.DTOS
         [RegularExpression(@"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$",
          ErrorMessage = "Password must contain: 8+ chars, 1 uppercase, 1 lowercase, 1 number")]
         public string? Password { get; set; }
-       
+
         [EmailAddress(ErrorMessage = "Invalid email format")]
         public string Email { get; set; }
 
@@ -22,6 +22,12 @@ namespace Examination_System.DTOS
 
         public int? BranchId { get; set; }
 
+        [Display(Name = "Role")]
+        public int? RoleId { get; set; }
+
         public bool? isActive { get; set; }
+
+        // Additional properties for validation
+        public bool ShouldValidatePassword => !string.IsNullOrEmpty(Password);
     }
 }
