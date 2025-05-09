@@ -1,8 +1,11 @@
 {
   "Version": 1,
-<<<<<<< HEAD
   "WorkspaceRootPath": "F:\\ExamSystem\\Examination-System\\",
   "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|f:\\examsystem\\examination-system\\examination system\\models\\models\\exam_syscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\models\\models\\exam_syscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
     {
       "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|f:\\examsystem\\examination-system\\examination system\\controllers\\departmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\controllers\\departmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -103,10 +106,6 @@
       "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\models\\models\\branch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|f:\\examsystem\\examination-system\\examination system\\models\\models\\exam_syscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\models\\models\\exam_syscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|f:\\examsystem\\examination-system\\examination system\\models\\models\\branch_dept.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\models\\models\\branch_dept.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -141,21 +140,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|f:\\examsystem\\examination-system\\examination system\\models\\view_models\\examview_models\\generateexamviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\models\\view_models\\examview_models\\generateexamviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-=======
-  "WorkspaceRootPath": "D:\\Backup\\MVC2\\mvc\\Examination-System\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|d:\\backup\\mvc2\\mvc\\examination-system\\examination system\\views\\shared\\mainpagehome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\views\\shared\\mainpagehome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|d:\\backup\\mvc2\\mvc\\examination-system\\examination system\\views\\course\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\views\\course\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|d:\\backup\\mvc2\\mvc\\examination-system\\examination system\\controllers\\coursecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\controllers\\coursecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
->>>>>>> ehab
     }
   ],
   "DocumentGroupContainers": [
@@ -165,38 +149,25 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-<<<<<<< HEAD
-              "DocumentIndex": 25,
+              "DocumentIndex": 0,
               "Title": "Exam_sysContext.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Models\\Models\\Exam_sysContext.cs",
               "RelativeDocumentMoniker": "Examination System\\Models\\Models\\Exam_sysContext.cs",
               "ToolTip": "F:\\ExamSystem\\Examination-System\\Examination System\\Models\\Models\\Exam_sysContext.cs",
               "RelativeToolTip": "Examination System\\Models\\Models\\Exam_sysContext.cs",
-              "ViewState": "AgIAACwBAAAAAAAAAAAQwC0BAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABIBAAAAAAAAAAAIwAwBAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-29T17:51:56.041Z",
               "IsPinned": true,
-=======
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\Backup\\MVC2\\mvc\\Examination-System\\Examination System\\Views\\Course\\Index.cshtml",
-              "RelativeDocumentMoniker": "Examination System\\Views\\Course\\Index.cshtml",
-              "ToolTip": "D:\\Backup\\MVC2\\mvc\\Examination-System\\Examination System\\Views\\Course\\Index.cshtml",
-              "RelativeToolTip": "Examination System\\Views\\Course\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-07T20:59:25.633Z",
->>>>>>> ehab
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-<<<<<<< HEAD
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Program.cs",
               "RelativeDocumentMoniker": "Examination System\\Program.cs",
@@ -204,24 +175,11 @@
               "RelativeToolTip": "Examination System\\Program.cs",
               "ViewState": "AgIAADcAAAAAAAAAAAAcwD4AAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-04T15:26:45.48Z",
-=======
-              "DocumentIndex": 0,
-              "Title": "MainPageHome.cshtml",
-              "DocumentMoniker": "D:\\Backup\\MVC2\\mvc\\Examination-System\\Examination System\\Views\\Shared\\MainPageHome.cshtml",
-              "RelativeDocumentMoniker": "Examination System\\Views\\Shared\\MainPageHome.cshtml",
-              "ToolTip": "D:\\Backup\\MVC2\\mvc\\Examination-System\\Examination System\\Views\\Shared\\MainPageHome.cshtml*",
-              "RelativeToolTip": "Examination System\\Views\\Shared\\MainPageHome.cshtml*",
-              "ViewState": "AgIAACcAAAAAAAAAAAAUwDcAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-07T20:57:25.223Z",
->>>>>>> ehab
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-04T15:26:45.48Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-<<<<<<< HEAD
+              "DocumentIndex": 3,
               "Title": "Global USing.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Global USing.cs",
               "RelativeDocumentMoniker": "Examination System\\Global USing.cs",
@@ -233,7 +191,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "DepartmentController.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Controllers\\DepartmentController.cs",
               "RelativeDocumentMoniker": "Examination System\\Controllers\\DepartmentController.cs",
@@ -241,12 +199,11 @@
               "RelativeToolTip": "Examination System\\Controllers\\DepartmentController.cs",
               "ViewState": "AgIAALsAAAAAAAAAAAAiwMEAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T22:07:26.525Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-05T22:07:26.525Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "UniqueEmailAttribute.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Custom_Validation\\StudentFilter\\UniqueEmailAttribute.cs",
               "RelativeDocumentMoniker": "Examination System\\Custom_Validation\\StudentFilter\\UniqueEmailAttribute.cs",
@@ -258,7 +215,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "UnitOfWork.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Data\\UnitOfWorks\\UnitOfWork.cs",
               "RelativeDocumentMoniker": "Examination System\\Data\\UnitOfWorks\\UnitOfWork.cs",
@@ -270,7 +227,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "studentcreate.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Models\\View_Models\\StudentView_Models\\studentcreate.cs",
               "RelativeDocumentMoniker": "Examination System\\Models\\View_Models\\StudentView_Models\\studentcreate.cs",
@@ -282,7 +239,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "BranchController.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Controllers\\BranchController.cs",
               "RelativeDocumentMoniker": "Examination System\\Controllers\\BranchController.cs",
@@ -294,7 +251,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "StudentApproveController.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Controllers\\StudentApproveController.cs",
               "RelativeDocumentMoniker": "Examination System\\Controllers\\StudentApproveController.cs",
@@ -306,7 +263,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "DepartmentRepo.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Data\\Repositories\\DepartmentRepo.cs",
               "RelativeDocumentMoniker": "Examination System\\Data\\Repositories\\DepartmentRepo.cs",
@@ -318,7 +275,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "StudentController.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Controllers\\StudentController.cs",
               "RelativeDocumentMoniker": "Examination System\\Controllers\\StudentController.cs",
@@ -330,7 +287,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "BranchesREpo.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Data\\Repositories\\BranchesREpo.cs",
               "RelativeDocumentMoniker": "Examination System\\Data\\Repositories\\BranchesREpo.cs",
@@ -342,7 +299,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "StudentRepo.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Data\\Repositories\\StudentRepo.cs",
               "RelativeDocumentMoniker": "Examination System\\Data\\Repositories\\StudentRepo.cs",
@@ -354,7 +311,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "IService.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Data\\Interfaces\\IService.cs",
               "RelativeDocumentMoniker": "Examination System\\Data\\Interfaces\\IService.cs",
@@ -366,7 +323,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "Create.cshtml",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Views\\Student\\Create.cshtml",
               "RelativeDocumentMoniker": "Examination System\\Views\\Student\\Create.cshtml",
@@ -378,7 +335,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "MainPageHome.cshtml",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Views\\Shared\\MainPageHome.cshtml",
               "RelativeDocumentMoniker": "Examination System\\Views\\Shared\\MainPageHome.cshtml",
@@ -390,7 +347,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "NotActivatedStudents.cshtml",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Views\\StudentApprove\\NotActivatedStudents.cshtml",
               "RelativeDocumentMoniker": "Examination System\\Views\\StudentApprove\\NotActivatedStudents.cshtml",
@@ -402,7 +359,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "User.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Models\\Models\\User.cs",
               "RelativeDocumentMoniker": "Examination System\\Models\\Models\\User.cs",
@@ -414,7 +371,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "UniqueEmailAttribute.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Custom_Validation\\StudentUpdateFilter\\UniqueEmailAttribute.cs",
               "RelativeDocumentMoniker": "Examination System\\Custom_Validation\\StudentUpdateFilter\\UniqueEmailAttribute.cs",
@@ -426,7 +383,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "UniqueNameAttribute.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Custom_Validation\\StudentFilter\\UniqueNameAttribute.cs",
               "RelativeDocumentMoniker": "Examination System\\Custom_Validation\\StudentFilter\\UniqueNameAttribute.cs",
@@ -438,7 +395,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "UniquePhoneAttribute.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Custom_Validation\\StudentUpdateFilter\\UniquePhoneAttribute.cs",
               "RelativeDocumentMoniker": "Examination System\\Custom_Validation\\StudentUpdateFilter\\UniquePhoneAttribute.cs",
@@ -450,7 +407,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "UniqueNameAttribute.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Custom_Validation\\StudentUpdateFilter\\UniqueNameAttribute.cs",
               "RelativeDocumentMoniker": "Examination System\\Custom_Validation\\StudentUpdateFilter\\UniqueNameAttribute.cs",
@@ -462,7 +419,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "UniqueEmailAttribute.cs",
               "DocumentMoniker": "C:\\Users\\Mahdy\\AppData\\Local\\SourceServer\\75e5b3c13a53ab6a3319f6d8e67a8ee52d9509c0432a3791daf49d7117df919e\\Examination System\\Custom_Validation\\StudentFilter\\UniqueEmailAttribute.cs",
               "ToolTip": "C:\\Users\\Mahdy\\AppData\\Local\\SourceServer\\75e5b3c13a53ab6a3319f6d8e67a8ee52d9509c0432a3791daf49d7117df919e\\Examination System\\Custom_Validation\\StudentFilter\\UniqueEmailAttribute.cs",
@@ -472,7 +429,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "Instructor.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Models\\Models\\Instructor.cs",
               "RelativeDocumentMoniker": "Examination System\\Models\\Models\\Instructor.cs",
@@ -484,7 +441,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "Department.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Models\\Models\\Department.cs",
               "RelativeDocumentMoniker": "Examination System\\Models\\Models\\Department.cs",
@@ -496,7 +453,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "Branch.cs",
               "DocumentMoniker": "F:\\ExamSystem\\Examination-System\\Examination System\\Models\\Models\\Branch.cs",
               "RelativeDocumentMoniker": "Examination System\\Models\\Models\\Branch.cs",
@@ -612,17 +569,6 @@
               "ViewState": "AgIAAB4AAAAAAAAAAAA5wCsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-30T18:57:59.079Z"
-=======
-              "Title": "CourseController.cs",
-              "DocumentMoniker": "D:\\Backup\\MVC2\\mvc\\Examination-System\\Examination System\\Controllers\\CourseController.cs",
-              "RelativeDocumentMoniker": "Examination System\\Controllers\\CourseController.cs",
-              "ToolTip": "D:\\Backup\\MVC2\\mvc\\Examination-System\\Examination System\\Controllers\\CourseController.cs",
-              "RelativeToolTip": "Examination System\\Controllers\\CourseController.cs",
-              "ViewState": "AgIAACwBAAAAAAAAAAAQwDMBAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T18:49:23.653Z",
-              "EditorCaption": ""
->>>>>>> ehab
             }
           ]
         }
