@@ -168,9 +168,10 @@ namespace Examination_System.Controllers
                     name = registerDto.Name,
                     email = registerDto.Email,
                     phone = registerDto.Phone,
+                    st_city = registerDto.StCity, 
                     dept_id = registerDto.DeptId,
                     branch_id = registerDto.BranchId,
-                    isActive = true // New users are active by default
+                    isActive = false 
                 };
 
                 newUser.SetPassword(registerDto.Password);

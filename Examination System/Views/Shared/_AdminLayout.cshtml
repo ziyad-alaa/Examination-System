@@ -44,6 +44,20 @@
             background-color: rgba(255, 255, 255, 0.3);
             border-radius: 3px;
         }
+
+        /* Permission dropdown styling */
+        .nav-item.dropdown .dropdown-menu {
+            margin-left: 10px;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .nav-item.dropdown.active .dropdown-toggle {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .dropdown-item.active {
+            background-color: var(--primary-color);
+        }
     </style>
 
     @await RenderSectionAsync("Styles", required: false)
@@ -73,10 +87,34 @@
                        asp-controller="Role" asp-action="RoleIndex">
                         <i class="fas fa-shield-alt"></i> Roles
                     </a>
-                    <a class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Permission" ? "active" : "")"
-                       asp-controller="Permission" asp-action="Index">
-                        <i class="fas fa-key"></i> Permissions
-                    </a>
+
+                    <!-- Updated Permissions Dropdown -->
+                    <div class="nav-item dropdown @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Permission" ? "active" : "")">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-key"></i> Permissions
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li>
+                                <a class="dropdown-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "ManageBranchManagers" ? "active" : "")"
+                                   asp-controller="Permission" asp-action="ManageBranchManagers">
+                                    <i class="fas fa-code-branch me-2"></i> Branch Managers
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "ManageDepartmentManagers" ? "active" : "")"
+                                   asp-controller="Permission" asp-action="ManageDepartmentManagers">
+                                    <i class="fas fa-building me-2"></i> Department Managers
+                                </a>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")"
+                                   asp-controller="Permission" asp-action="Index">
+                                    <i class="fas fa-list me-2"></i> All Permissions
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
 
                     <div class="sidebar-heading">System Settings</div>
                     <a class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Department" ? "active" : "")"
@@ -182,57 +220,66 @@
                         @ViewContext.RouteData.Values["Controller"]?.ToString()
                     </li>
                 }
+                @if (ViewContext.RouteData.Values["Action"]?.ToString() != "Index")
+                {
+                    <li class="breadcrumb-item">
+                        @ViewContext.RouteData.Values["Action"]?.ToString()
+                    </li>
+                }
                 <li class="breadcrumb-item active">@ViewData["Title"]</li>
             </ol>
         </nav>
 
         <!-- Dashboard Widgets -->
-        <div class="row mb-4">
-            <div class="col-md-3">
-                <div class="card dashboard-card">
-                    <div class="card-body">
-                        <div>
-                            <h6 class="card-title text-muted">Total Users</h6>
-                            <h4 class="mb-0">1,234</h4>
+        @if (ViewContext.RouteData.Values["Controller"]?.ToString() == "Dashboard")
+        {
+            <div class="row mb-4">
+                <div class="col-md-3">
+                    <div class="card dashboard-card">
+                        <div class="card-body">
+                            <div>
+                                <h6 class="card-title text-muted">Total Users</h6>
+                                <h4 class="mb-0">1,234</h4>
+                            </div>
+                            <i class="fas fa-users card-icon"></i>
                         </div>
-                        <i class="fas fa-users card-icon"></i>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card dashboard-card">
+                        <div class="card-body">
+                            <div>
+                                <h6 class="card-title text-muted">Active Roles</h6>
+                                <h4 class="mb-0">56</h4>
+                            </div>
+                            <i class="fas fa-shield-alt card-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card dashboard-card">
+                        <div class="card-body">
+                            <div>
+                                <h6 class="card-title text-muted">Departments</h6>
+                                <h4 class="mb-0">12</h4>
+                            </div>
+                            <i class="fas fa-building card-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card dashboard-card">
+                        <div class="card-body">
+                            <div>
+                                <h6 class="card-title text-muted">Branches</h6>
+                                <h4 class="mb-0">8</h4>
+                            </div>
+                            <i class="fas fa-code-branch card-icon"></i>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card dashboard-card">
-                    <div class="card-body">
-                        <div>
-                            <h6 class="card-title text-muted">Active Roles</h6>
-                            <h4 class="mb-0">56</h4>
-                        </div>
-                        <i class="fas fa-shield-alt card-icon"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card dashboard-card">
-                    <div class="card-body">
-                        <div>
-                            <h6 class="card-title text-muted">Departments</h6>
-                            <h4 class="mb-0">12</h4>
-                        </div>
-                        <i class="fas fa-building card-icon"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card dashboard-card">
-                    <div class="card-body">
-                        <div>
-                            <h6 class="card-title text-muted">Branches</h6>
-                            <h4 class="mb-0">8</h4>
-                        </div>
-                        <i class="fas fa-code-branch card-icon"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
+        }
 
         <!-- Main Content -->
         <div class="container-fluid">
@@ -327,6 +374,12 @@
                 $(tableSelector).DataTable().ajax.reload(null, false);
             }
         }
+
+        // Keep permission dropdown open when child item is active
+        $(document).ready(function() {
+            $('.nav-item.dropdown .dropdown-item.active').parents('.nav-item.dropdown').addClass('show');
+            $('.nav-item.dropdown .dropdown-item.active').parents('.dropdown-menu').addClass('show');
+        });
     </script>
 
     @await RenderSectionAsync("Scripts", required: false)
