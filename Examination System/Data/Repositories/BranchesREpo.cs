@@ -1,4 +1,5 @@
 ﻿using Examination_System.Data.Interfaces;
+using Examination_System.Data.Repositories;
 
 namespace Examination_System.Repositories
 {
@@ -40,6 +41,16 @@ namespace Examination_System.Repositories
         }
 
         public Branch GetNotactiveById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        Branch IService<Branch>.Create(Branch entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        Branch IService<Branch>.Update(int id, Branch entity)
         {
             throw new NotImplementedException();
         }

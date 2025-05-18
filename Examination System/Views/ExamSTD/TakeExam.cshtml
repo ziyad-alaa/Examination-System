@@ -1,0 +1,69 @@
+﻿<!-- Views/Exam/TakeExam.cshtml -->
+@model ExamViewModel
+
+@{
+    ViewData["Title"] = Model.ExamName;
+    var timeRemaining = Model.EndTime - DateTime.Now;
+}
+
+<div class="container exam-container">
+    <h2>@Model.ExamName</h2>
+    <div class="exam-timer alert alert-info">
+        Time Remaining: <span id="timer">@timeRemaining.Value.ToString(@"hh\:mm\:ss")</span>
+    </div>
+
+    <form asp-action="SubmitExam" asp-route-examId="@Model.ExamId" method="post">
+        <div class="exam-questions">
+            @for (int i = 0; i < Model.Questions.Count; i++)
+            {
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Question @(i + 1): @Model.Questions[i].QuestionText</h5>
+                        <p class="text-muted">Marks: @Model.Questions[i].Marks</p>
+
+                        <div class="answer-options">
+                            @foreach (var answer in Model.Questions[i].Answers)
+                            {
+                                <div class="form-check">
+                                    <input class="form-check-input"
+                                           type="@(Model.Questions[i].QuestionType == "Multiple" ? "checkbox" : "radio")"
+                                           name="Answers[@i].SelectedAnswerIds"
+                                           value="@answer.AnswerId">
+                                    <label class="form-check-label">@answer.AnswerText</label>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg">Submit Exam</button>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        // Timer countdown implementation
+        const endTime = new Date("@Model.EndTime.ToString()");
+
+        function updateTimer() {
+            const now = new Date();
+            const diff = endTime - now;
+
+            if (diff <= 0) {
+                document.querySelector('form').submit();
+                return;
+            }
+
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('timer').textContent =
+                `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        setInterval(updateTimer, 1000);
+    </script>
+}

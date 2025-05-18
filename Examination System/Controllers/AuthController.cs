@@ -96,18 +96,35 @@ namespace Examination_System.Controllers
                 return View(loginDto);
             }
 
-            var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.NameIdentifier, user.id.ToString()),
-                new Claim(ClaimTypes.Email, user.email),
-                new Claim(ClaimTypes.Name, user.name),
-                new Claim("DeptId", user.dept_id.ToString()),
-                new Claim("BranchId", user.branch_id.ToString())
-            };
+            //var claims = new List<Claim>
+            //{
+            //    new Claim(ClaimTypes.NameIdentifier, user.id.ToString()),
+            //    new Claim(ClaimTypes.Email, user.email),
+            //    new Claim(ClaimTypes.Name, user.name),
+            //    new Claim("DeptId", user.dept_id.ToString()),
+            //    new Claim("BranchId", user.branch_id.ToString())
+            //};
 
-            foreach (var role in user.Roles.Where(r => r.isActive))
+            //foreach (var role in user.Roles.Where(r => r.isActive))
+            //{
+            //    claims.Add(new Claim(ClaimTypes.Role, role.RoleTitle));
+            //}
+            var claims = new List<Claim>
+{
+    new Claim(ClaimTypes.NameIdentifier, user.id.ToString()),
+    new Claim(ClaimTypes.Email, user.email),
+    new Claim(ClaimTypes.Name, user.name),
+    new Claim("DeptId", user.dept_id.ToString()),
+    new Claim("BranchId", user.branch_id.ToString())
+};
+
+            if (user.Roles.Any(r => r.RoleTitle == "Student" && r.isActive))
             {
-                claims.Add(new Claim(ClaimTypes.Role, role.RoleTitle));
+                var student = await _context.Students.FirstOrDefaultAsync(s => s.stdid == user.id);
+                if (student != null)
+                {
+                    claims.Add(new Claim("StudentId", student.stdid.ToString()));
+                }
             }
 
             var authProperties = new AuthenticationProperties
@@ -116,7 +133,7 @@ namespace Examination_System.Controllers
                 ExpiresUtc = loginDto.RememberMe ? DateTimeOffset.UtcNow.AddDays(30) : DateTimeOffset.UtcNow.AddHours(2),
                 AllowRefresh = true
             };
-
+            
             await HttpContext.SignInAsync(
                 CookieAuthenticationDefaults.AuthenticationScheme,
                 new ClaimsPrincipal(new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme)),
@@ -124,7 +141,8 @@ namespace Examination_System.Controllers
 
             _logger.LogInformation("User {Email} logged in", user.email);
 
-            return LocalRedirect(returnUrl ?? Url.Content("~/"));
+            //return LocalRedirect(returnUrl ?? Url.Content("~/"));
+            return RedirectToAction("Profile", "Base");
         }
 
         [HttpPost("Register")]
@@ -197,7 +215,8 @@ namespace Examination_System.Controllers
                         new Claim(ClaimTypes.Name, newUser.name),
                         new Claim(ClaimTypes.Role, "Student"),
                         new Claim("DeptId", newUser.dept_id.ToString()),
-                        new Claim("BranchId", newUser.branch_id.ToString())
+                        new Claim("BranchId", newUser.branch_id.ToString()),
+                        //new Claim("StudentId",newUser.Student.stdid.ToString()),
                     }, CookieAuthenticationDefaults.AuthenticationScheme)));
 
                 return RedirectToAction("Index", "Home");

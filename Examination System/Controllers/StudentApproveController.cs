@@ -9,15 +9,15 @@ namespace Examination_System.Controllers
         {
             _unit = unit;
         }
-        public IActionResult Index()
+        public async  Task<IActionResult> Index()
         {
-            List<Student> StudentsToApprove = _unit.StdRepo.GetAllNotActive();
+            List<Student> StudentsToApprove =await _unit.StdRepo.GetAllNotActive();
             return View("NotActivatedStudents", StudentsToApprove);
         }
         [HttpPost]
-        public IActionResult Approve(int id)
+        public async Task<IActionResult> Approve(int id)
         {
-            Student NotActiveStd=_unit.StdRepo.GetNotactiveById(id);
+            Student NotActiveStd=await _unit.StdRepo.GetNotactiveById(id);
             if (NotActiveStd == null)
                 return NotFound();
             else

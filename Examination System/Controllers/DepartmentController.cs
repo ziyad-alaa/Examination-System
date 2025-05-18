@@ -92,7 +92,7 @@ namespace Examination_System.Controllers
             return View(departmentViewModel);
         }
 
-        // POST: Department/Create
+        // POST: Department/Create 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(DepartmentViewModel departmentViewModel)

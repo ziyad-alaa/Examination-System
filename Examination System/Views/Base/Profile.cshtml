@@ -1,0 +1,70 @@
+﻿@model StudentProfileViewModel
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Welcome, @Model.StudentName!</h2>
+
+    <!-- Courses Section -->
+    <h3>Your Courses</h3>
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Course Name</th>
+                <th>Grade</th>
+                <th>Comments</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var course in Model.Courses)
+            {
+                // Determine the status
+                var hasGrade = course.Grade != null;
+                var isPassed = course.IsActive && hasGrade;
+                var rowClass = isPassed ? "" : "table-secondary"; // dim if not passed
+
+                <tr class="@rowClass">
+                    <td>@course.CourseName</td>
+                    <td>@(hasGrade ? course.Grade.ToString() : "Not Graded")</td>
+                    <td>@(course.Comments ?? "-")</td>
+                    <td>
+                        @if (!hasGrade)
+                        {
+                            <span class="badge bg-warning text-dark">Not Examined</span>
+                        }
+                        else if (!course.IsActive)
+                        {
+                            <span class="badge bg-danger">Failed</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-success">Passed</span>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <!-- Exams Section -->
+    <h3 class="mt-5">Available Exams</h3>
+    <div class="list-group">
+        @foreach (var exam in Model.AvailableExams)
+        {
+            <a asp-controller="ExamSTD"
+               asp-action="TakeExam"
+               asp-route-examId="@exam.ExamId"
+               class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">@exam.ExamName</h5>
+                    <small>@exam.Duration minutes</small>
+                </div>
+                <p class="mb-1">
+                    @exam.StartTime.ToString() - @exam.EndTime.ToString()
+                </p>
+            </a>
+        }
+    </div>
+</div>

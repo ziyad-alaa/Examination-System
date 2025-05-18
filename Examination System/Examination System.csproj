@@ -23,7 +23,6 @@
     <Folder Include="Custom_Validation\" />
 
     <Folder Include="Models\Commands\" />
-    <Folder Include="Services\Interfaces\" />
     <Folder Include="Utilities\Results\" />
     <Folder Include="Views\Exams\" />
   </ItemGroup>

@@ -1,7 +1,11 @@
-using Examination_System.Data.UnitOfWorks;
 using Examination_System.Data;
+using Examination_System.Data.Interfaces;
+using Examination_System.Data.Repositories;
+using Examination_System.Data.UnitOfWorks;
 using Examination_System.MapConfig;
 using Examination_System.Models;
+using Examination_System.Services.Interfaces;
+using Examination_System.Services.Service;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,7 +20,13 @@ namespace Examination_System
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddAutoMapper(typeof(MappingConfig));
+            builder.Services.AddScoped<StudentRepo>();
             builder.Services.AddScoped<UnitOfWork>();
+            builder.Services.AddScoped<IExamRepository, ExamRepository>();
+            builder.Services.AddScoped<IExamRepo, ExamRepo>();
+
+            builder.Services.AddScoped<IStudentService, StudentService>();
+            builder.Services.AddScoped<IExamService, ExamService>();
             builder.Services.AddDbContext<Exam_sysContext>(op =>
                 op.UseSqlServer(builder.Configuration.GetConnectionString("Exam_SysContext")));
 

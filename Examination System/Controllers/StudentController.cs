@@ -1,5 +1,8 @@
 ﻿using Examination_System.Data.UnitOfWorks;
 using Examination_System.Models.View_Models.StudentView_Models;
+using Examination_System.Services.Interfaces;
+using Examination_System.Services.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Examination_System.Controllers
@@ -7,13 +10,17 @@ namespace Examination_System.Controllers
     public class StudentController : Controller
     {
         UnitOfWork _unit;
-        public StudentController(UnitOfWork unit)
+        IStudentService studentService;
+        public StudentController(IStudentService studentService,UnitOfWork unit)
         {
             _unit = unit;
+            this.studentService = studentService;
         }
-        public IActionResult Index()
+        //[Authorize("Student")]
+    
+        public  async Task<IActionResult> Index()
         {
-            var students = _unit.StdRepo.GetAll();
+            var students = await _unit.StdRepo.GetAll();
             return View("AllStudents", students);
         }
         [HttpGet]
@@ -64,9 +71,9 @@ namespace Examination_System.Controllers
             return View(std);
         }
         [HttpGet]
-        public IActionResult Edit(int id)
+        public async Task<IActionResult> Edit(int id)
         {
-            Student student = _unit.StdRepo.GetById(id);
+            Student student = await _unit.StdRepo.GetById(id);
             studentupdate studentview = new studentupdate()
             {
                 Id = student.std.id,
@@ -86,11 +93,11 @@ namespace Examination_System.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(int id, studentupdate student)
+        public async Task<IActionResult> Edit(int id, studentupdate student)
         {
             student.Branches = _unit.brancRepo.GetAll();
             student.Departments = _unit.DeptRepo.GetAll();
-            Student std = _unit.StdRepo.GetById(id);
+            Student std =await _unit.StdRepo.GetById(id);
             if (std == null)
                 return NotFound();
             if (ModelState.IsValid)
@@ -105,7 +112,6 @@ namespace Examination_System.Controllers
                 std.std.branch_id = student.branch_id;
                 std.std.dept_id = student.dept_id;
 
-
                 _unit.StdRepo.Update(id, std);
                 _unit.Save();
                 return RedirectToAction("Index");
@@ -117,9 +123,9 @@ namespace Examination_System.Controllers
 
         }
 
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            Student std = _unit.StdRepo.GetById(id);
+            Student std = await _unit.StdRepo.GetById(id);
             if (std == null) return NotFound();
             else
             {
@@ -129,9 +135,9 @@ namespace Examination_System.Controllers
             }
         }
 
-        public IActionResult details(int id)
+        public async Task<IActionResult> details(int id)
         {
-            Student student = _unit.StdRepo.GetById(id);
+            Student student = await _unit.StdRepo.GetById(id);
             if (student == null) return NotFound();
             else
             {
