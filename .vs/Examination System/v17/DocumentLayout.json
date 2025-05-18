@@ -1,16 +1,7 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Examination System MVC\\Examination System\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|d:\\examination system mvc\\examination system\\examination system\\models\\models\\exam_syscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\models\\models\\exam_syscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|d:\\examination system mvc\\examination system\\examination system\\models\\view_models\\examview_models\\generateexamviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\models\\view_models\\examview_models\\generateexamviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "WorkspaceRootPath": "D:\\ExaminationSysLast\\Examination-System\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -18,42 +9,31 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": -1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Exam_sysContext.cs",
-              "DocumentMoniker": "D:\\Examination System MVC\\Examination System\\Examination System\\Models\\Models\\Exam_sysContext.cs",
-              "RelativeDocumentMoniker": "Examination System\\Models\\Models\\Exam_sysContext.cs",
-              "ToolTip": "D:\\Examination System MVC\\Examination System\\Examination System\\Models\\Models\\Exam_sysContext.cs",
-              "RelativeToolTip": "Examination System\\Models\\Models\\Exam_sysContext.cs",
-              "ViewState": "AgIAAFoBAAAAAAAAAAAqwGsBAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T17:51:56.041Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "generateExamViewModel.cs",
-              "DocumentMoniker": "D:\\Examination System MVC\\Examination System\\Examination System\\Models\\View_Models\\ExamView_Models\\generateExamViewModel.cs",
-              "RelativeDocumentMoniker": "Examination System\\Models\\View_Models\\ExamView_Models\\generateExamViewModel.cs",
-              "ToolTip": "D:\\Examination System MVC\\Examination System\\Examination System\\Models\\View_Models\\ExamView_Models\\generateExamViewModel.cs",
-              "RelativeToolTip": "Examination System\\Models\\View_Models\\ExamView_Models\\generateExamViewModel.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAA9wCsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-30T18:57:59.079Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             }
           ]
         }

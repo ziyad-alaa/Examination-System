@@ -1,38 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Examination System MVC\\Examination System\\",
+  "WorkspaceRootPath": "D:\\ExaminationSysLast\\Examination-System\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Examination System MVC\\Examination System\\Examination System\\Migrations\\20250429225405_createDatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Examination System\\Migrations\\20250429225405_createDatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|d:\\examination system mvc\\examination system\\examination system\\models\\exam_syscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\models\\exam_syscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|d:\\examination system mvc\\examination system\\examination system\\models\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\models\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|d:\\examination system mvc\\examination system\\examination system\\models\\branch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\models\\branch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|d:\\examination system mvc\\examination system\\examination system\\models\\branch_dept.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\models\\branch_dept.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|d:\\examination system mvc\\examination system\\examination system\\models\\instructor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\models\\instructor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|d:\\examination system mvc\\examination system\\examination system\\models\\course_dept.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\models\\course_dept.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|d:\\examination system mvc\\examination system\\examination system\\models\\answer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\models\\answer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|d:\\examinationsyslast\\examination-system\\examination system\\models\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{746C9F78-C7A8-4E2C-9C1C-D185A5B81853}|Examination System\\Examination System.csproj|solutionrelative:examination system\\models\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -45,117 +17,21 @@
           "SelectedChildIndex": 1,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Exam_sysContext.cs",
-              "DocumentMoniker": "D:\\Examination System MVC\\Examination System\\Examination System\\Models\\Exam_sysContext.cs",
-              "RelativeDocumentMoniker": "Examination System\\Models\\Exam_sysContext.cs",
-              "ToolTip": "D:\\Examination System MVC\\Examination System\\Examination System\\Models\\Exam_sysContext.cs",
-              "RelativeToolTip": "Examination System\\Models\\Exam_sysContext.cs",
-              "ViewState": "AgIAAD4BAAAAAAAAAAAowEUBAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T17:51:56.041Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "20250429225405_createDatabase.cs",
-              "DocumentMoniker": "D:\\Examination System MVC\\Examination System\\Examination System\\Migrations\\20250429225405_createDatabase.cs",
-              "RelativeDocumentMoniker": "Examination System\\Migrations\\20250429225405_createDatabase.cs",
-              "ToolTip": "D:\\Examination System MVC\\Examination System\\Examination System\\Migrations\\20250429225405_createDatabase.cs",
-              "RelativeToolTip": "Examination System\\Migrations\\20250429225405_createDatabase.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T22:54:05.775Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Instructor.cs",
-              "DocumentMoniker": "D:\\Examination System MVC\\Examination System\\Examination System\\Models\\Instructor.cs",
-              "RelativeDocumentMoniker": "Examination System\\Models\\Instructor.cs",
-              "ToolTip": "D:\\Examination System MVC\\Examination System\\Examination System\\Models\\Instructor.cs",
-              "RelativeToolTip": "Examination System\\Models\\Instructor.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T22:22:51.249Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Department.cs",
-              "DocumentMoniker": "D:\\Examination System MVC\\Examination System\\Examination System\\Models\\Department.cs",
-              "RelativeDocumentMoniker": "Examination System\\Models\\Department.cs",
-              "ToolTip": "D:\\Examination System MVC\\Examination System\\Examination System\\Models\\Department.cs",
-              "RelativeToolTip": "Examination System\\Models\\Department.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAA7wCcAAABGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T22:21:43.281Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "course_dept.cs",
-              "DocumentMoniker": "D:\\Examination System MVC\\Examination System\\Examination System\\Models\\course_dept.cs",
-              "RelativeDocumentMoniker": "Examination System\\Models\\course_dept.cs",
-              "ToolTip": "D:\\Examination System MVC\\Examination System\\Examination System\\Models\\course_dept.cs",
-              "RelativeToolTip": "Examination System\\Models\\course_dept.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T18:44:55.626Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Branch_Dept.cs",
-              "DocumentMoniker": "D:\\Examination System MVC\\Examination System\\Examination System\\Models\\Branch_Dept.cs",
-              "RelativeDocumentMoniker": "Examination System\\Models\\Branch_Dept.cs",
-              "ToolTip": "D:\\Examination System MVC\\Examination System\\Examination System\\Models\\Branch_Dept.cs",
-              "RelativeToolTip": "Examination System\\Models\\Branch_Dept.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T17:44:30.805Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Branch.cs",
-              "DocumentMoniker": "D:\\Examination System MVC\\Examination System\\Examination System\\Models\\Branch.cs",
-              "RelativeDocumentMoniker": "Examination System\\Models\\Branch.cs",
-              "ToolTip": "D:\\Examination System MVC\\Examination System\\Examination System\\Models\\Branch.cs",
-              "RelativeToolTip": "Examination System\\Models\\Branch.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAswC4AAABGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T17:31:51.307Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "answer.cs",
-              "DocumentMoniker": "D:\\Examination System MVC\\Examination System\\Examination System\\Models\\answer.cs",
-              "RelativeDocumentMoniker": "Examination System\\Models\\answer.cs",
-              "ToolTip": "D:\\Examination System MVC\\Examination System\\Examination System\\Models\\answer.cs",
-              "RelativeToolTip": "Examination System\\Models\\answer.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAQwB4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T17:30:18.033Z",
-              "EditorCaption": ""
-            },
-            {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\ExaminationSysLast\\Examination-System\\Examination System\\Models\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Examination System\\Models\\Models\\User.cs",
+              "ToolTip": "D:\\ExaminationSysLast\\Examination-System\\Examination System\\Models\\Models\\User.cs",
+              "RelativeToolTip": "Examination System\\Models\\Models\\User.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAswC4AAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-14T20:05:03.38Z",
+              "EditorCaption": ""
             }
           ]
         }
