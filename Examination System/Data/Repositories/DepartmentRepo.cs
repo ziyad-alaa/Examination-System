@@ -15,6 +15,11 @@ namespace Examination_System.Data.Repositories
             throw new NotImplementedException();
         }
 
+        public Task<bool> Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Department GetAll()
         {
             throw new NotImplementedException();
@@ -26,6 +31,26 @@ namespace Examination_System.Data.Repositories
         }
 
         public Department Update(int id, Department entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<Department> IService<Department>.Create(Department entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IEnumerable<Department>> IService<Department>.GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<Department> IService<Department>.GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<Department> IService<Department>.Update(int id, Department entity)
         {
             throw new NotImplementedException();
         }

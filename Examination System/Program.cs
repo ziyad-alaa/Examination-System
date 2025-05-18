@@ -1,6 +1,7 @@
 using Examination_System.Data.UnitOfWorks;
 using Examination_System.MapConfig;
 using Examination_System.Models;
+using Examination_System.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace Examination_System
@@ -14,6 +15,8 @@ namespace Examination_System
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddAutoMapper(typeof(MappingConfig));
+            builder.Services.AddScoped<IExamGenerationService, ExamGenerationService>();
+
             builder.Services.AddScoped<UnitOfWork>();
             builder.Services.AddDbContext<Exam_sysContext>(op=>op.UseSqlServer( builder.Configuration.GetConnectionString("Exam_SysContext")));
 

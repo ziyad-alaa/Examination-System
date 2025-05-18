@@ -15,9 +15,12 @@ public partial class Question_Bank
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int QID { get; set; }
 
+
+    public int? insID { get; set; }
     public int? crsid { get; set; }
 
     public int? mark { get; set; }
+
 
     [StringLength(255)]
     [Unicode(false)]
@@ -36,6 +39,10 @@ public partial class Question_Bank
     [ForeignKey("crsid")]
     [InverseProperty("Question_Banks")]
     public virtual course crs { get; set; }
+
+    [ForeignKey("insID")]
+    [InverseProperty("Question_Banks")]
+    public virtual Instructor ins { get; set; }
 
     [ForeignKey("QID")]
     [InverseProperty("QIDs")]

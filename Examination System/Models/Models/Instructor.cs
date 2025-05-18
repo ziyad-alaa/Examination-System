@@ -30,6 +30,9 @@ public partial class Instructor
     public virtual ICollection<Exam> Exams { get; set; } = new List<Exam>();
 
     [InverseProperty("ins")]
+    public virtual ICollection<Question_Bank> Question_Banks { get; set; } = new List<Question_Bank>();
+
+    [InverseProperty("ins")]
     public virtual ICollection<course_dept> course_depts { get; set; } = new List<course_dept>();
 
     [ForeignKey("insid")]

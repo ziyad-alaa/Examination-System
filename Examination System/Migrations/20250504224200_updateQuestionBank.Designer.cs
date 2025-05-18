@@ -4,6 +4,7 @@ using Examination_System.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Examination_System.Migrations
 {
     [DbContext(typeof(Exam_sysContext))]
-    partial class Exam_sysContextModelSnapshot : ModelSnapshot
+    [Migration("20250504224200_updateQuestionBank")]
+    partial class updateQuestionBank
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -276,8 +279,6 @@ namespace Examination_System.Migrations
                         .HasName("PK__Question__CAB147CB08B6EB5D");
 
                     b.HasIndex("crsid");
-
-                    b.HasIndex("insID");
 
                     b.ToTable("Question_Bank");
                 });
@@ -713,13 +714,7 @@ namespace Examination_System.Migrations
                         .HasForeignKey("crsid")
                         .HasConstraintName("FK__Question___crsid__4AB81AF0");
 
-                    b.HasOne("Examination_System.Models.Instructor", "ins")
-                        .WithMany("Question_Banks")
-                        .HasForeignKey("insID");
-
                     b.Navigation("crs");
-
-                    b.Navigation("ins");
                 });
 
             modelBuilder.Entity("Examination_System.Models.Student", b =>
@@ -957,8 +952,6 @@ namespace Examination_System.Migrations
                     b.Navigation("ManagedBranches");
 
                     b.Navigation("ManagedDepartments");
-
-                    b.Navigation("Question_Banks");
 
                     b.Navigation("course_depts");
                 });

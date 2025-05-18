@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Examination_System.Models.Question_Bank>
+
+@if (Model != null && Model.Any())
+{
+    foreach (var question in Model)
+    {
+        <div class="question-item card mb-2">
+            <div class="card-body">
+                <div class="form-check">
+                    <input type="checkbox" name="SelectedQuestionIds" value="@question.QID" class="form-check-input"
+                           id="question_@question.QID" />
+                    <label class="form-check-label" for="question_@question.QID">
+                        @question.title
+                    </label>
+                    <span class="badge badge-info float-right">@question.mark Marks</span>
+                    <p class="small text-muted mb-1">Type: @question.type</p>
+                </div>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <div class="alert alert-info">No existing questions available for this course.</div>
+}

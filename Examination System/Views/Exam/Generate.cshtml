@@ -1,0 +1,431 @@
+﻿@model Examination_System.Model.View_Models.ExamView_Models.generateExamViewModel
+@{
+    ViewData["Title"] = "Generate New Exam";
+}
+
+<div class="container mt-4">
+    <h2>@ViewData["Title"]</h2>
+    <hr />
+
+    <form asp-action="Generate" method="post" id="examForm">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="ExamName" class="control-label"></label>
+                    <input asp-for="ExamName" class="form-control" />
+                    <span asp-validation-for="ExamName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="StartTime" class="control-label"></label>
+                    <input asp-for="StartTime" class="form-control datetimepicker" />
+                    <span asp-validation-for="StartTime" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="DurationMinutes" class="control-label"></label>
+                    <input asp-for="DurationMinutes" class="form-control" />
+                    <span asp-validation-for="DurationMinutes" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="BranchId" class="control-label"></label>
+                    <select asp-for="BranchId" asp-items="Model.Branches" class="form-control" id="branchSelect">
+                        <option value="">-- Select Branch --</option>
+                    </select>
+                    <span asp-validation-for="BranchId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="DepartmentId" class="control-label"></label>
+                    <select asp-for="DepartmentId" asp-items="Model.Departments" class="form-control" id="departmentSelect" disabled>
+                        <option value="">-- Select Department --</option>
+                    </select>
+                    <span asp-validation-for="DepartmentId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="CourseId" class="control-label"></label>
+                    <select asp-for="CourseId" asp-items="Model.Courses" class="form-control" id="courseSelect" disabled>
+                        <option value="">-- Select Course --</option>
+                    </select>
+                    <span asp-validation-for="CourseId" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Add New Questions</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="questionsContainer">
+                            @if (Model.NewQuestions != null && Model.NewQuestions.Any())
+                            {
+                                @for (int i = 0; i < Model.NewQuestions.Count; i++)
+                                {
+                                    <div class="question-card card mb-3">
+                                        <div class="card-header">
+                                            <button type="button" class="btn btn-danger btn-sm float-right remove-question">Remove</button>
+                                            <h5>Question @(i + 1)</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="form-group">
+                                                <label asp-for="NewQuestions[i].QuestionText" class="control-label"></label>
+                                                <textarea asp-for="NewQuestions[i].QuestionText" class="form-control" rows="3"></textarea>
+                                                <span asp-validation-for="NewQuestions[i].QuestionText" class="text-danger"></span>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label asp-for="NewQuestions[i].Mark" class="control-label"></label>
+                                                        <input asp-for="NewQuestions[i].Mark" class="form-control" />
+                                                        <span asp-validation-for="NewQuestions[i].Mark" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label asp-for="NewQuestions[i].QuestionType" class="control-label"></label>
+                                                        <select asp-for="NewQuestions[i].QuestionType" class="form-control question-type">
+                                                            <option value="MCQ">Multiple Choice</option>
+                                                            <option value="TrueFalse">True/False</option>
+                                                            <option value="Essay">Essay</option>
+                                                        </select>
+                                                        <span asp-validation-for="NewQuestions[i].QuestionType" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <h6>Answers</h6>
+                                            <div class="answers-container" data-question-index="@i">
+                                                @for (int j = 0; j < Model.NewQuestions[i].Answers.Count; j++)
+                                                {
+                                                    <div class="answer-item mb-2">
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" asp-for="NewQuestions[i].Answers[j].IsCorrect" class="is-correct-checkbox" />
+                                                                </div>
+                                                            </div>
+                                                            <input asp-for="NewQuestions[i].Answers[j].AnswerText" class="form-control" />
+                                                            <div class="input-group-append">
+                                                                <button type="button" class="btn btn-outline-danger remove-answer">×</button>
+                                                            </div>
+                                                        </div>
+                                                        <span asp-validation-for="NewQuestions[i].Answers[j].AnswerText" class="text-danger"></span>
+                                                    </div>
+                                                }
+                                            </div>
+                                            <button type="button" class="btn btn-secondary btn-sm add-answer" data-question-index="@i">Add Answer</button>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <div class="alert alert-info">No new questions added yet. Click "Add Question" to begin.</div>
+                            }
+                        </div>
+                        <button type="button" id="addQuestion" class="btn btn-primary mt-3">Add New Question</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Select Existing Questions</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Search Questions</label>
+                            <input type="text" id="questionSearch" class="form-control" placeholder="Search by question text...">
+                        </div>
+                        <div id="existingQuestionsContainer" style="max-height: 500px; overflow-y: auto;">
+                            @if (Model.ExistingQuestions != null && Model.ExistingQuestions.Any())
+                            {
+                                foreach (var question in Model.ExistingQuestions)
+                                {
+                                    <div class="question-item card mb-2">
+                                        <div class="card-body">
+                                            <div class="form-check">
+                                                <input type="checkbox" name="SelectedQuestionIds" value="@question.QID" class="form-check-input"
+                                                       id="question_@question.QID" @(Model.SelectedQuestionIds.Contains(question.QID) ? "checked" : "") />
+                                                <label class="form-check-label" for="question_@question.QID">
+                                                    @question.title
+                                                </label>
+                                                <span class="badge badge-info float-right">@question.mark Marks</span>
+                                                <p class="small text-muted mb-1">Type: @question.type</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <div class="alert alert-info">No existing questions available for this course.</div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group mt-4">
+            <input type="submit" value="Generate Exam" class="btn btn-success" />
+            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        $(document).ready(function() {
+            // Initialize with at least one question if empty
+            if ($('#questionsContainer .question-card').length === 0) {
+                $('#addQuestion').click();
+            }
+
+            // Branch selection changed
+            $('#branchSelect').change(function() {
+                var branchId = $(this).val();
+                $('#departmentSelect').empty().append('<option value="">-- Select Department --</option>');
+                $('#courseSelect').empty().append('<option value="">-- Select Course --</option>');
+
+                if (branchId) {
+                    $('#departmentSelect').prop('disabled', false);
+                    $.getJSON('/Exam/GetDepartments', { branchId: branchId }, function(data) {
+                        $.each(data, function(index, item) {
+                            $('#departmentSelect').append($('<option>', {
+                                value: item.value,
+                                text: item.text
+                            }));
+                        });
+                    });
+                } else {
+                    $('#departmentSelect').prop('disabled', true);
+                    $('#courseSelect').prop('disabled', true);
+                }
+            });
+
+            // Department selection changed
+            $('#departmentSelect').change(function() {
+                var branchId = $('#branchSelect').val();
+                var deptId = $(this).val();
+                $('#courseSelect').empty().append('<option value="">-- Select Course --</option>');
+
+                if (deptId) {
+                    $('#courseSelect').prop('disabled', false);
+                    $.getJSON('/Exam/GetCourses', {
+                        branchId: branchId,
+                        deptId: deptId
+                    }, function(data) {
+                        $.each(data, function(index, item) {
+                            $('#courseSelect').append($('<option>', {
+                                value: item.value,
+                                text: item.text
+                            }));
+                        });
+                    });
+
+                    // Load existing questions for this course
+                    loadExistingQuestions(deptId, branchId);
+                } else {
+                    $('#courseSelect').prop('disabled', true);
+                }
+            });
+
+            // Course selection changed
+            $('#courseSelect').change(function() {
+                var courseId = $(this).val();
+                var deptId = $('#departmentSelect').val();
+                var branchId = $('#branchSelect').val();
+
+                if (courseId) {
+                    loadExistingQuestions(deptId, branchId, courseId);
+                }
+            });
+
+            // Search existing questions
+            $('#questionSearch').on('input', function() {
+                var searchText = $(this).val().toLowerCase();
+                $('#existingQuestionsContainer .question-item').each(function() {
+                    var questionText = $(this).text().toLowerCase();
+                    $(this).toggle(questionText.includes(searchText));
+                });
+            });
+
+            // Load existing questions
+            function loadExistingQuestions(deptId, branchId, courseId = null) {
+                $.get('/Exam/GetExistingQuestions', {
+                    departmentId: deptId,
+                    branchId: branchId,
+                    courseId: courseId
+                }, function(data) {
+                    $('#existingQuestionsContainer').html(data);
+                });
+            }
+
+            // Add new question
+            $('#addQuestion').click(function() {
+                const index = $('#questionsContainer .question-card').length;
+                const questionHtml = `
+                    <div class="question-card card mb-3">
+                        <div class="card-header">
+                            <button type="button" class="btn btn-danger btn-sm float-right remove-question">Remove</button>
+                            <h5>Question ${index + 1}</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label class="control-label">Question Text</label>
+                                <textarea name="NewQuestions[${index}].QuestionText" class="form-control" rows="3"></textarea>
+                                <span class="text-danger field-validation-valid" data-valmsg-for="NewQuestions[${index}].QuestionText" data-valmsg-replace="true"></span>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Mark</label>
+                                        <input name="NewQuestions[${index}].Mark" class="form-control" value="1" />
+                                        <span class="text-danger field-validation-valid" data-valmsg-for="NewQuestions[${index}].Mark" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Question Type</label>
+                                        <select name="NewQuestions[${index}].QuestionType" class="form-control question-type">
+                                            <option value="MCQ">Multiple Choice</option>
+                                            <option value="TrueFalse">True/False</option>
+                                            <option value="Essay">Essay</option>
+                                        </select>
+                                        <span class="text-danger field-validation-valid" data-valmsg-for="NewQuestions[${index}].QuestionType" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h6>Answers</h6>
+                            <div class="answers-container" data-question-index="${index}">
+                                <div class="answer-item mb-2">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <input type="checkbox" name="NewQuestions[${index}].Answers[0].IsCorrect" class="is-correct-checkbox" />
+                                            </div>
+                                        </div>
+                                        <input name="NewQuestions[${index}].Answers[0].AnswerText" class="form-control" />
+                                        <div class="input-group-append">
+                                            <button type="button" class="btn btn-outline-danger remove-answer">×</button>
+                                        </div>
+                                    </div>
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="NewQuestions[${index}].Answers[0].AnswerText" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-secondary btn-sm add-answer" data-question-index="${index}">Add Answer</button>
+                        </div>
+                    </div>
+                `;
+                $('#questionsContainer').append(questionHtml);
+                updateQuestionNumbers();
+            });
+
+            // Remove question
+            $(document).on('click', '.remove-question', function() {
+                $(this).closest('.question-card').remove();
+                updateQuestionNumbers();
+            });
+
+            // Add answer to question
+            $(document).on('click', '.add-answer', function() {
+                const questionIndex = $(this).data('question-index');
+                const answerCount = $(this).siblings('.answers-container').find('.answer-item').length;
+
+                const answerHtml = `
+                    <div class="answer-item mb-2">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input type="checkbox" name="NewQuestions[${questionIndex}].Answers[${answerCount}].IsCorrect" class="is-correct-checkbox" />
+                                </div>
+                            </div>
+                            <input name="NewQuestions[${questionIndex}].Answers[${answerCount}].AnswerText" class="form-control" />
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-outline-danger remove-answer">×</button>
+                            </div>
+                        </div>
+                        <span class="text-danger field-validation-valid" data-valmsg-for="NewQuestions[${questionIndex}].Answers[${answerCount}].AnswerText" data-valmsg-replace="true"></span>
+                    </div>
+                `;
+
+                $(this).siblings('.answers-container').append(answerHtml);
+            });
+
+            // Remove answer
+            $(document).on('click', '.remove-answer', function() {
+                $(this).closest('.answer-item').remove();
+            });
+
+            // Handle question type change
+            $(document).on('change', '.question-type', function() {
+                const questionIndex = $(this).closest('.question-card').index();
+                const answersContainer = $(this).closest('.card-body').find('.answers-container');
+
+                if ($(this).val() === 'Essay') {
+                    answersContainer.html(`
+                        <div class="answer-item mb-2">
+                            <textarea name="NewQuestions[${questionIndex}].Answers[0].AnswerText" class="form-control" rows="3" placeholder="Sample answer (for grading reference)"></textarea>
+                            <input type="hidden" name="NewQuestions[${questionIndex}].Answers[0].IsCorrect" value="true" />
+                        </div>
+                    `);
+                } else {
+                    if (answersContainer.find('.answer-item').length === 0) {
+                        answersContainer.html(`
+                            <div class="answer-item mb-2">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <input type="checkbox" name="NewQuestions[${questionIndex}].Answers[0].IsCorrect" class="is-correct-checkbox" />
+                                        </div>
+                                    </div>
+                                    <input name="NewQuestions[${questionIndex}].Answers[0].AnswerText" class="form-control" />
+                                    <div class="input-group-append">
+                                        <button type="button" class="btn btn-outline-danger remove-answer">×</button>
+                                    </div>
+                                </div>
+                            </div>
+                        `);
+                    }
+                }
+            });
+
+            // Update question numbers
+            function updateQuestionNumbers() {
+                $('.question-card').each(function(index) {
+                    $(this).find('.card-header h5').text(`Question ${index + 1}`);
+                });
+            }
+
+            // Initialize datetime picker
+            $('.datetimepicker').datetimepicker({
+                format: 'YYYY-MM-DD HH:mm',
+                sideBySide: true
+            });
+        });
+    </script>
+}

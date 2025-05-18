@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Examination_System.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 
 namespace Examination_System.Model.View_Models.ExamView_Models
@@ -13,18 +14,34 @@ namespace Examination_System.Model.View_Models.ExamView_Models
         public int CourseId { get; set; }
 
         [Required]
+        [Display(Name = "Branch")]
+        public int BranchId { get; set; }
+
+        [Required]
+        [Display(Name = "Department")]
+        public int DepartmentId { get; set; }
+
+
+        [Required]
         public DateTime StartTime { get; set; } = DateTime.Now;
 
         [Required]
         [Range(1, 600)]
         public int DurationMinutes { get; set; } = 120;
 
-        public List<QuestionModel> Questions { get; set; } = new List<QuestionModel>();
+        public List<QuestionExamViewModel> NewQuestions { get; set; } = new List<QuestionExamViewModel>();
 
         // Dropdown lists
         public SelectList Courses { get; set; }
+        public SelectList Branches { get; set; }
+        public SelectList Departments { get; set; }
+
+        public List<Question_Bank> ExistingQuestions { get; set; } = new List<Question_Bank>();
+        public List<int> SelectedQuestionIds { get; set; } = new List<int>();
     }
-    public class QuestionModel
+
+
+    public class QuestionExamViewModel
     {
         public int QuestionOrder { get; set; }
         public string QuestionText { get; set; }
@@ -40,4 +57,5 @@ namespace Examination_System.Model.View_Models.ExamView_Models
         public bool IsCorrect { get; set; }
         public int? AnswerOrder { get; set; }
     }
+
 }
