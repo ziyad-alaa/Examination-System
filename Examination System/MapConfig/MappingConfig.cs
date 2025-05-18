@@ -15,7 +15,7 @@ namespace Examination_System.MapConfig
                 dest.name = src.name;
                 
             })
-            
+
             .ForMember(dest => dest.course_depts, opt => opt.Ignore())
             .ReverseMap();  
 
@@ -24,7 +24,6 @@ namespace Examination_System.MapConfig
                
                 dest.dept_id= src.dept_id;
                 dest.name= src.name;
-               
               
             })
             .ReverseMap();

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Branch>
+@{
+    ViewData["Title"] = "Manage Branch Managers";
+    Layout = "_AdminLayout";
+}
+
+<div class="container mt-4">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 d-flex justify-content-between align-items-center">
+            <h6 class="m-0 font-weight-bold text-primary">@ViewData["Title"]</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover" width="100%" cellspacing="0">
+                    <thead class="bg-primary text-white">
+                        <tr>
+                            <th>Branch</th>
+                            <th>Current Manager</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var branch in Model)
+                        {
+                            <tr>
+                                <td>@branch.name</td>
+                                <td>@(branch.Manager?.ins?.name ?? "No Manager")</td>
+                                <td>
+                                    <form asp-controller="Permission" asp-action="AssignBranchManager" method="post" class="d-flex">
+                                        <input type="hidden" name="BranchId" value="@branch.branch_id" />
+                                        <select name="InstructorId" class="form-select me-2" required>
+                                            <option value="">Select Instructor</option>
+                                            @foreach (var instructor in ViewBag.Instructors)
+                                            {
+                                                <option value="@instructor.insid">@instructor.ins?.name</option>
+                                            }
+                                        </select>
+                                        <button type="submit" class="btn btn-success btn-sm">
+                                            <i class="fas fa-user-check me-1"></i> Assign
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

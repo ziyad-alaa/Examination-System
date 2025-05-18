@@ -7,7 +7,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
 namespace Examination_System.Models;
-
 public partial class User
 {
     [Key]
@@ -55,6 +54,16 @@ public partial class User
     [ForeignKey("UserID")]
     [InverseProperty("Users")]
     public virtual ICollection<Role> Roles { get; set; } = new List<Role>();
+    public void SetPassword(string plainPassword)
+    {
+        password = BCrypt.Net.BCrypt.HashPassword(plainPassword);
+    }
+
+    public bool VerifyPassword(string plainPassword)
+    {
+        return BCrypt.Net.BCrypt.Verify(plainPassword, password);
+    }
+
 
     public Boolean isActive { get; set; }
 

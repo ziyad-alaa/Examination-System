@@ -56,10 +56,6 @@ public partial class Exam_sysContext : DbContext
     public virtual DbSet<Branch_Dept> branch_depts { get; set; }
 
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=DESKTOP-T19DKMC\\MSSQLSERVER03;Initial Catalog=Examination_System;Integrated Security=True ;Trust Server Certificate=True");
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Branch>(entity =>
@@ -67,7 +63,7 @@ public partial class Exam_sysContext : DbContext
             entity.HasKey(e => e.branch_id).HasName("PK__Branches__E55E37DE0C6F72E1");
             entity.Property(e => e.branch_id).UseIdentityColumn();
 
-           
+
         });
 
         modelBuilder.Entity<Comment>(entity =>
@@ -97,7 +93,7 @@ public partial class Exam_sysContext : DbContext
         modelBuilder.Entity<Instructor>(entity =>
         {
             entity.HasKey(e => e.insid).HasName("PK__Instruct__116B52F3D65ACC47");
-            
+
 
             entity.HasOne(d => d.ins).WithOne(p => p.Instructor)
                 .OnDelete(DeleteBehavior.ClientSetNull)
@@ -161,7 +157,7 @@ public partial class Exam_sysContext : DbContext
         modelBuilder.Entity<Student>(entity =>
         {
             entity.HasKey(e => e.stdid).HasName("PK__Student__BA09E293A3A9E8B5");
-            
+
 
             entity.HasOne(d => d.std).WithOne(p => p.Student)
                 .OnDelete(DeleteBehavior.ClientSetNull)
@@ -295,11 +291,13 @@ public partial class Exam_sysContext : DbContext
             entity.HasKey(e => new { e.branch_id, e.dept_id })
                 .HasName("PK_Branch_Dept");
 
+
             entity.HasOne(d => d.Branch)
                 .WithMany(p => p.Branch_Depts)
                 .HasForeignKey(d => d.branch_id)
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("FK_Branch_Dept_Branch");
+
 
             entity.HasOne(d => d.Department)
                 .WithMany(p => p.Branch_Depts)

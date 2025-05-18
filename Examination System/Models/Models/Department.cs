@@ -22,7 +22,7 @@ public partial class Department
     [Unicode(false)]
     public string name { get; set; }
 
-    
+
     [InverseProperty("dept")]
     public virtual ICollection<User> Users { get; set; } = new List<User>();
 
@@ -31,7 +31,9 @@ public partial class Department
 
 
     [InverseProperty("Department")]
-    public virtual ICollection<Branch_Dept> Branch_Depts { get; set; }
+    public virtual ICollection<Branch_Dept> Branch_Depts { get; set; } = new List<Branch_Dept>();
+
+
     public Boolean isActive { get; set; }
 
 }

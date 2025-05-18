@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Examination_System.Model.Models.Branch_Dept>
+@{
+    ViewData["Title"] = "Manage Department Managers";
+    Layout = "_AdminLayout";
+}
+
+<div class="container mt-4">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 d-flex justify-content-between align-items-center">
+            <h6 class="m-0 font-weight-bold text-primary">@ViewData["Title"]</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover" width="100%" cellspacing="0">
+                    <thead class="bg-primary text-white">
+                        <tr>
+                            <th>Branch</th>
+                            <th>Department</th>
+                            <th>Current Manager</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var bd in Model)
+                        {
+                            <tr>
+                                <td>@bd.Branch?.name</td>
+                                <td>@bd.Department?.name</td>
+                                <td>@(bd.Manager?.ins?.name ?? "No Manager")</td>
+                                <td>
+                                    <form asp-controller="Permission" asp-action="AssignDepartmentManager" method="post" class="d-flex">
+                                        <input type="hidden" name="BranchId" value="@bd.branch_id" />
+                                        <input type="hidden" name="DepartmentId" value="@bd.dept_id" />
+                                        <select name="InstructorId" class="form-select me-2" required>
+                                            <option value="">Select Instructor</option>
+                                            @foreach (var instructor in ViewBag.Instructors)
+                                            {
+                                                <option value="@instructor.insid">@instructor.ins?.name</option>
+                                            }
+                                        </select>
+                                        <button type="submit" class="btn btn-success btn-sm">
+                                            <i class="fas fa-user-check me-1"></i> Assign
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

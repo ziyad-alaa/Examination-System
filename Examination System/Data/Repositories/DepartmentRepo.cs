@@ -1,26 +1,32 @@
-﻿using Examination_System.Models;
+﻿using Examination_System.Data.Interfaces;
 
 namespace Examination_System.Data.Repositories
 {
-    public class DepartmentRepo : IService<Department>
+    public class DepartmentRepo  //IService<Department>
     {
         public Exam_sysContext _dbContext;
 
         public DepartmentRepo(Exam_sysContext _dbContext)
         {
-           this._dbContext = _dbContext;
+            this._dbContext = _dbContext;
         }
-        public Department Create(Department entity)
+
+        public void Create(Department entity)
         {
             throw new NotImplementedException();
         }
 
-        public Task<bool> Delete(int id)
+        public void Delete(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Department GetAll()
+        public List<Department> GetAll()
+        {
+            return _dbContext.Departments.Where(d=>d.isActive==true).ToList();
+        }
+
+        public List<Department> GetAllNotActive()
         {
             throw new NotImplementedException();
         }
@@ -30,27 +36,12 @@ namespace Examination_System.Data.Repositories
             throw new NotImplementedException();
         }
 
-        public Department Update(int id, Department entity)
+        public Department GetNotactiveById(int id)
         {
             throw new NotImplementedException();
         }
 
-        Task<Department> IService<Department>.Create(Department entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<IEnumerable<Department>> IService<Department>.GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<Department> IService<Department>.GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<Department> IService<Department>.Update(int id, Department entity)
+        public void Update(int id, Department entity)
         {
             throw new NotImplementedException();
         }

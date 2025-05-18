@@ -1,12 +1,31 @@
-﻿using Examination_System.Models;
+﻿using Examination_System.Data.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Examination_System.Data.Repositories
 {
-    public class StudentRepo : IService<Student>
+    public class StudentRepo// : IService<Student>
     {
-        public Student Create(Student entity)
+        Exam_sysContext _iti;
+        public StudentRepo(Exam_sysContext _iti)
         {
-            throw new NotImplementedException();
+            this._iti = _iti;
+        }
+        public void Create(Student entity)
+        {
+            _iti.Students.Add(entity);
+
+        }
+
+        public void Delete(int id)
+        {
+            Student student = GetById(id);
+            student.std.isActive= false;
+        }
+
+        public List<Student> GetAll()
+        {
+            List<Student> Students = _iti.Students.Where(s=>s.std.isActive==true).Include(s => s.std).Include(b => b.std.branch).Include(d => d.std.dept).ToList();
+            return Students;
         }
 
         public Task<bool> Delete(int id)
@@ -14,19 +33,32 @@ namespace Examination_System.Data.Repositories
             throw new NotImplementedException();
         }
 
-        public Student GetAll()
+        public List<Student> GetAllNotActive()
         {
-            throw new NotImplementedException();
+            List<Student> StudentNotactive= _iti.Students.Where(s => s.std.isActive == false).Include(s => s.std).Include(b => b.std.branch).Include(d => d.std.dept).ToList();
+            return StudentNotactive;
         }
 
-        public Student GetById(int id)
+        Task<Student> IService<Student>.GetById(int id)
         {
-            throw new NotImplementedException();
+            Student student = _iti.Students.Where(s => s.std.isActive == true).Include(s => s.std).Include(b => b.std.branch).Include(d => d.std.dept).FirstOrDefault(s => s.stdid == id);
+            return student;
         }
 
-        public Student Update(int id, Student entity)
+        public Student GetNotactiveById(int id)
         {
-            throw new NotImplementedException();
+            Student student = _iti.Students.Where(s => s.std.isActive == false).Include(s => s.std).Include(b => b.std.branch).Include(d => d.std.dept).FirstOrDefault(s => s.stdid == id);
+            return student;
+        }
+
+        public void Update(int id, Student entity)
+        {
+            Student std = GetById(id);
+            if (std != null)
+            {
+                _iti.Students.Update(std);
+            }
+
         }
 
         Task<Student> IService<Student>.Create(Student entity)

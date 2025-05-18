@@ -1,0 +1,160 @@
+﻿@model Examination_System.DTOS.LoginDto
+@{
+    ViewData["Title"] = "Login";
+    Layout = "_AuthLayout";
+}
+
+<div class="text-center mb-5">
+    <h1 class="auth-title">Welcome Back</h1>
+    <p class="auth-subtitle">Sign in to continue to your dashboard</p>
+</div>
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <div class="d-flex align-items-center">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i>
+            <div>
+                <strong>Login Failed!</strong> Please check your credentials
+            </div>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<form asp-action="Login" method="post" class="needs-validation" novalidate>
+    <div class="mb-4">
+        <label asp-for="Email" class="form-label">Email address</label>
+        <div class="input-group">
+            <span class="input-group-text">
+                <i class="bi bi-envelope"></i>
+            </span>
+            <input asp-for="Email" type="email" class="form-control"
+                   placeholder="your@email.com" required autofocus autocomplete="username">
+        </div>
+        <span asp-validation-for="Email" class="text-danger small d-block mt-1"></span>
+    </div>
+
+    <div class="mb-4">
+        <label asp-for="Password" class="form-label">Password</label>
+        <div class="input-group">
+            <span class="input-group-text">
+                <i class="bi bi-lock"></i>
+            </span>
+            <input asp-for="Password" type="password" class="form-control"
+                   id="passwordField" placeholder="••••••••" required autocomplete="current-password">
+            <button class="btn btn-outline-secondary" type="button" id="togglePassword" title="Toggle password visibility">
+                <i class="bi bi-eye"></i>
+            </button>
+        </div>
+        <div class="password-strength" id="passwordStrength"></div>
+        <span asp-validation-for="Password" class="text-danger small d-block mt-1"></span>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="rememberMe" asp-for="RememberMe">
+            <label class="form-check-label" for="rememberMe">Remember me</label>
+        </div>
+        <a asp-action="ForgotPassword" class="text-decoration-none text-primary">Forgot password?</a>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100 py-3 mb-3" id="loginButton">
+        <span class="submit-text">Access Dashboard</span>
+        <div class="spinner-border spinner-border-sm d-none" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </button>
+
+    <div class="text-center">
+        <p class="text-muted mb-0">
+            Don't have an account?
+            <a asp-action="Register" class="text-primary fw-semibold text-decoration-underline">Create one</a>
+        </p>
+    </div>
+</form>
+
+@section Scripts {
+    <script>
+        // Enhanced Password Toggle
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            const passwordField = document.getElementById('passwordField');
+            const icon = this.querySelector('i');
+            const type = passwordField.type === 'password' ? 'text' : 'password';
+
+            passwordField.type = type;
+            icon.classList.toggle('bi-eye');
+            icon.classList.toggle('bi-eye-slash');
+            passwordField.focus();
+        });
+
+        // Password Strength Indicator
+        document.getElementById('passwordField').addEventListener('input', function() {
+            const strength = calculateStrength(this.value);
+            const strengthBar = document.getElementById('passwordStrength');
+            strengthBar.style.width = strength + '%';
+            strengthBar.style.backgroundColor =
+                strength < 50 ? '#dc3545' : strength < 75 ? '#ffc107' : '#28a745';
+        });
+
+        function calculateStrength(password) {
+            let strength = 0;
+            if (password.length >= 8) strength += 1;
+            if (password.match(/[A-Z]/)) strength += 1;
+            if (password.match(/[0-9]/)) strength += 1;
+            if (password.match(/[^A-Za-z0-9]/)) strength += 1;
+            return strength * 25;
+        }
+
+        // Form Submission Handler
+        document.querySelector('form').addEventListener('submit', function(e) {
+            const btn = this.querySelector('#loginButton');
+            btn.disabled = true;
+            btn.querySelector('.submit-text').classList.add('d-none');
+            btn.querySelector('.spinner-border').classList.remove('d-none');
+        });
+
+        // Auto-focus first invalid field
+        (() => {
+            'use strict';
+            const invalidInputs = document.querySelectorAll('.is-invalid');
+            if (invalidInputs.length > 0) {
+                invalidInputs[0].focus();
+            }
+        })();
+
+        // Animate stats counting
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-count'));
+                const suffix = stat.textContent.includes('%') ? '%' : '';
+                const duration = 2000;
+                const start = 0;
+                const increment = target / (duration / 16);
+
+                let current = start;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        clearInterval(timer);
+                        current = target;
+                    }
+                    stat.textContent = Math.floor(current) + suffix;
+                }, 16);
+            });
+        }
+
+        // Initialize when hero section is in view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        observer.observe(document.querySelector('.auth-hero'));
+    </script>
+}
